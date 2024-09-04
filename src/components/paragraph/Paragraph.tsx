@@ -1,10 +1,10 @@
 import React from 'react';
 import './Paragraph.css';
 
-export default function Paragraph({ text, size = null }) {
+export default function Paragraph({ children, size = null }) {
   return (
     <p className={`paragraph ${size ? 'paragraph--big' : ''}`}>
-      {text}
+      {children}
     </p>
   )
 }
