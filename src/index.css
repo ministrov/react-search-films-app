@@ -18,3 +18,19 @@ h1 {
   margin: 0 auto;
 }
 
+.top {
+  margin-bottom: 80px;
+}
+
+.left-box {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 588px;
+}
+
+.left-box-bottom {
+  display: flex;
+  gap: 1rem;
+}
+
