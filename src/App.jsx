@@ -2,6 +2,8 @@ import Button from "./components/button/Button";
 import Header from "./components/header/Header";
 import Heading from "./components/heading/Heading";
 import Logo from "./components/logo/Logo";
+import NavMenu from "./components/navMenu/NavMenu";
+import NavMenuItem from "./components/navMenuItem/NavMenuItem";
 import Paragraph from "./components/paragraph/Paragraph";
 
 function App() {
@@ -9,7 +11,19 @@ function App() {
     <>
       <Header>
         <Logo />
-        
+        <NavMenu>
+          <NavMenuItem href={'#'}>
+            Поиск фильмов
+          </NavMenuItem>
+          <NavMenuItem href={'#'}>
+            Мои фильмы
+            <span>2</span>
+          </NavMenuItem>
+          <NavMenuItem href={'#'}>
+            Войти
+            <img src="../src/assets/enter.svg" width={24} height={24} alt="Иконка входа" />
+          </NavMenuItem>
+        </NavMenu>
       </Header>
       <div className='container'>
         <Heading text={'Поиск'} />

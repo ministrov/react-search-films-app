@@ -1,0 +1,24 @@
+.nav-menu-link {
+  display: flex;
+  gap: 0.5rem;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 24px;
+  text-decoration: none;
+  color: #A8AEBF;
+}
+
+.nav-menu-link span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  background-color: #7B6EF6;
+  border-radius: 50%;
+  color: #ffffff;
+}
+
+.active {
+  color: #ffffff;
+}

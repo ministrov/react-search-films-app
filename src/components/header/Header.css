@@ -1,9 +1,7 @@
 .header {
   padding-top: 20px;
   padding-bottom: 20px;
-  /* background-color: rgba(18, 24, 41, 0.8); */
-  background-color: #fff;
-  /* backdrop-filter: blur(40px); */
+  /* background-color: #fff; */
 }
 
 .header .container {
