@@ -6,6 +6,8 @@ import NavMenu from "./components/navMenu/NavMenu";
 import NavMenuItem from "./components/navMenuItem/NavMenuItem";
 import Paragraph from "./components/paragraph/Paragraph";
 import SearchInput from "./components/searchInput/SearchInput";
+import { links } from './const/const.js';
+import icon from './assets/enter.svg';
 
 function App() {
   const onClickHandler = () => {
@@ -19,7 +21,19 @@ function App() {
           <Logo />
           <NavMenu>
             <ul>
-              <NavMenuItem href={'#'} isActive>
+              {links.map(link => (
+                <NavMenuItem
+                  key={link.id}
+                  label={link.label}
+                  isActive={link.isActive}
+                  icon={icon}
+                  hasCount={link.hasCount}
+                  hasIcon={link.hasIcon}
+                >
+                  {link.label}
+                </NavMenuItem>
+              ))}
+              {/* <NavMenuItem href={'#'} isActive>
                 Поиск фильмов
               </NavMenuItem>
               <NavMenuItem href={'#'} isActive={false}>
@@ -29,7 +43,7 @@ function App() {
               <NavMenuItem href={'#'} isActive={false}>
                 Войти
                 <img src="../src/assets/enter.svg" width={24} height={24} alt="Иконка входа" />
-              </NavMenuItem>
+              </NavMenuItem> */}
             </ul>
           </NavMenu>
         </Header>
