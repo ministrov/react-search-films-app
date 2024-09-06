@@ -33,17 +33,6 @@ function App() {
                   {link.label}
                 </NavMenuItem>
               ))}
-              {/* <NavMenuItem href={'#'} isActive>
-                Поиск фильмов
-              </NavMenuItem>
-              <NavMenuItem href={'#'} isActive={false}>
-                Мои фильмы
-                <span>2</span>
-              </NavMenuItem>
-              <NavMenuItem href={'#'} isActive={false}>
-                Войти
-                <img src="../src/assets/enter.svg" width={24} height={24} alt="Иконка входа" />
-              </NavMenuItem> */}
             </ul>
           </NavMenu>
         </Header>
