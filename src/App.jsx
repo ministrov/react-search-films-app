@@ -18,17 +18,19 @@ function App() {
         <Header>
           <Logo />
           <NavMenu>
-            <NavMenuItem href={'#'}>
-              Поиск фильмов
-            </NavMenuItem>
-            <NavMenuItem href={'#'}>
-              Мои фильмы
-              <span>2</span>
-            </NavMenuItem>
-            <NavMenuItem href={'#'}>
-              Войти
-              <img src="../src/assets/enter.svg" width={24} height={24} alt="Иконка входа" />
-            </NavMenuItem>
+            <ul>
+              <NavMenuItem href={'#'} isActive>
+                Поиск фильмов
+              </NavMenuItem>
+              <NavMenuItem href={'#'} isActive={false}>
+                Мои фильмы
+                <span>2</span>
+              </NavMenuItem>
+              <NavMenuItem href={'#'} isActive={false}>
+                Войти
+                <img src="../src/assets/enter.svg" width={24} height={24} alt="Иконка входа" />
+              </NavMenuItem>
+            </ul>
           </NavMenu>
         </Header>
       </div>

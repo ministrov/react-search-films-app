@@ -1,10 +1,12 @@
 import React from 'react';
 import './NavMenuItem.css';
 
-export default function NavMenuItem({ children, href }) {
+export default function NavMenuItem({ children, href, isActive }) {
   return (
-    <a className='nav-menu-link' href={href}>
-      {children}
-    </a>
+    <li className={`nav-menu-item ${isActive ? 'active' : ''}`}>
+      <a className='nav-menu-link' href={href}>
+        {children}
+      </a>
+    </li>
   )
 }
