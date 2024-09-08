@@ -51,9 +51,9 @@ function App({ films }) {
               onClick={onClickHandler}
             />
           </div>
-          <div className='films-wrapper'>
-              <FilmsList films={films} />
-          </div>
+        </div>
+        <div className='films-wrapper'>
+          <FilmsList films={films} />
         </div>
       </div>
     </>

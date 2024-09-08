@@ -1,3 +1,15 @@
 .films-list {
-  background-color: red;
+  display: flex;
+  column-gap: 24px;
+  row-gap: 16px;
+  flex-wrap: wrap;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.films-list-item {
+  padding: 8px;
+  background-color: #20283E;
+  border-radius: 12px;
 }
