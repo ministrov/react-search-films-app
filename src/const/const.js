@@ -55,15 +55,15 @@ export const films = [
   },
   {
     id: 4,
-    title: 'Money Heist',
-    isFavorite: true,
+    title: 'How I Met Your Mother',
+    isFavorite: false,
     poster: `${poster4}`,
     rating: 8125
   },
   {
     id: 5,
-    title: 'Friends',
-    isFavorite: false,
+    title: 'Money Heist',
+    isFavorite: true,
     poster: `${poster5}`,
     rating: 123
   },

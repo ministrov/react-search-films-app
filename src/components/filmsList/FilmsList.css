@@ -10,13 +10,31 @@
 
 .films-list-item {
   position: relative;
-  padding: 8px;
+  padding: 8px 8px 24px 8px;
   background-color: #20283E;
   border-radius: 12px;
 }
+
+.films-list-item p {
+  margin: 0;
+  /* margin-bottom: 16px; */
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 24px;
+  color: #ffffff;
+}
+
+/* .films-list-item img {
+  display: inline-block;
+  margin-bottom: 24px;
+} */
 
 .films-rating-box {
   position: absolute;
   top: 14px;
   left: 14px;
+}
+
+.films-bottom {
+  padding-left: 8px;
 }
