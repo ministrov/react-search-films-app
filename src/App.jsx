@@ -6,10 +6,11 @@ import NavMenu from "./components/navMenu/NavMenu";
 import NavMenuItem from "./components/navMenuItem/NavMenuItem";
 import Paragraph from "./components/paragraph/Paragraph";
 import SearchInput from "./components/searchInput/SearchInput";
+import FilmsList from "./components/filmsList/FilmsList";
 import { links } from './const/const.js';
 import icon from './assets/enter.svg';
 
-function App() {
+function App({ films }) {
   const onClickHandler = () => {
     console.log('button is clicked');
   };
@@ -49,6 +50,9 @@ function App() {
               content={'Искать'}
               onClick={onClickHandler}
             />
+          </div>
+          <div className='films-wrapper'>
+              <FilmsList films={films} />
           </div>
         </div>
       </div>

@@ -36,56 +36,56 @@ export const films = [
     id: 1,
     title: 'Black Widow',
     isFavorite: false,
-    poster: `<img src={${poster1}} alt="Poster number one" />`,
+    poster: `${poster1}`,
     rating: 324
   },
   {
     id: 2,
     title: 'Shang Chi',
     isFavorite: false,
-    poster: `<img src={${poster2}} alt="Poster number two" />`,
+    poster: `${poster2}`,
     rating: 124
   },
   {
     id: 3,
     title: 'Loki',
     isFavorite: false,
-    poster: `<img src={${poster3}} alt="Poster number three" />`,
+    poster: `${poster3}`,
     rating: 235
   },
   {
     id: 4,
     title: 'Money Heist',
     isFavorite: true,
-    poster: `<img src={${poster4}} alt="Poster number foure" />`,
+    poster: `${poster4}`,
     rating: 8125
   },
   {
     id: 5,
     title: 'Friends',
     isFavorite: false,
-    poster: `<img src={${poster5}} alt="Poster number five" />`,
+    poster: `${poster5}`,
     rating: 123
   },
   {
     id: 6,
     title: 'Friends',
     isFavorite: false,
-    poster: `<img src={${poster6}} alt="Poster number six" />`,
+    poster: `${poster6}`,
     rating: 123
   },
   {
     id: 7,
     title: 'The Big Bang Theory',
     isFavorite: false,
-    poster: `<img src={${poster7}} alt="Poster number seven" />`,
+    poster: `${poster7}`,
     rating: 12
   },
   {
     id: 8,
     title: 'Two And a Half Men',
     isFavorite: false,
-    poster: `<img src={${poster8}} alt="Poster number eight" />`,
+    poster: `${poster8}`,
     rating: 456
   },
 ];
