@@ -65,7 +65,7 @@ export const films = [
     title: 'Money Heist',
     isFavorite: true,
     poster: `${poster5}`,
-    rating: 123
+    rating: 8123
   },
   {
     id: 6,
