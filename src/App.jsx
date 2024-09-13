@@ -1,35 +1,63 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import Button from "./components/button/Button.jsx";
+import Header from "./components/header/Header";
+import Heading from "./components/heading/Heading";
+import Logo from "./components/logo/Logo";
+import NavMenu from "./components/navMenu/NavMenu";
+import NavMenuItem from "./components/navMenuItem/NavMenuItem.jsx";
+import Paragraph from "./components/paragraph/Paragraph";
+import SearchInput from "./components/searchInput/SearchInput";
+import FilmsList from "./components/filmsList/FilmsList";
+import { links } from './const/const.js';
+import icon from './assets/enter.svg';
 
-function App() {
-  const [count, setCount] = useState(0)
+function App({ films }) {
+  const onClickHandler = () => {
+    console.log('button is clicked');
+  };
 
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+      <div className="top">
+        <Header>
+          <Logo />
+          <NavMenu>
+            <ul>
+              {links.map(link => (
+                <NavMenuItem
+                  key={link.id}
+                  label={link.label}
+                  isActive={link.isActive}
+                  icon={icon}
+                  hasCount={link.hasCount}
+                  hasIcon={link.hasIcon}
+                >
+                  {link.label}
+                </NavMenuItem>
+              ))}
+            </ul>
+          </NavMenu>
+        </Header>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
+      <div className='container'>
+        <div className='left-box'>
+          <Heading text={'Поиск'} />
+          <Paragraph>
+            Введите название фильма, сериала или мультфильма для поиска и добавления в избранное.
+          </Paragraph>
+          <div className='left-box-bottom'>
+            <SearchInput/>
+            <Button
+              content={'Искать'}
+              onClick={onClickHandler}
+            />
+          </div>
+        </div>
+        <div className='films-wrapper'>
+          <FilmsList films={films} />
+        </div>
       </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
     </>
-  )
+  );
 }
 
 export default App
