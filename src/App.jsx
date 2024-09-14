@@ -1,14 +1,10 @@
 import Button from "./components/button/Button.jsx";
 import Header from "./components/header/Header";
 import Heading from "./components/heading/Heading";
-import Logo from "./components/logo/Logo";
-import NavMenu from "./components/navMenu/NavMenu";
-import NavMenuItem from "./components/navMenuItem/NavMenuItem.jsx";
 import Paragraph from "./components/paragraph/Paragraph";
 import SearchInput from "./components/searchInput/SearchInput";
 import FilmsList from "./components/filmsList/FilmsList";
 import { links } from './const/const.js';
-import icon from './assets/enter.svg';
 
 function App({ films }) {
   const onClickHandler = () => {
@@ -16,27 +12,9 @@ function App({ films }) {
   };
 
   return (
-    <>
-      <div className="top">
-        <Header>
-          <Logo />
-          <NavMenu>
-            <ul>
-              {links.map(link => (
-                <NavMenuItem
-                  key={link.id}
-                  label={link.label}
-                  isActive={link.isActive}
-                  icon={icon}
-                  hasCount={link.hasCount}
-                  hasIcon={link.hasIcon}
-                >
-                  {link.label}
-                </NavMenuItem>
-              ))}
-            </ul>
-          </NavMenu>
-        </Header>
+    <main>
+      <div className="top container">
+        <Header links={links} />
       </div>
       <div className='container'>
         <div className='left-box'>
@@ -45,7 +23,7 @@ function App({ films }) {
             Введите название фильма, сериала или мультфильма для поиска и добавления в избранное.
           </Paragraph>
           <div className='left-box-bottom'>
-            <SearchInput/>
+            <SearchInput />
             <Button
               content={'Искать'}
               onClick={onClickHandler}
@@ -56,7 +34,7 @@ function App({ films }) {
           <FilmsList films={films} />
         </div>
       </div>
-    </>
+    </main>
   );
 }
 
