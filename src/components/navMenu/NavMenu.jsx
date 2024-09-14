@@ -1,9 +1,9 @@
 import React from 'react';
-import './NavMenu.css';
+import styles from './NavMenu.module.css';
 
 export default function NavMenu({ children }) {
   return (
-    <nav className='nav-menu'>
+    <nav className={styles['nav-menu']}>
       {children}
     </nav>
   )
