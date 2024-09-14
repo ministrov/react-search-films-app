@@ -22,7 +22,7 @@
 
 .search-input input::placeholder {
   font-size: 14px;
-  line-height: 16px;
+  line-height: 1.2;
   color: #475069;
 }
 
