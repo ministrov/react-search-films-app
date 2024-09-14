@@ -4,7 +4,9 @@ import Heading from "./components/heading/Heading";
 import Paragraph from "./components/paragraph/Paragraph";
 import SearchInput from "./components/searchInput/SearchInput";
 import FilmsList from "./components/filmsList/FilmsList";
-import { links } from './const/const.js';
+import { links, loggedLinks } from './const/const.js';
+
+const isLogged = true;
 
 function App({ films }) {
   const onClickHandler = () => {
@@ -14,7 +16,11 @@ function App({ films }) {
   return (
     <main>
       <div className="top container">
-        <Header links={links} />
+        <Header
+          links={links}
+          loggedLinks={loggedLinks}
+          isLogged={isLogged}
+        />
       </div>
       <div className='container'>
         <div className='left-box'>

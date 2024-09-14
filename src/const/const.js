@@ -7,6 +7,8 @@ import poster6 from '../assets/images/poster-6.png';
 import poster7 from '../assets/images/poster-7.png';
 import poster8 from '../assets/images/poster-8.png';
 
+const name = 'Антон';
+
 export const links = [
   {
     id: 1,
@@ -28,6 +30,37 @@ export const links = [
     isActive: false,
     hasCount: false,
     hasIcon: true
+  },
+];
+
+export const loggedLinks = [
+  {
+    id: 1,
+    label: 'Поиск фильмов',
+    isActive: true,
+    hasCount: false,
+    hasIcon: false
+  },
+  {
+    id: 2,
+    label: 'Мои фильмы',
+    isActive: false,
+    hasCount: true,
+    hasIcon: false
+  },
+  {
+    id: 3,
+    label: `${name}`,
+    isActive: false,
+    hasCount: false,
+    hasIcon: true
+  },
+  {
+    id: 4,
+    label: 'Выйти',
+    isActive: false,
+    hasCount: false,
+    hasIcon: false
   },
 ];
 
