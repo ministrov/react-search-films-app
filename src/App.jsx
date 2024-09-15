@@ -5,6 +5,7 @@ import Paragraph from "./components/paragraph/Paragraph";
 import SearchInput from "./components/searchInput/SearchInput";
 import FilmsList from "./components/filmsList/FilmsList";
 import { links, loggedLinks } from './const/const.js';
+import EnterFrom from "./components/enterForm/EnterFrom.jsx";
 
 const isLogged = true;
 
@@ -39,6 +40,8 @@ function App({ films }) {
         <div className='films-wrapper'>
           <FilmsList films={films} />
         </div>
+
+        <EnterFrom />
       </div>
     </main>
   );

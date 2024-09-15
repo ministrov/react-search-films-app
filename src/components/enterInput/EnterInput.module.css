@@ -1,0 +1,30 @@
+.enter-input {
+  background-color: #fff;
+}
+
+.enter-input {
+  display: flex;
+  align-items: center;
+  min-width: 328px;
+  height: 64px;
+  border: 2px solid #475069;
+  border-radius: 12px;
+}
+
+.enter-input input {
+  min-width: 328px;
+  margin: 0;
+  padding: 0;
+  padding-top: 24px;
+  padding-bottom: 24px;
+  padding-left: 56px;
+  border: none;
+  outline: none;
+  background-color: transparent;
+}
+
+.enter-input input::placeholder {
+  font-size: 14px;
+  line-height: 1.2;
+  color: #475069;
+}

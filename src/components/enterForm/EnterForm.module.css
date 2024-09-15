@@ -1,0 +1,14 @@
+.enter-form-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 27px;
+  max-width: 384px;
+  background-color: peru;
+}
+
+.enter-form {
+  display: flex;
+  flex-direction: column;
+  gap: 27px;
+  background-color: plum;
+}
