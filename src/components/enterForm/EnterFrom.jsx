@@ -13,7 +13,7 @@ export default function EnterFrom() {
       <Heading text={'Вход'}/>
       <form className={styles['enter-form']} action="#">
         <EnterInput/>
-        <Button content={'Войти в профиль'} onClick={onClickHandler}/>
+        <Button content={'Войти в профиль'} className={'button-big'} onClick={onClickHandler}/>
       </form>
     </div>
   )

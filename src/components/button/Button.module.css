@@ -13,3 +13,8 @@
   border-radius: 12px;
   cursor: pointer;
 }
+
+.button-big {
+  max-width: 201px;
+  min-height: 56px;
+}
