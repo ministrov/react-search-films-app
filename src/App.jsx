@@ -4,7 +4,7 @@ import Heading from "./components/heading/Heading";
 import Paragraph from "./components/paragraph/Paragraph";
 import SearchInput from "./components/searchInput/SearchInput";
 import FilmsList from "./components/filmsList/FilmsList";
-import { links, loggedLinks } from './const/const.js';
+import { links } from './const/const.js';
 import EnterFrom from "./components/enterForm/EnterFrom.jsx";
 
 const isLogged = true;
@@ -19,7 +19,6 @@ function App({ films }) {
       <div className="top container">
         <Header
           links={links}
-          loggedLinks={loggedLinks}
           isLogged={isLogged}
         />
       </div>
