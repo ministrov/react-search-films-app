@@ -6,7 +6,9 @@ import icon from '../../assets/enter.svg';
 import user from '../../assets/user.svg';
 import styles from './Header.module.css';
 
-export default function Header({ links, isLogged }) {
+export default function Header({ links, profiles }) {
+  const profile = profiles.map((item) => item)[0];
+
   return (
     <header className={styles['header']}>
       <Logo />
@@ -28,11 +30,11 @@ export default function Header({ links, isLogged }) {
         </ul>
 
         <ul>
-          {isLogged
+          {profile?.isLogged
             ? (
             <>
-              <NavMenuItem label={'Вася'} hasIcon={true} icon={user} />
-              <NavMenuItem label={'Выйти'} />
+              <NavMenuItem label={profile?.name} hasIcon={true} icon={user} />
+              <NavMenuItem label={'Выйти'}/>
             </>
             )
             : <NavMenuItem label={'Войти'} hasIcon={true} icon={icon} />}

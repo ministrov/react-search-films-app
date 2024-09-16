@@ -8,14 +8,8 @@ import FilmsList from "./components/filmsList/FilmsList";
 import { links } from './const/const.js';
 import EnterFrom from "./components/enterForm/EnterFrom.jsx";
 
-const isLogged = true;
-
 function App({ films }) {
   const [profiles, setProfiles] = useState([]);
-  // const [profile] = profiles;
-
-  // console.log(profile);
-  // console.log(profile.isLogged);
 
   const onClickHandler = () => {
     console.log('button is clicked');
@@ -30,18 +24,12 @@ function App({ films }) {
     }
   }, []);
 
-  console.log(profiles);
-  // console.log(profiles.map((profile) => profile.name).join(''));
-  // console.log(profiles.map((profile) => profile.isLogged).join(''));
-  // console.log(profiles[0].name);
-  // console.log(profiles[0].isLogged);
-
   return (
     <main>
       <div className="top container">
         <Header
           links={links}
-          isLogged={isLogged}
+          profiles={profiles}
         />
       </div>
       <div className='container'>
