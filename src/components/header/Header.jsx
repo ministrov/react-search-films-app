@@ -9,6 +9,8 @@ import styles from './Header.module.css';
 export default function Header({ links, profiles }) {
   const profile = profiles.map((item) => item)[0];
 
+  console.log(profile);
+
   return (
     <header className={styles['header']}>
       <Logo />

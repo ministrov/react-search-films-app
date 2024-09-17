@@ -15,14 +15,16 @@ function App({ films }) {
     console.log('button is clicked');
   };
 
-  // useEffect(() => {
-  //   const data = JSON.parse(localStorage.getItem('profiles'));
-  //   if (data) {
-  //     setProfiles(data.map((item) => ({
-  //       ...item
-  //     })));
-  //   }
-  // }, []);
+  useEffect(() => {
+    // console.log(profiles);
+
+    setProfiles(profiles.map((item) => ({
+      ...item,
+      isLogged: false
+    })));
+
+    // console.log(INITIAL_STATE);
+  }, []);
 
   return (
     <main>

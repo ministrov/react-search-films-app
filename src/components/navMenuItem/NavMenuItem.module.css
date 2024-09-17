@@ -18,17 +18,6 @@
   color: #A8AEBF;
 }
 
-.nav-menu-link span {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 24px;
-  height: 24px;
-  background-color: #7B6EF6;
-  border-radius: 50%;
-  color: #ffffff;
-}
-
 .active a {
   color: #ffffff;
 }
