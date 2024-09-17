@@ -1,27 +1,24 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
+import useLocaleStorage from "./hooks/use-local-storage.hook.js";
 import Button from "./components/button/Button.jsx";
 import Header from "./components/header/Header";
 import Heading from "./components/heading/Heading";
 import Paragraph from "./components/paragraph/Paragraph";
 import SearchInput from "./components/searchInput/SearchInput";
 import FilmsList from "./components/filmsList/FilmsList";
-import { links } from './const/const.js';
 import EnterFrom from "./components/enterForm/EnterFrom.jsx";
+import { links } from './const/const.js';
 
 function App({ films }) {
-  const [profiles, setProfiles] = useState([]);
+  const [profiles, setProfiles] = useLocaleStorage('profiles');
 
   const onClickHandler = () => {
     console.log('button is clicked');
   };
 
   useEffect(() => {
-    const profiles = JSON.parse(localStorage.getItem('profiles'));
-    if (profiles) {
-      setProfiles(profiles.map((profile) => ({
-        ...profile
-      })));
-    }
+    setProfiles(profiles);
+    console.log(profiles);
   }, []);
 
   return (
