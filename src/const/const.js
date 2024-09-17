@@ -7,6 +7,11 @@ import poster6 from '../assets/images/poster-6.png';
 import poster7 from '../assets/images/poster-7.png';
 import poster8 from '../assets/images/poster-8.png';
 
+export const INITIAL_STATE = [{
+  name: 'Вася',
+  isLogged: true
+}];
+
 export const links = [
   {
     id: 1,

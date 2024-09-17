@@ -1,19 +1,28 @@
-import React, { useEffect, useState } from 'react';
+// // import { useEffect, useState } from 'react';
 
-export default function useLocaleStorage(key) {
-  const [data, setData] = useState([]);
+// // const INITIAL_STATE = [{
+// //   name: 'Вася',
+// //   isLogged: true
+// // }];
 
-  useEffect(() => {
-    const res = JSON.parse(localStorage.getItem(key));
-    if (res) {
-      setData(res);
-    }
-  }, []);
+// // export default function useLocaleStorage(key) {
+// //   const [data, setData] = useState(INITIAL_STATE);
 
-  const saveData = (newData) => {
-    localStorage.setItem(key, JSON.stringify(newData));
-    setData(newData);
-  };
+// //   console.log(data);
 
-  return [data, saveData];
-}
+// //   useEffect(() => {
+// //     const res = JSON.parse(localStorage.getItem(key));
+// //     console.log(res);
+// //     setData(res);
+// //     // if (res) {
+// //     //   setData(res);
+// //     // }
+// //   }, []);
+
+// //   const saveData = (newData) => {
+// //     localStorage.setItem(key, JSON.stringify(newData));
+// //     setData(newData);
+// //   };
+
+// //   return [data, saveData];
+// }
