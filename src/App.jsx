@@ -11,9 +11,24 @@ import { links } from './const/const.js';
 
 function App({ films }) {
   const [profiles, setProfiles] = useLocaleStorage('profiles');
+  const [inputValue, setInputValue] = useState("");
 
   const onClickHandler = () => {
     console.log('button is clicked');
+  };
+
+  const onSubmitHandler = (e) => {
+    e.preventDefault();
+
+    // console.log(e.target);
+    console.log(inputValue);
+    getLocation(location);
+    setInputValue('');
+  };
+
+  const getLocation = (string) => {
+    setInputValue(string);
+    console.log(`location: ${location}`);
   };
 
   useEffect(() => {
@@ -49,7 +64,7 @@ function App({ films }) {
           <FilmsList films={films} />
         </div>
 
-        <EnterFrom />
+        <EnterFrom onSubmit={onSubmitHandler} onChange={getLocation}/>
       </div>
     </main>
   );
