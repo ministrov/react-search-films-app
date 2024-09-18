@@ -6,24 +6,21 @@ import Paragraph from "./components/paragraph/Paragraph";
 import SearchInput from "./components/searchInput/SearchInput";
 import FilmsList from "./components/filmsList/FilmsList";
 import EnterFrom from "./components/enterForm/EnterFrom.jsx";
-import { links, INITIAL_STATE } from './const/const.js';
+import useLocaleStorage from "./hooks/use-local-storage.hook.js";
+import { links } from './const/const.js';
 
 function App({ films }) {
-  const [profiles, setProfiles] = useState(INITIAL_STATE);
+  const [profiles, setProfiles] = useLocaleStorage('profiles');
 
   const onClickHandler = () => {
     console.log('button is clicked');
   };
 
   useEffect(() => {
-    // console.log(profiles);
-
     setProfiles(profiles.map((item) => ({
       ...item,
-      isLogged: false
+      isLogged: true
     })));
-
-    // console.log(INITIAL_STATE);
   }, []);
 
   return (

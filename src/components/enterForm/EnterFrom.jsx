@@ -3,22 +3,21 @@ import EnterInput from '../enterInput/EnterInput';
 import Heading from '../heading/Heading';
 import Button from '../button/Button';
 import styles from './EnterForm.module.css';
+import useLocaleStorage from '../../hooks/use-local-storage.hook';
 
 export default function EnterFrom() {
   const [ value, setValue ] = useState('');
+  // const [saveData] = useLocaleStorage('profiles');
   const inputRef = useRef(null);
 
   const onClickHandler = () => {
-    console.log(`${this}: button is clicked`);
+    // console.log(`${this}: button is clicked`);
+    // saveData(value);
   };
 
   const onChangeHandler = (event) => {
     setValue(event.target.value);
   };
-
-  // useEffect(() => {
-  //   console.log(value);
-  // }, [value]);
 
   return (
     <div className={styles['enter-form-wrapper']}>
