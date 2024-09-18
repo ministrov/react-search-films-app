@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Button from "./components/button/Button.jsx";
 import Header from "./components/header/Header";
 import Heading from "./components/heading/Heading";
@@ -13,6 +13,8 @@ function App({ films }) {
   const [profiles, setProfiles] = useLocaleStorage('profiles');
   const [inputValue, setInputValue] = useState("");
 
+  console.log(profiles);
+
   const onClickHandler = () => {
     console.log('button is clicked');
   };
@@ -20,30 +22,28 @@ function App({ films }) {
   const onSubmitHandler = (e) => {
     e.preventDefault();
 
-    // console.log(e.target);
     console.log(inputValue);
-    getLocation(location);
-    setInputValue('');
+    // setProfiles(profiles.slice().push({ name: getLocation(inputValue), isLogged: true }));
+    getLocation('');
   };
 
   const getLocation = (string) => {
     setInputValue(string);
-    console.log(`location: ${location}`);
   };
 
-  useEffect(() => {
-    setProfiles(profiles.map((item) => ({
-      ...item,
-      isLogged: true
-    })));
-  }, []);
+  // useEffect(() => {
+  //   setProfiles(profiles.map((item) => ({
+  //     ...item,
+  //     isLogged: true
+  //   })));
+  // }, []);
 
   return (
     <main>
       <div className="top container">
         <Header
           links={links}
-          profiles={profiles}
+          // profile={  }
         />
       </div>
       <div className='container'>

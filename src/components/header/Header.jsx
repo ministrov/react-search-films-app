@@ -6,10 +6,7 @@ import icon from '../../assets/enter.svg';
 import user from '../../assets/user.svg';
 import styles from './Header.module.css';
 
-export default function Header({ links, profiles }) {
-  const profile = profiles.map((item) => item)[0];
-
-  // console.log(profile);
+export default function Header({ links, profile }) {
 
   return (
     <header className={styles['header']}>
