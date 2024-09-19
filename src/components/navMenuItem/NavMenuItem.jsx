@@ -4,9 +4,9 @@ import HeaderIcon from '../headerIcon/HeaderIcon';
 import cn from 'classnames';
 import styles from './NavMenuItem.module.css';
 
-export default function NavMenuItem({ icon, count, label, hasIcon, hasCount, href, isActive}) {
+export default function NavMenuItem({ icon, count, label, hasIcon, hasCount, href, isActive, onClick = f => f}) {
   return (
-    <li className={cn(styles['nav-menu-item'], {
+    <li onClick={onClick} className={cn(styles['nav-menu-item'], {
       [styles['active']]: isActive
     })}>
       <a className={styles['nav-menu-link']} href={href}>

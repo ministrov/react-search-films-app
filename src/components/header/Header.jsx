@@ -6,7 +6,7 @@ import icon from '../../assets/enter.svg';
 import user from '../../assets/user.svg';
 import styles from './Header.module.css';
 
-export default function Header({ links, profile }) {
+export default function Header({ links, profile, onClick }) {
 
   return (
     <header className={styles['header']}>
@@ -33,7 +33,7 @@ export default function Header({ links, profile }) {
             ? (
             <>
               <NavMenuItem label={profile?.name} hasIcon={true} icon={user} />
-              <NavMenuItem label={'Выйти'}/>
+              <NavMenuItem label={'Выйти'} onClick={onClick}/>
             </>
             )
             : <NavMenuItem label={'Войти'} hasIcon={true} icon={icon} />}

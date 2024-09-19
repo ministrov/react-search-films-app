@@ -14,15 +14,23 @@ function App({ films }) {
   const [inputValue, setInputValue] = useState('');
   const [profile, setProfile] = useState({});
 
+  // console.log(inputValue.length);
+
   const onClickHandler = () => {
     console.log('button is clicked');
+    // It needs to do a global state isLogged to change it to false or true
+    // and pass it down to header component to change flag
+    // setProfiles(profiles.map((item) => ({
+    //   ...item,
+    //   isLogged: false
+    // })));
   };
 
   const onSubmitHandler = (e) => {
     e.preventDefault();
 
     if (!profiles) {
-      setProfiles([{ name: inputValue, isLogged: true }]);
+      setProfiles([{ name: inputValue.trim(), isLogged: true }]);
     } else {
       setProfile(...profiles);
     }
@@ -32,19 +40,13 @@ function App({ films }) {
     setInputValue(string);
   };
 
-  // useEffect(() => {
-  //   setProfiles(profiles.map((item) => ({
-  //     ...item,
-  //     isLogged: true
-  //   })));
-  // }, []);
-
   return (
     <main>
       <div className="top container">
         <Header
           links={links}
           profile={profile}
+          onClick={onClickHandler}
         />
       </div>
       <div className='container'>
