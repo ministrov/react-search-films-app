@@ -13,17 +13,13 @@ function App({ films }) {
   const [profiles, setProfiles] = useLocaleStorage('profiles');
   const [inputValue, setInputValue] = useState('');
   const [profile, setProfile] = useState({});
-
-  // console.log(inputValue.length);
+  const [isLogged, setIsLogged] = useState(true);
 
   const onClickHandler = () => {
     console.log('button is clicked');
     // It needs to do a global state isLogged to change it to false or true
     // and pass it down to header component to change flag
-    // setProfiles(profiles.map((item) => ({
-    //   ...item,
-    //   isLogged: false
-    // })));
+    setIsLogged(false);
   };
 
   const onSubmitHandler = (e) => {
@@ -47,6 +43,7 @@ function App({ films }) {
           links={links}
           profile={profile}
           onClick={onClickHandler}
+          isLogged={isLogged}
         />
       </div>
       <div className='container'>
