@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react';
-import { INITIAL_STATE } from '../const/const';
 
 export default function useLocaleStorage(key) {
-  const [data, setData] = useState(INITIAL_STATE);
+  const [data, setData] = useState();
+
+  console.log(data);
 
   useEffect(() => {
     const res = JSON.parse(localStorage.getItem(key));
@@ -10,7 +11,7 @@ export default function useLocaleStorage(key) {
     if (res) {
       setData(res);
     }
-  }, []);
+  }, [key]);
 
   const saveData = (newData) => {
     localStorage.setItem(key, JSON.stringify(newData));

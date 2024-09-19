@@ -11,9 +11,8 @@ import { links } from './const/const.js';
 
 function App({ films }) {
   const [profiles, setProfiles] = useLocaleStorage('profiles');
-  const [inputValue, setInputValue] = useState("");
-
-  console.log(profiles);
+  const [inputValue, setInputValue] = useState('');
+  const [profile, setProfile] = useState({});
 
   const onClickHandler = () => {
     console.log('button is clicked');
@@ -22,9 +21,11 @@ function App({ films }) {
   const onSubmitHandler = (e) => {
     e.preventDefault();
 
-    console.log(inputValue);
-    // setProfiles(profiles.slice().push({ name: getLocation(inputValue), isLogged: true }));
-    getLocation('');
+    if (!profiles) {
+      setProfiles([{ name: inputValue, isLogged: true }]);
+    } else {
+      setProfile(...profiles);
+    }
   };
 
   const getLocation = (string) => {
@@ -43,7 +44,7 @@ function App({ films }) {
       <div className="top container">
         <Header
           links={links}
-          // profile={  }
+          profile={profile}
         />
       </div>
       <div className='container'>

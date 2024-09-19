@@ -11,7 +11,7 @@ const EnterInput = forwardRef(function EnterInput({ onChange }, ref) {
 
   return (
     <label className={styles['enter-input']} htmlFor="name">
-      <input type="text" name='name' placeholder='Ваше имя' onChange={getInputValue} value={text} ref={ref} />
+      <input type="text" name='name' placeholder='Ваше имя' onChange={getInputValue} value={text} ref={ref} autoComplete='off' />
     </label>
   )
 });
