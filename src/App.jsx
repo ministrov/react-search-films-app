@@ -17,8 +17,6 @@ function App({ films }) {
 
   const onClickHandler = () => {
     console.log('button is clicked');
-    // It needs to do a global state isLogged to change it to false or true
-    // and pass it down to header component to change flag
     setIsLogged(false);
   };
 
@@ -32,7 +30,7 @@ function App({ films }) {
     }
   };
 
-  const getLocation = (string) => {
+  const getInputValue = (string) => {
     setInputValue(string);
   };
 
@@ -64,7 +62,7 @@ function App({ films }) {
           <FilmsList films={films} />
         </div>
 
-        <EnterFrom onSubmit={onSubmitHandler} onChange={getLocation}/>
+        <EnterFrom onSubmit={onSubmitHandler} onChange={getInputValue}/>
       </div>
     </main>
   );
