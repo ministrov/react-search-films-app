@@ -10,22 +10,22 @@ import useLocaleStorage from "./hooks/use-local-storage.hook.js";
 import { links } from './const/const.js';
 
 function App({ films }) {
-  const [profiles, setProfiles] = useLocaleStorage('profiles');
+  const [profiles, setProfiles] = useLocaleStorage('user-profile');
   const [inputValue, setInputValue] = useState('');
   const [profile, setProfile] = useState({});
   const [isLogged, setIsLogged] = useState(true);
 
   const onClickHandler = () => {
-    console.log('button is clicked');
     setIsLogged(false);
   };
 
   const onSubmitHandler = (e) => {
     e.preventDefault();
 
-    if (!profiles) {
+    if (!profiles && profiles !== 'undefined') {
       setProfiles([{ name: inputValue.trim(), isLogged: true }]);
     } else {
+      setProfiles([...profiles, { name: inputValue.trim(), isLogged: true }]);
       setProfile(...profiles);
     }
   };
@@ -36,7 +36,7 @@ function App({ films }) {
 
   return (
     <main>
-      <div className="top container">
+      <div className='top container'>
         <Header
           links={links}
           profile={profile}
@@ -62,7 +62,7 @@ function App({ films }) {
           <FilmsList films={films} />
         </div>
 
-        <EnterFrom onSubmit={onSubmitHandler} onChange={getInputValue}/>
+        <EnterFrom onSubmit={onSubmitHandler} onChange={getInputValue} />
       </div>
     </main>
   );
