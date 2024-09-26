@@ -1,4 +1,5 @@
 .nav-menu-item {
+  display: flex;
   padding-top: 12px;
   padding-bottom: 12px;
   padding-left: 16px;
@@ -8,23 +9,13 @@
 
 .nav-menu-link {
   display: flex;
+  align-items: center;
   gap: 0.5rem;
   font-size: 16px;
   font-weight: 600;
-  line-height: 24px;
+  line-height: 1.2;
   text-decoration: none;
   color: #A8AEBF;
-}
-
-.nav-menu-link span {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 24px;
-  height: 24px;
-  background-color: #7B6EF6;
-  border-radius: 50%;
-  color: #ffffff;
 }
 
 .active a {

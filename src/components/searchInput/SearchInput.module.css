@@ -3,7 +3,7 @@
   display: flex;
   align-items: center;
   min-width: 328px;
-  height: 56px;
+  height: 64px;
   border: 2px solid #475069;
   border-radius: 12px;
 }
@@ -22,7 +22,7 @@
 
 .search-input input::placeholder {
   font-size: 14px;
-  line-height: 16px;
+  line-height: 1.2;
   color: #475069;
 }
 

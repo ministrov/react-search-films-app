@@ -1,8 +1,8 @@
 import React from 'react';
-import './Heading.css';
+import styles from './Heading.module.css';
 
 export default function Heading({ text }) {
   return (
-    <h1 className='heading'>{text}</h1>
+    <h1 className={styles['heading']}>{text}</h1>
   )
 }

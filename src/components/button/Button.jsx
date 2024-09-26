@@ -1,9 +1,12 @@
 import React from 'react';
-import './Button.css';
+import cn from 'classnames';
+import styles from './Button.module.css';
 
-export default function Button({ content, onClick }) {
+export default function Button({ content, onClick, className = null }) {
   return (
-    <button className='button' onClick={onClick}>
+    <button className={cn(styles['button'], {
+      [styles['button-big']]: className
+    })} onClick={onClick}>
       {content}
     </button>
   )

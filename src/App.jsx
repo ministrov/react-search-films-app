@@ -1,42 +1,48 @@
+import { useState } from "react";
 import Button from "./components/button/Button.jsx";
 import Header from "./components/header/Header";
 import Heading from "./components/heading/Heading";
-import Logo from "./components/logo/Logo";
-import NavMenu from "./components/navMenu/NavMenu";
-import NavMenuItem from "./components/navMenuItem/NavMenuItem.jsx";
 import Paragraph from "./components/paragraph/Paragraph";
 import SearchInput from "./components/searchInput/SearchInput";
 import FilmsList from "./components/filmsList/FilmsList";
+import EnterFrom from "./components/enterForm/EnterFrom.jsx";
+import useLocaleStorage from "./hooks/use-local-storage.hook.js";
 import { links } from './const/const.js';
-import icon from './assets/enter.svg';
 
 function App({ films }) {
+  const [profiles, setProfiles] = useLocaleStorage('user-profile');
+  const [inputValue, setInputValue] = useState('');
+  const [profile, setProfile] = useState({});
+  const [isLogged, setIsLogged] = useState(true);
+
   const onClickHandler = () => {
-    console.log('button is clicked');
+    setIsLogged(false);
+  };
+
+  const onSubmitHandler = (e) => {
+    e.preventDefault();
+
+    if (!profiles && profiles !== 'undefined') {
+      setProfiles([{ name: inputValue.trim(), isLogged: true }]);
+    } else {
+      setProfiles([...profiles, { name: inputValue.trim(), isLogged: true }]);
+      setProfile(...profiles);
+    }
+  };
+
+  const getInputValue = (string) => {
+    setInputValue(string);
   };
 
   return (
-    <>
-      <div className="top">
-        <Header>
-          <Logo />
-          <NavMenu>
-            <ul>
-              {links.map(link => (
-                <NavMenuItem
-                  key={link.id}
-                  label={link.label}
-                  isActive={link.isActive}
-                  icon={icon}
-                  hasCount={link.hasCount}
-                  hasIcon={link.hasIcon}
-                >
-                  {link.label}
-                </NavMenuItem>
-              ))}
-            </ul>
-          </NavMenu>
-        </Header>
+    <main>
+      <div className='top container'>
+        <Header
+          links={links}
+          profile={profile}
+          onClick={onClickHandler}
+          isLogged={isLogged}
+        />
       </div>
       <div className='container'>
         <div className='left-box'>
@@ -45,7 +51,7 @@ function App({ films }) {
             Введите название фильма, сериала или мультфильма для поиска и добавления в избранное.
           </Paragraph>
           <div className='left-box-bottom'>
-            <SearchInput/>
+            <SearchInput />
             <Button
               content={'Искать'}
               onClick={onClickHandler}
@@ -55,8 +61,10 @@ function App({ films }) {
         <div className='films-wrapper'>
           <FilmsList films={films} />
         </div>
+
+        <EnterFrom onSubmit={onSubmitHandler} onChange={getInputValue} />
       </div>
-    </>
+    </main>
   );
 }
 

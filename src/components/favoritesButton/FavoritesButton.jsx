@@ -1,22 +1,23 @@
 import React from 'react';
-import './FavoritesButton.css';
+import cn from 'classnames';
+import FavoriteIconActive from '../favoriteIconActive/FavoriteIconActive';
+import FavoriteIcon from '../favoriteIcon/FavoriteIcon';
+import styles from './FavoritesButton.module.css';
 
 export default function FavoritesButton({ isFavorite }) {
   return (
-    <button className='favorites-button'>
+    <button className={styles['favorites-button']}>
       {isFavorite ? (
         <>
-          <svg width="20" height="22" viewBox="0 0 20 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M19 15.0909V10.0975C19 5.80891 19 3.6646 17.682 2.3323C16.364 1 14.2426 1 10 1C5.75736 1 3.63604 1 2.31802 2.3323C1 3.6646 1 5.80891 1 10.0975V15.0909C1 18.1875 1 19.7358 1.73411 20.4123C2.08421 20.735 2.52615 20.9377 2.99692 20.9915C3.98402 21.1045 5.13673 20.0849 7.44216 18.0458C8.46122 17.1445 8.97075 16.6938 9.56028 16.5751C9.85057 16.5166 10.1494 16.5166 10.4397 16.5751C11.0292 16.6938 11.5388 17.1445 12.5578 18.0458C14.8633 20.0849 16.016 21.1045 17.0031 20.9915C17.4739 20.9377 17.9158 20.735 18.2659 20.4123C19 19.7358 19 18.1875 19 15.0909Z" stroke="#37D8A7" strokeWidth="2" />
-          </svg>
-          <p className={`${isFavorite ? 'active' : ''}`}>В избраном</p>
+          <FavoriteIconActive />
+          {/* <p className={`${isFavorite ? styles['active'] : ''}`}>В избраном</p> */}
+          <p className={cn({
+            [styles['active']]: isFavorite
+          })}>В избраном</p>
         </>
       ) : (
         <>
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M7.48001 18.35L10.58 20.75C10.98 21.15 11.88 21.35 12.48 21.35H16.28C17.48 21.35 18.78 20.45 19.08 19.25L21.48 11.95C21.98 10.55 21.08 9.34997 19.58 9.34997H15.58C14.98 9.34997 14.48 8.84997 14.58 8.14997L15.08 4.94997C15.28 4.04997 14.68 3.04997 13.78 2.74997C12.98 2.44997 11.98 2.84997 11.58 3.44997L7.48001 9.54997" stroke="#7B6EF6" strokeWidth="1.5" strokeMiterlimit="10" />
-            <path d="M2.38 18.35V8.55002C2.38 7.15002 2.98 6.65002 4.38 6.65002H5.38C6.78 6.65002 7.38 7.15002 7.38 8.55002V18.35C7.38 19.75 6.78 20.25 5.38 20.25H4.38C2.98 20.25 2.38 19.75 2.38 18.35Z" stroke="#7B6EF6" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-          </svg>
+          <FavoriteIcon />
           <p>В избранное</p>
         </>
       )}

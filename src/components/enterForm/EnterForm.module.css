@@ -1,0 +1,15 @@
+.enter-form-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 27px;
+  max-width: 384px;
+  padding: 27px;
+  border: 2px solid purple;
+  border-radius: 8px;
+}
+
+.enter-form {
+  display: flex;
+  flex-direction: column;
+  gap: 27px;
+}

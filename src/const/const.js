@@ -7,11 +7,17 @@ import poster6 from '../assets/images/poster-6.png';
 import poster7 from '../assets/images/poster-7.png';
 import poster8 from '../assets/images/poster-8.png';
 
+export const INITIAL_STATE = [{
+  name: 'Вася',
+  isLogged: true
+}];
+
 export const links = [
   {
     id: 1,
     label: 'Поиск фильмов',
     isActive: true,
+    count: null,
     hasCount: false,
     hasIcon: false
   },
@@ -19,17 +25,30 @@ export const links = [
     id: 2,
     label: 'Мои фильмы',
     isActive: false,
+    count: 2,
     hasCount: true,
     hasIcon: false
-  },
-  {
-    id: 3,
-    label: 'Войти',
-    isActive: false,
-    hasCount: false,
-    hasIcon: true
-  },
+  }
 ];
+
+// export const userLinks = [
+//   {
+//     id: 1,
+//     label: 'Поиск фильмов',
+//     isActive: true,
+//     count: null,
+//     hasCount: false,
+//     hasIcon: false
+//   },
+//   {
+//     id: 2,
+//     label: 'Мои фильмы',
+//     isActive: false,
+//     count: 2,
+//     hasCount: true,
+//     hasIcon: false
+//   }
+// ];
 
 export const films = [
   {
