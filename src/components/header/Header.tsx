@@ -1,8 +1,8 @@
 import Logo from '../logo/Logo.js'
 import NavMenu from '../navMenu/NavMenu.js'
 import NavMenuItem from "../navMenuItem/NavMenuItem.js";
-import icon from '../../assets/enter.svg';
-import user from '../../assets/user.svg';
+import icon from '/enter.svg';
+import user from '/user.svg';
 import styles from './Header.module.css';
 import BasicList from '../basicList/BasicList.js';
 
