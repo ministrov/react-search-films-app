@@ -1,73 +1,78 @@
-// import { useState } from "react";
-// import Button from "./components/button/Button";
-// // import Header from "./components/header/Header";
-// import Heading from "./components/heading/Heading";
-// import Paragraph from "./components/paragraph/Paragraph";
-// import SearchInput from "./components/searchInput/SearchInput";
-// // import FilmsList from "./components/filmsList/FilmsList";
+import { useState } from "react";
+import Button from "./components/button/Button";
+import Header from "./components/header/Header";
+import Heading from "./components/heading/Heading";
+import Paragraph from "./components/paragraph/Paragraph";
+import SearchInput from "./components/searchInput/SearchInput";
+import FilmsList from "./components/filmsList/FilmsList";
 // import EnterFrom from "./components/enterForm/EnterFrom";
-// // import useLocaleStorage from "./hooks/use-local-storage.hook";
-// import { links } from './const/const';
+// import useLocaleStorage from "./hooks/use-local-storage.hook";
+import { links } from './const/const';
+import { IFilms } from "./types";
 
-// function App({ films }) {
-//   // const [profiles, setProfiles] = useLocaleStorage('user-profile');
-//   const [inputValue, setInputValue] = useState('');
-//   const [profile, setProfile] = useState({});
-//   const [isLogged, setIsLogged] = useState(true);
+type AppProps = {
+  films: IFilms[];
+}
 
-//   const onClickHandler = () => {
-//     setIsLogged(false);
-//   };
+function App({ films }: AppProps) {
+  // const [profiles, setProfiles] = useLocaleStorage('user-profile');
+  const [inputValue, setInputValue] = useState('');
+  const [profile, setProfile] = useState({});
+  const [isLogged, setIsLogged] = useState(true);
 
-//   const onSubmitHandler = (e) => {
-//     e.preventDefault();
+  const onClickHandler = () => {
+    setIsLogged(false);
+  };
 
-//     if (!profiles && profiles !== 'undefined') {
-//       setProfiles([{ name: inputValue.trim(), isLogged: true }]);
-//     } else {
-//       setProfiles([...profiles, { name: inputValue.trim(), isLogged: true }]);
-//       setProfile(...profiles);
-//     }
-//   };
+  // const onSubmitHandler = (e) => {
+  //   e.preventDefault();
 
-//   const getInputValue = (string) => {
-//     setInputValue(string);
-//   };
+  //   if (!profiles && profiles !== 'undefined') {
+  //     setProfiles([{ name: inputValue.trim(), isLogged: true }]);
+  //   } else {
+  //     setProfiles([...profiles, { name: inputValue.trim(), isLogged: true }]);
+  //     setProfile(...profiles);
+  //   }
+  // };
 
-//   return (
-//     <main>
-//       <div className='top container'>
-//         {/* <Header
-//           links={links}
-//           profile={profile}
-//           onClick={onClickHandler}
-//           isLogged={isLogged}
-//         /> */}
-//       </div>
-//       <div className='container'>
-//         <div className='left-box'>
-//           <Heading text={'Поиск'} />
-//           <Paragraph>
-//             Введите название фильма, сериала или мультфильма для поиска и добавления в избранное.
-//           </Paragraph>
-//           <div className='left-box-bottom'>
-//             <SearchInput />
-//             <Button
-//               content={'Искать'}
-//               onClick={onClickHandler} 
-//               className={null} />
-//           </div>
-//         </div>
-//         <div className='films-wrapper'>
-//           {/* <FilmsList films={films} /> */}
-//         </div>
+  // const getInputValue = (string) => {
+  //   setInputValue(string);
+  // };
 
-//         {/* <EnterFrom onSubmit={onSubmitHandler} onChange={getInputValue} /> */}
-//       </div>
-//     </main>
-//   );
-// }
+  return (
+    <main>
+      <div className='top container'>
+        <Header
+          links={links}
+          profile={profile}
+          onClick={onClickHandler}
+          isLogged={isLogged}
+        />
+      </div>
+      <div className='container'>
+        <div className='left-box'>
+          <Heading text={'Поиск'} />
+          <Paragraph>
+            Введите название фильма, сериала или мультфильма для поиска и добавления в избранное.
+          </Paragraph>
+          <div className='left-box-bottom'>
+            <SearchInput />
+            <Button
+              content={'Искать'}
+              onClick={onClickHandler} 
+              className={null} />
+          </div>
+        </div>
+        <div className='films-wrapper'>
+          <FilmsList films={films} />
+        </div>
 
-// export default App
+        {/* <EnterFrom onSubmit={onSubmitHandler} onChange={getInputValue} /> */}
+      </div>
+    </main>
+  );
+}
+
+export default App
 
 

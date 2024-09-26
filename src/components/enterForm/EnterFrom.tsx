@@ -1,12 +1,12 @@
-import { useRef } from 'react';
-// import EnterInput from '../enterInput/EnterInput';
+import { ChangeEvent, useRef } from 'react';
+import EnterInput from '../enterInput/EnterInput';
 import Heading from '../heading/Heading';
 import Button from '../button/Button';
 import styles from './EnterForm.module.css';
 
 type EnterFormProps = {
   onSubmit: () => void;
-  onChange: () => void;
+  onChange: (e: ChangeEvent) => void;
 }
 
 export default function EnterFrom({ onSubmit, onChange }: EnterFormProps) {

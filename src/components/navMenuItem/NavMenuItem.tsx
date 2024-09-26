@@ -1,10 +1,20 @@
-import React from 'react';
 import FavoriteCount from '../favoriteCount/favoriteCount';
 import HeaderIcon from '../headerIcon/HeaderIcon';
 import cn from 'classnames';
 import styles from './NavMenuItem.module.css';
 
-export default function NavMenuItem({ icon, count, label, hasIcon, hasCount, href, isActive, onClick = f => f}) {
+type NavMenuItemProps = {
+  icon?: SVGAElement;
+  count?: number;
+  label: string;
+  hasIcon?: boolean;
+  hasCount?: boolean;
+  href?: string;
+  isActive?: boolean;
+  onClick?: () => void;
+}
+
+export default function NavMenuItem({ icon, count, label, hasIcon, hasCount, href, isActive, onClick }: NavMenuItemProps) {
   return (
     <li onClick={onClick} className={cn(styles['nav-menu-item'], {
       [styles['active']]: isActive

@@ -1,15 +1,20 @@
-import { createContext, useState } from "react";
+import { createContext, ReactNode } from "react";
+
+type UserProfileContextProviderProps = {
+  children: ReactNode
+}
+
 
 export const UserProfileContext = createContext([{
   name: '',
   isLogged: true
 }]);
 
-export const UserProfileContextProvider = ({ children }) => {
-  const [profiles, setProfiles] = useState([]);
+export const UserProfileContextProvider = ({ children }: UserProfileContextProviderProps) => {
+  // const [profiles, setProfiles] = useState<any>([]);
 
   return (
-    <UserProfileContext.Provider value={{ profiles, setProfiles }}>
+    <UserProfileContext.Provider value={[]}>
       {children}
     </UserProfileContext.Provider>
   );

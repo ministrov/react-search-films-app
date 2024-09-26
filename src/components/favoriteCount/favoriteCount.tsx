@@ -1,6 +1,10 @@
 import styles from './FavoriteCount.module.css';
 
-export default function FavoriteCount({ count }: any) {
+type FavoriteCountProps = {
+  count: number | undefined;
+}
+
+export default function FavoriteCount({ count }: FavoriteCountProps) {
   return (
     <span className={styles['count']}>{count}</span>
   )
