@@ -1,7 +1,6 @@
-import React from 'react';
 import styles from './FavoriteCount.module.css';
 
-export default function FavoriteCount({ count }) {
+export default function FavoriteCount({ count }: any) {
   return (
     <span className={styles['count']}>{count}</span>
   )
