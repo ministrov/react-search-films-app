@@ -1,11 +1,11 @@
 import { useState } from "react";
-import Button from "./components/button/Button.jsx";
-import Header from "./components/header/Header";
-import Heading from "./components/heading/Heading";
-import Paragraph from "./components/paragraph/Paragraph";
-import SearchInput from "./components/searchInput/SearchInput";
-import FilmsList from "./components/filmsList/FilmsList";
-import EnterFrom from "./components/enterForm/EnterFrom.jsx";
+import Button from "./components/button/Button.js";
+import Header from "./components/header/Header.jsx";
+import Heading from "./components/heading/Heading.jsx";
+import Paragraph from "./components/paragraph/Paragraph.jsx";
+import SearchInput from "./components/searchInput/SearchInput.jsx";
+import FilmsList from "./components/filmsList/FilmsList.jsx";
+import EnterFrom from "./components/enterForm/EnterFrom.js";
 import useLocaleStorage from "./hooks/use-local-storage.hook.js";
 import { links } from './const/const.js';
 
