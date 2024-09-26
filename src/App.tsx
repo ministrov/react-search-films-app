@@ -6,7 +6,7 @@ import Paragraph from "./components/paragraph/Paragraph";
 import SearchInput from "./components/searchInput/SearchInput";
 import FilmsList from "./components/filmsList/FilmsList";
 // import EnterFrom from "./components/enterForm/EnterFrom";
-// import useLocaleStorage from "./hooks/use-local-storage.hook";
+import useLocaleStorage from "./hooks/use-local-storage.hook";
 import { links } from './const/const';
 import { IFilms } from "./types";
 
@@ -15,7 +15,7 @@ type AppProps = {
 }
 
 function App({ films }: AppProps) {
-  // const [profiles, setProfiles] = useLocaleStorage('user-profile');
+  const [profiles, setProfiles] = useLocaleStorage('user-profile');
   const [inputValue, setInputValue] = useState('');
   const [profile, setProfile] = useState({});
   const [isLogged, setIsLogged] = useState(true);
@@ -24,20 +24,20 @@ function App({ films }: AppProps) {
     setIsLogged(false);
   };
 
-  // const onSubmitHandler = (e) => {
-  //   e.preventDefault();
+  const onSubmitHandler = (e: { preventDefault: () => void; }) => {
+    e.preventDefault();
 
-  //   if (!profiles && profiles !== 'undefined') {
-  //     setProfiles([{ name: inputValue.trim(), isLogged: true }]);
-  //   } else {
-  //     setProfiles([...profiles, { name: inputValue.trim(), isLogged: true }]);
-  //     setProfile(...profiles);
-  //   }
-  // };
+    if (!profiles && profiles !== 'undefined') {
+      setProfiles([{ name: inputValue.trim(), isLogged: true }]);
+    } else {
+      // setProfiles([...profiles, { name: inputValue.trim(), isLogged: true }]);
+      // setProfile(...profiles);
+    }
+  };
 
-  // const getInputValue = (string) => {
-  //   setInputValue(string);
-  // };
+  const getInputValue = (string: string) => {
+    setInputValue(string);
+  };
 
   return (
     <main>
@@ -73,6 +73,4 @@ function App({ films }: AppProps) {
   );
 }
 
-export default App
-
-
+export default App;
