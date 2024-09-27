@@ -22,7 +22,7 @@ export default function Header({ isLogged, links, profile, onClick }: any) {
               count={link.count}
               hasCount={link.hasCount}
               hasIcon={link.hasIcon}
-              href='#'
+              href={link.href}
             />
           ))}
         </BasicList>
@@ -35,7 +35,7 @@ export default function Header({ isLogged, links, profile, onClick }: any) {
                 <NavMenuItem label={'Выйти'} onClick={onClick} />
               </>
             )
-            : <NavMenuItem label={'Войти'} hasIcon={true} icon={icon} />
+            : <NavMenuItem label={'Войти'} href='/login' hasIcon={true} icon={icon} />
           }
         </BasicList>
       </NavMenu>

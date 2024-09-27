@@ -10,7 +10,8 @@ export const links = [
     isActive: true,
     count: null,
     hasCount: false,
-    hasIcon: false
+    hasIcon: false,
+    href: '/'
   },
   {
     id: 2,
@@ -18,7 +19,8 @@ export const links = [
     isActive: false,
     count: 2,
     hasCount: true,
-    hasIcon: false
+    hasIcon: false,
+    href: '/favorites'
   }
 ];
 
