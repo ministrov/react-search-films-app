@@ -1,4 +1,3 @@
-// import React from 'react';
 import cn from 'classnames';
 import styles from './Button.module.css';
 
@@ -8,7 +7,7 @@ type ButtonProps = {
   className: string | null
 }
 
-export default function Button({ content, onClick, className = null }: ButtonProps) {
+export default function Button({ content, onClick, className }: ButtonProps) {
   return (
     <button className={cn(styles['button'], {
       [styles['button-big']]: className

@@ -5,7 +5,7 @@ import Heading from "./components/heading/Heading";
 import Paragraph from "./components/paragraph/Paragraph";
 import SearchInput from "./components/searchInput/SearchInput";
 import FilmsList from "./components/filmsList/FilmsList";
-// import EnterFrom from "./components/enterForm/EnterFrom";
+import EnterFrom from "./components/enterForm/EnterFrom";
 import useLocaleStorage from "./hooks/use-local-storage.hook";
 import { links } from './const/const';
 import { IFilms } from "./types";
@@ -15,7 +15,7 @@ type AppProps = {
 }
 
 function App({ films }: AppProps) {
-  const [profiles, setProfiles] = useLocaleStorage('user-profile');
+  const [profiles, setProfiles] = useLocaleStorage<[{ name: string, isLogged: boolean}]>('user-profile');
   const [inputValue, setInputValue] = useState('');
   const [profile, setProfile] = useState({});
   const [isLogged, setIsLogged] = useState(true);
@@ -24,14 +24,15 @@ function App({ films }: AppProps) {
     setIsLogged(false);
   };
 
-  const onSubmitHandler = (e: { preventDefault: () => void; }) => {
-    e.preventDefault();
+  const onSubmitHandler = () => {
+    // e.preventDefault();
+    console.log('click');
 
     if (!profiles && profiles !== 'undefined') {
       setProfiles([{ name: inputValue.trim(), isLogged: true }]);
     } else {
       // setProfiles([...profiles, { name: inputValue.trim(), isLogged: true }]);
-      // setProfile(...profiles);
+      setProfile(...profiles);
     }
   };
 
@@ -67,7 +68,7 @@ function App({ films }: AppProps) {
           <FilmsList films={films} />
         </div>
 
-        {/* <EnterFrom onSubmit={onSubmitHandler} onChange={getInputValue} /> */}
+        <EnterFrom onSubmit={onSubmitHandler} onChange={getInputValue} />
       </div>
     </main>
   );
