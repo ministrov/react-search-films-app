@@ -1,5 +1,5 @@
 export const INITIAL_STATE = [{
-  name: 'Вася',
+  name: '',
   isLogged: true
 }];
 

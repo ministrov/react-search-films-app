@@ -1,12 +1,9 @@
 import { useState } from "react";
 import Button from "../../components/button/Button";
-// import Header from "../../components/header/Header";
 import Heading from "../../components/heading/Heading";
 import Paragraph from "../../components/paragraph/Paragraph";
 import SearchInput from "../../components/searchInput/SearchInput";
 import FilmsList from "../../components/filmsList/FilmsList";
-// import EnterFrom from "../../components/enterForm/EnterFrom";
-// import useLocaleStorage from "../../hooks/use-local-storage.hook";
 import { IFilms } from "../../types";
 
 type MainPageProps = {
