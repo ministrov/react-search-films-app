@@ -1,8 +1,9 @@
 import Rating from '../rating/Rating';
 import FavoritesButton from '../favoritesButton/FavoritesButton';
-import styles from './FilmsList.module.css';
-import { IFilms } from '../../types';
 import BasicList from '../basicList/BasicList';
+import NotFound from '../notFound/NotFound';
+import { IFilms } from '../../types';
+import styles from './FilmsList.module.css';
 
 type FilmsListProps = {
   films: IFilms[];
@@ -21,9 +22,14 @@ export default function FilmsList({ films }: FilmsListProps) {
       </div>
     </li>
   ));
+
   return (
     <BasicList className={styles['films-list']}>
-      {listItem}
+      {films.length > 0 ? (
+        listItem
+      ): (
+        <NotFound/>
+      )}
     </BasicList>
   )
 }

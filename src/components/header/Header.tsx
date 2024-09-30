@@ -1,10 +1,10 @@
 import Logo from '../logo/Logo.js'
 import NavMenu from '../navMenu/NavMenu.js'
 import NavMenuItem from "../navMenuItem/NavMenuItem.js";
+import BasicList from '../basicList/BasicList.js';
 import icon from '/enter.svg';
 import user from '/user.svg';
 import styles from './Header.module.css';
-import BasicList from '../basicList/BasicList.js';
 
 export default function Header({ isLogged, links, profile, onClick }: any) {
 
@@ -31,8 +31,8 @@ export default function Header({ isLogged, links, profile, onClick }: any) {
           {isLogged
             ? (
               <>
-                <NavMenuItem label={profile?.name || 'Вася'} hasIcon={true} icon={user} />
-                <NavMenuItem label={'Выйти'} onClick={onClick} />
+                <NavMenuItem label={profile?.name || 'Вася'} hasIcon={true} href='#' icon={user} />
+                <NavMenuItem label={'Выйти'} href='#' onClick={onClick} />
               </>
             )
             : <NavMenuItem label={'Войти'} href='/login' hasIcon={true} icon={icon} />
