@@ -17,7 +17,6 @@ export default function Header({ isLogged, links, profile, onClick }: any) {
             <NavMenuItem
               key={link.id}
               label={link.label}
-              isActive={link.isActive}
               icon={icon}
               count={link.count}
               hasCount={link.hasCount}

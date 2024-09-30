@@ -1,6 +1,4 @@
-import Header from "../../components/header/Header";
 import EnterFrom from "../../components/enterForm/EnterFrom";
-import { links } from "../../const/const";
 import useLocaleStorage from "../../hooks/use-local-storage.hook";
 import { useState } from "react";
 
@@ -24,18 +22,9 @@ export default function LoginPage() {
     setInputValue(string);
   };
   return (
-    <main>
-      <div className='top container'>
-        <Header
-          links={links}
-          profile={profile}
-          // onClick={onClickHandler}
-          // isLogged={isLogged}
-        />
-
-
-        <EnterFrom onSubmit={onSubmitHandler} onChange={getInputValue} />
-      </div>
-    </main>
+    <section>
+      <h2 className="visually-hidden">Страница входа пользователя</h2>
+      <EnterFrom onSubmit={onSubmitHandler} onChange={getInputValue} />
+    </section>
   )
 }
