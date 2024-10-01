@@ -1,0 +1,18 @@
+.infoPanel h1 {
+  display: flex;
+  gap: 16px;
+}
+
+.infoPanel {
+  max-width: 350px;
+  border: 2px solid purple;
+}
+
+.infoPanel-details {
+  height: 350px;
+  transition: height 0.5s;
+}
+
+.infoPanel-details.infoPanel-details-closed {
+  height: 0;
+}

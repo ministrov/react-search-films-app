@@ -20,6 +20,7 @@
 
 .nav-menu-link:hover {
   color: #ffffff;
+  transition: color 0.5s;
 }
 
 .active {
