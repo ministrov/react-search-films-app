@@ -1,10 +1,13 @@
-import React from 'react';
-import cn from 'classnames';
 import FavoriteIconActive from '../favoriteIconActive/FavoriteIconActive';
 import FavoriteIcon from '../favoriteIcon/FavoriteIcon';
+import cn from 'classnames';
 import styles from './FavoritesButton.module.css';
 
-export default function FavoritesButton({ isFavorite }) {
+type FavoritesButtonProps = {
+  isFavorite: boolean
+}
+
+export default function FavoritesButton({ isFavorite }: FavoritesButtonProps) {
   return (
     <button className={styles['favorites-button']}>
       {isFavorite ? (

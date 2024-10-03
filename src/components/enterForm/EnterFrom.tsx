@@ -1,10 +1,15 @@
-import React, { useRef, useState } from 'react';
+import { useRef } from 'react';
 import EnterInput from '../enterInput/EnterInput';
 import Heading from '../heading/Heading';
 import Button from '../button/Button';
 import styles from './EnterForm.module.css';
 
-export default function EnterFrom({ onSubmit, onChange }) {
+type EnterFormProps = {
+  onSubmit: () => void;
+  onChange: (f: string) => void;
+}
+
+export default function EnterFrom({ onSubmit, onChange }: EnterFormProps) {
   const inputRef = useRef(null);
 
   return (

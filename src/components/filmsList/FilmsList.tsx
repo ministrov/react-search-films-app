@@ -1,9 +1,15 @@
-import React from 'react';
 import Rating from '../rating/Rating';
 import FavoritesButton from '../favoritesButton/FavoritesButton';
+import BasicList from '../basicList/BasicList';
+import NotFound from '../notFound/NotFound';
+import { IFilms } from '../../types';
 import styles from './FilmsList.module.css';
 
-export default function FilmsList({ films }) {
+type FilmsListProps = {
+  films: IFilms[];
+}
+
+export default function FilmsList({ films }: FilmsListProps) {
   const listItem = films.map((film) => (
     <li className={styles['films-list-item']} key={film.id}>
       <div className={styles['films-rating-box']}>
@@ -16,9 +22,14 @@ export default function FilmsList({ films }) {
       </div>
     </li>
   ));
+
   return (
-    <ul className={styles['films-list']}>
-      {listItem}
-    </ul>
+    <BasicList className={styles['films-list']}>
+      {films.length > 0 ? (
+        listItem
+      ): (
+        <NotFound/>
+      )}
+    </BasicList>
   )
 }

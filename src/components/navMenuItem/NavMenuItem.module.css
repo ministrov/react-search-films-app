@@ -18,6 +18,11 @@
   color: #A8AEBF;
 }
 
-.active a {
+.nav-menu-link:hover {
+  color: #ffffff;
+  transition: color 0.5s;
+}
+
+.active {
   color: #ffffff;
 }
