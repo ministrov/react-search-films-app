@@ -7,6 +7,11 @@ body {
   font-weight: 400;
   line-height: 1.2;
   background-color: #121829;
+
+  background-image: url("./background.svg");
+  background-size: 100%;
+  background-position: center 91px;
+  background-repeat: no-repeat;
 }
 
 .visually-hidden {
@@ -44,4 +49,3 @@ body {
   align-items: center;
   gap: 1rem;
 }
-
