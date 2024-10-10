@@ -1,5 +1,3 @@
-// export const PREFIX = 'https://search.imdbot.workers.dev/?q=';
-
 export const INITIAL_STATE = [{
   name: '',
   isLogged: true

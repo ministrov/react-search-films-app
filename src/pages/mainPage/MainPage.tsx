@@ -4,18 +4,14 @@ import Heading from "../../components/heading/Heading";
 import Paragraph from "../../components/paragraph/Paragraph";
 import SearchInput from "../../components/searchInput/SearchInput";
 // import FilmsList from "../../components/filmsList/FilmsList";
-import { FilmsDescription } from "../../interfaces/films-description.interface";
-import { useParams } from "react-router-dom";
-// import { PREFIX } from "../../const/const";
+import { FilmsDescription, RootData } from "../../interfaces/films-description.interface";
 
 const PREFIX = 'https://search.imdbot.workers.dev';
 
 export default function MainPage() {
   const [isLogged, setIsLogged] = useState(true);
-  const [films, setFilms] = useState<FilmsDescription[]>([]);
+  const [dataObj, setSetDataObj] = useState<RootData | null>();
   const [search, setSearch] = useState<string>('');
-  // const params = useParams();
-  // console.log(params);
 
   useEffect(() => {
     const getFilms = async (name?: string) => {
@@ -24,17 +20,17 @@ export default function MainPage() {
         if (!res.ok) {
           return;
         }
-        const data = await res.json() as FilmsDescription[];
-        setFilms(data);
+        const data = await res.json() as RootData;
+        setSetDataObj(data);
 
       } catch (e) {
         console.error(e);
         return;
       }
     };
-    // getFilms();
-    console.log(films);
-  }, []);
+    getFilms(search);
+    console.log(dataObj?.description);
+  }, [search]);
 
   const updateFilter = (event: ChangeEvent<HTMLInputElement>) => {
     setSearch(event.target.value);
@@ -43,6 +39,7 @@ export default function MainPage() {
 
   const onClickHandler = () => {
     console.log('click');
+    // getFilms(search);
   };
 
   return (
