@@ -1,7 +1,11 @@
-import React from 'react';
+import { ReactNode } from 'react';
 import styles from './NavMenu.module.css';
 
-export default function NavMenu({ children }) {
+type NavMenuProps = {
+  children: ReactNode
+}
+
+export default function NavMenu({ children }: NavMenuProps) {
   return (
     <nav className={styles['nav-menu']}>
       {children}

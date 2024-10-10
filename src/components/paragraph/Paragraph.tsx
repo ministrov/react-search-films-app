@@ -1,6 +1,6 @@
+import { ReactNode } from 'react';
 import cn from 'classnames';
 import styles from './Paragraph.module.css';
-import { ReactNode } from 'react';
 
 type ParagraphProps = {
   children: ReactNode;

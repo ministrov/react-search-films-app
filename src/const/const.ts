@@ -96,3 +96,19 @@ export const films = [
 
 // console.log(d);
 // console.log(j);
+function getName(name: string) {
+  console.log(name);
+}
+
+
+let myName = 'Anton';
+
+getName(myName);
+
+const number = 10;
+
+function getNumber(number: number): void {
+  console.log(number);
+};
+
+getNumber(number)
