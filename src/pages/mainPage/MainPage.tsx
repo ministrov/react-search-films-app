@@ -1,17 +1,40 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Button from "../../components/button/Button";
 import Heading from "../../components/heading/Heading";
 import Paragraph from "../../components/paragraph/Paragraph";
 import SearchInput from "../../components/searchInput/SearchInput";
-import FilmsList from "../../components/filmsList/FilmsList";
-import { IFilms } from "../../types";
+// import FilmsList from "../../components/filmsList/FilmsList";
+import { FilmsDescription } from "../../interfaces/films-description.interface";
+import { useParams } from "react-router-dom";
+// import { PREFIX } from "../../const/const";
 
-type MainPageProps = {
-  films: IFilms[]
-}
+const PREFIX = 'https://search.imdbot.workers.dev';
 
-export default function MainPage({ films }: MainPageProps) {
+export default function MainPage() {
   const [isLogged, setIsLogged] = useState(true);
+  const [films, setFilms] = useState<FilmsDescription[]>([]);
+  // const params = useParams();
+  // console.log(params);
+
+  const getFilms = async () => {
+    try {
+      const res = await fetch(`${PREFIX}?q=${'#'}`);
+      if (!res.ok) {
+        return;
+      }
+      const data = await res.json() as FilmsDescription[];
+      setFilms(data);
+
+    } catch (e) {
+      console.error(e);
+      return;
+    }
+  };
+
+  useEffect(() => {
+    // getFilms();
+    console.log(films);
+  }, []);
 
   const onClickHandler = () => {
     setIsLogged(false);
@@ -34,7 +57,7 @@ export default function MainPage({ films }: MainPageProps) {
         </div>
       </div>
       <div className='films-wrapper'>
-        <FilmsList films={films} />
+        {/* <FilmsList films={films} /> */}
       </div>
     </section>
   )
