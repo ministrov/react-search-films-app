@@ -83,19 +83,6 @@ export const films = [
   }
 ];
 
-// let a = 1 + 2;
-// let b = a + 3;
-// let c = {
-//   apple: a,
-//   banana: b
-// };
-
-// let d = c.apple + 4;
-
-// let j = d.toPrecision();
-
-// console.log(d);
-// console.log(j);
 function getName(name: string) {
   console.log(name);
 }
