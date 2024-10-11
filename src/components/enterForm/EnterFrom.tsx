@@ -14,10 +14,12 @@ export default function EnterFrom({ onSubmit, onChange }: EnterFormProps) {
 
   return (
     <div className={styles['enter-form-wrapper']}>
-      <Heading text={'Вход'}/>
+      <Heading text={'Вход'} />
       <form className={styles['enter-form']} action="#">
         <EnterInput ref={inputRef.current} onChange={onChange} />
-        <Button content={'Войти в профиль'} className={'button-big'} onClick={onSubmit}/>
+        <Button className={'button-big'} onSubmit={onSubmit}>
+          Войти в профиль
+        </Button>
       </form>
     </div>
   )

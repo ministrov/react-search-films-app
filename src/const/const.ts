@@ -101,3 +101,31 @@ export function getFilmsArrayFromJSON(character: RootData) {
   return character?.description;
 };
 
+// const promise = new Promise((res, rej) => {
+//   setTimeout(() => res(1), 4000);
+// });
+
+// promise
+//   .then(data => {
+//     console.log(data)
+//     return 2
+//   })
+//   .then(data => {
+//     console.log(data)
+//     return 'c'
+//   })
+//   .then(data => {
+//     console.log(data)
+//     return 3
+//   })
+//   .catch(err => {
+//     console.log(err)
+//     return 77
+//   })
+//   .then(data => {
+//     console.log(data);
+//   })
+//   .finally(data => {
+//     console.log(data)
+//   })
+

@@ -14,7 +14,7 @@ export default function MainPage() {
   const [dataObj, setSetDataObj] = useState<RootData | null>();
   const [search, setSearch] = useState<string>('');
 
-  // const films = getFilmsArrayFromJSON(dataObj);
+  const films = getFilmsArrayFromJSON(dataObj);
 
   useEffect(() => {
     const getFilms = async (name?: string) => {
@@ -54,9 +54,11 @@ export default function MainPage() {
           Введите название фильма, сериала или мультфильма для поиска и добавления в избранное.
         </Paragraph>
         <div className='left-box-bottom'>
+          {/* Обернуть эти элементы в компонент формы */}
           <SearchInput onChange={updateFilter} value={search} />
           <Button
             // onClick={onClickHandler}
+            onSubmit={() => console.log('submit')}
             className={null}>
             Искать
           </Button>
