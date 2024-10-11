@@ -3,15 +3,18 @@ import Button from "../../components/button/Button";
 import Heading from "../../components/heading/Heading";
 import Paragraph from "../../components/paragraph/Paragraph";
 import SearchInput from "../../components/searchInput/SearchInput";
-// import FilmsList from "../../components/filmsList/FilmsList";
+import FilmsList from "../../components/filmsList/FilmsList";
+import { getFilmsArrayFromJSON } from "../../const/const";
 import { FilmsDescription, RootData } from "../../interfaces/films-description.interface";
 
-const PREFIX = 'https://search.imdbot.workers.dev';
+const PREFIX = 'https://search.imdbot.workers.dev/';
 
 export default function MainPage() {
   const [isLogged, setIsLogged] = useState(true);
   const [dataObj, setSetDataObj] = useState<RootData | null>();
   const [search, setSearch] = useState<string>('');
+
+  // const films = getFilmsArrayFromJSON(dataObj);
 
   useEffect(() => {
     const getFilms = async (name?: string) => {
@@ -29,7 +32,7 @@ export default function MainPage() {
       }
     };
     getFilms(search);
-    console.log(dataObj?.description);
+    console.log(dataObj);
   }, [search]);
 
   const updateFilter = (event: ChangeEvent<HTMLInputElement>) => {
@@ -60,7 +63,7 @@ export default function MainPage() {
         </div>
       </div>
       <div className='films-wrapper'>
-        {/* <FilmsList films={films} /> */}
+        <FilmsList films={[]} />
       </div>
     </section>
   )

@@ -1,3 +1,5 @@
+import { FilmsDescription, RootData } from "../interfaces/films-description.interface";
+
 export const INITIAL_STATE = [{
   name: '',
   isLogged: true
@@ -83,19 +85,19 @@ export const films = [
   }
 ];
 
-function getName(name: string) {
-  console.log(name);
-}
+// let myName = 'Anton';
 
+// getName(myName);
 
-let myName = 'Anton';
+// const number = 10;
 
-getName(myName);
+// function getNumber(number: number): void {
+//   console.log(number);
+// };
 
-const number = 10;
+// getNumber(number)
 
-function getNumber(number: number): void {
-  console.log(number);
+export function getFilmsArrayFromJSON(character: RootData) {
+  return character?.description;
 };
 
-getNumber(number)
