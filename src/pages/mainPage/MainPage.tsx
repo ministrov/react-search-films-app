@@ -4,7 +4,7 @@ import Heading from "../../components/heading/Heading";
 import Paragraph from "../../components/paragraph/Paragraph";
 import SearchInput from "../../components/searchInput/SearchInput";
 import FilmsList from "../../components/filmsList/FilmsList";
-import { getFilmsArrayFromJSON } from "../../const/const";
+// import { getFilmsArrayFromJSON } from "../../const/const";
 import { FilmsDescription, RootData } from "../../interfaces/films-description.interface";
 
 const PREFIX = 'https://search.imdbot.workers.dev/';
@@ -14,7 +14,7 @@ export default function MainPage() {
   const [dataObj, setSetDataObj] = useState<RootData | null>();
   const [search, setSearch] = useState<string>('');
 
-  const films = getFilmsArrayFromJSON(dataObj);
+  // const films = getFilmsArrayFromJSON(dataObj);
 
   useEffect(() => {
     const getFilms = async (name?: string) => {
