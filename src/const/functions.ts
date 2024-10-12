@@ -1,8 +1,8 @@
-export function askNumber(number: number) {
-    const askedNumber = prompt(`${Math.floor(number * 327 / 10)}`);
+// export function askNumber(number: number) {
+//     const askedNumber = prompt(`${Math.floor(number * 327 / 10)}`);
 
-    alert(askedNumber);
-}
+//     alert(askedNumber);
+// }
 
 // askNumber(12);
 

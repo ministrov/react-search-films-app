@@ -5,22 +5,19 @@ import Paragraph from "../../components/paragraph/Paragraph";
 import SearchInput from "../../components/searchInput/SearchInput";
 import FilmsList from "../../components/filmsList/FilmsList";
 // import { getFilmsArrayFromJSON } from "../../const/const";
-import { askNumber } from "../../const/functions";
-import { FilmsDescription, RootData } from "../../interfaces/films-description.interface";
+import { RootData } from "../../interfaces/films-description.interface";
 
 const PREFIX = 'https://search.imdbot.workers.dev/';
 
-console.log(askNumber(12));
-
 export default function MainPage() {
-  const [isLogged, setIsLogged] = useState(true);
+  // const [isLogged, setIsLogged] = useState(true);
   const [dataObj, setSetDataObj] = useState<RootData | null>();
   const [search, setSearch] = useState<string>('');
 
   // const films = getFilmsArrayFromJSON(dataObj);
 
   useEffect(() => {
-    const getFilms = async (name?: string) => {
+    const getFilms = async () => {
       try {
         const res = await fetch(`${PREFIX}?q=${search}`);
         if (!res.ok) {
@@ -34,9 +31,9 @@ export default function MainPage() {
         return;
       }
     };
-    getFilms(search);
+    getFilms();
     console.log(dataObj);
-  }, [search]);
+  }, []);
 
   const updateFilter = (event: ChangeEvent<HTMLInputElement>) => {
     setSearch(event.target.value);
@@ -60,7 +57,6 @@ export default function MainPage() {
           {/* Обернуть эти элементы в компонент формы */}
           <SearchInput onChange={updateFilter} value={search} />
           <Button
-            // onClick={onClickHandler}
             onSubmit={() => console.log('submit')}
             className={null}>
             Искать
