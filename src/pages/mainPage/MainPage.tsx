@@ -5,9 +5,12 @@ import Paragraph from "../../components/paragraph/Paragraph";
 import SearchInput from "../../components/searchInput/SearchInput";
 import FilmsList from "../../components/filmsList/FilmsList";
 // import { getFilmsArrayFromJSON } from "../../const/const";
+import { askNumber } from "../../const/functions";
 import { FilmsDescription, RootData } from "../../interfaces/films-description.interface";
 
 const PREFIX = 'https://search.imdbot.workers.dev/';
+
+console.log(askNumber(12));
 
 export default function MainPage() {
   const [isLogged, setIsLogged] = useState(true);
@@ -40,10 +43,10 @@ export default function MainPage() {
     console.log(event.target.value);
   };
 
-  const onClickHandler = () => {
-    console.log('click');
-    // getFilms(search);
-  };
+  // const onClickHandler = () => {
+  //   console.log('click');
+  //   // getFilms(search);
+  // };
 
   return (
     <section>

@@ -1,4 +1,4 @@
-import { FilmsDescription, RootData } from "../interfaces/films-description.interface";
+import { RootData } from "../interfaces/films-description.interface";
 
 export const INITIAL_STATE = [{
   name: '',

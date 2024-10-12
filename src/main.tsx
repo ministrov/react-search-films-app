@@ -5,7 +5,6 @@ import Layout from './layouts/Layout';
 import MainPage from "./pages/mainPage/MainPage";
 import LoginPage from "./pages/loginPage/LoginPage";
 import FavoritesPage from "./pages/favoritesPage/FavoritesPage";
-// import { films } from './const/const';
 import './index.css';
 
 const router = createBrowserRouter([
