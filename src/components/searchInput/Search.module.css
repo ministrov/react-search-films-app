@@ -3,7 +3,8 @@
   display: flex;
   align-items: center;
   min-width: 328px;
-  height: 64px;
+  height: 60px;
+  padding-left: 56px;
   border: 2px solid #475069;
   border-radius: 12px;
 }
@@ -12,15 +13,19 @@
   min-width: 328px;
   margin: 0;
   padding: 0;
-  padding-top: 24px;
-  padding-bottom: 24px;
-  padding-left: 56px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  font-family: "Poppins", sans-serif;
+  font-size: 14px;
+  line-height: 1.2;
   border: none;
   outline: none;
+  color: #ffffff;
   background-color: transparent;
 }
 
 .search-input input::placeholder {
+  font-family: "Poppins", sans-serif;
   font-size: 14px;
   line-height: 1.2;
   color: #475069;
@@ -33,6 +38,6 @@
   left: 18px;
   width: 24px;
   height: 24px;
-  background-image: url("../../assets/search-normal.svg");
+  background-image: url("/search-normal.svg");
   transform: translateY(-50%);
 }
