@@ -10,40 +10,34 @@ import { RootData } from "../../interfaces/films-description.interface";
 const PREFIX = 'https://search.imdbot.workers.dev/';
 
 export default function MainPage() {
-  // const [isLogged, setIsLogged] = useState(true);
   const [dataObj, setSetDataObj] = useState<RootData | null>();
   const [search, setSearch] = useState<string>('');
 
   // const films = getFilmsArrayFromJSON(dataObj);
 
-  useEffect(() => {
-    const getFilms = async () => {
-      try {
-        const res = await fetch(`${PREFIX}?q=${search}`);
-        if (!res.ok) {
-          return;
-        }
-        const data = await res.json() as RootData;
-        setSetDataObj(data);
+  // useEffect(() => {
+  //   const getFilms = async () => {
+  //     try {
+  //       const res = await fetch(`${PREFIX}?q=${search}`);
+  //       if (!res.ok) {
+  //         return;
+  //       }
+  //       const data = await res.json() as RootData;
+  //       setSetDataObj(data);
 
-      } catch (e) {
-        console.error(e);
-        return;
-      }
-    };
-    getFilms();
-    console.log(dataObj);
-  }, []);
+  //     } catch (e) {
+  //       console.error(e);
+  //       return;
+  //     }
+  //   };
+  //   // getFilms();
+  //   console.log(dataObj);
+  // }, []);
 
   const updateFilter = (event: ChangeEvent<HTMLInputElement>) => {
     setSearch(event.target.value);
     console.log(event.target.value);
   };
-
-  // const onClickHandler = () => {
-  //   console.log('click');
-  //   // getFilms(search);
-  // };
 
   return (
     <section>
