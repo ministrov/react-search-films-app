@@ -5,11 +5,11 @@ import Button from '../button/Button';
 import styles from './EnterForm.module.css';
 
 type EnterFormProps = {
-  onSubmit: () => void;
+  onSubmit: (e: SubmitEvent) => void
   onChange: (f: string) => void;
 }
 
-export default function EnterFrom({ onSubmit, onChange }: EnterFormProps) {
+export default function EnterFrom({ onChange, onSubmit }: EnterFormProps) {
   const inputRef = useRef(null);
 
   return (
@@ -17,7 +17,7 @@ export default function EnterFrom({ onSubmit, onChange }: EnterFormProps) {
       <Heading text={'Вход'} />
       <form className={styles['enter-form']} action="#">
         <EnterInput ref={inputRef.current} onChange={onChange} />
-        <Button className={'button-big'} onSubmit={onSubmit}>
+        <Button onSubmit={onSubmit} className={'button-big'}>
           Войти в профиль
         </Button>
       </form>

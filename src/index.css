@@ -49,3 +49,9 @@ body {
   align-items: center;
   gap: 1rem;
 }
+
+.left-box-bottom form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}

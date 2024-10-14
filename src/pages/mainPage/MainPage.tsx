@@ -4,39 +4,29 @@ import Heading from "../../components/heading/Heading";
 import Paragraph from "../../components/paragraph/Paragraph";
 import SearchInput from "../../components/searchInput/SearchInput";
 import FilmsList from "../../components/filmsList/FilmsList";
+import { useHttpRequest } from "../../hooks/http.request.hook";
 // import { getFilmsArrayFromJSON } from "../../const/const";
-import { RootData } from "../../interfaces/films-description.interface";
 
 const PREFIX = 'https://search.imdbot.workers.dev/';
 
 export default function MainPage() {
-  const [dataObj, setSetDataObj] = useState<RootData | null>();
   const [search, setSearch] = useState<string>('');
+  const { loading, request, data } = useHttpRequest();
 
   // const films = getFilmsArrayFromJSON(dataObj);
 
-  // useEffect(() => {
-  //   const getFilms = async () => {
-  //     try {
-  //       const res = await fetch(`${PREFIX}?q=${search}`);
-  //       if (!res.ok) {
-  //         return;
-  //       }
-  //       const data = await res.json() as RootData;
-  //       setSetDataObj(data);
-
-  //     } catch (e) {
-  //       console.error(e);
-  //       return;
-  //     }
-  //   };
-  //   // getFilms();
-  //   console.log(dataObj);
-  // }, []);
+  useEffect(() => {
+    request(PREFIX)
+  }, []);
 
   const updateFilter = (event: ChangeEvent<HTMLInputElement>) => {
     setSearch(event.target.value);
     console.log(event.target.value);
+  };
+
+  const onSubmitHandler = (event: SubmitEvent) => {
+    event.preventDefault();
+    console.log('submit');
   };
 
   return (
@@ -49,12 +39,15 @@ export default function MainPage() {
         </Paragraph>
         <div className='left-box-bottom'>
           {/* Обернуть эти элементы в компонент формы */}
-          <SearchInput onChange={updateFilter} value={search} />
-          <Button
-            onSubmit={() => console.log('submit')}
-            className={null}>
-            Искать
-          </Button>
+          <form action="#">
+            <SearchInput onChange={updateFilter} value={search} />
+            <Button
+              onSubmit={onSubmitHandler}
+              className={'button-big'}
+            >
+              Искать
+            </Button>
+          </form>
         </div>
       </div>
       <div className='films-wrapper'>
