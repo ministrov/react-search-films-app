@@ -1,32 +1,32 @@
-import { ChangeEvent, useEffect, useState } from "react";
+import { ChangeEvent, FormEvent, useEffect, useState } from "react";
 import Button from "../../components/button/Button";
 import Heading from "../../components/heading/Heading";
 import Paragraph from "../../components/paragraph/Paragraph";
 import SearchInput from "../../components/searchInput/SearchInput";
 import FilmsList from "../../components/filmsList/FilmsList";
 import { useHttpRequest } from "../../hooks/http.request.hook";
-// import { getFilmsArrayFromJSON } from "../../const/const";
+import NotFound from "../../components/notFound/NotFound";
 
 const PREFIX = 'https://search.imdbot.workers.dev/';
 
 export default function MainPage() {
   const [search, setSearch] = useState<string>('');
-  const { loading, request, data } = useHttpRequest();
-
-  // const films = getFilmsArrayFromJSON(dataObj);
+  const { loading, request, films } = useHttpRequest();
 
   useEffect(() => {
-    request(PREFIX)
+    request(`${PREFIX}?q=${search}`);
+
+    console.log(films);
   }, []);
 
   const updateFilter = (event: ChangeEvent<HTMLInputElement>) => {
     setSearch(event.target.value);
-    console.log(event.target.value);
   };
 
-  const onSubmitHandler = (event: SubmitEvent) => {
+  const onSubmitHandler = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    console.log('submit');
+
+    request(`${PREFIX}?q=${search}`);
   };
 
   return (
@@ -39,10 +39,9 @@ export default function MainPage() {
         </Paragraph>
         <div className='left-box-bottom'>
           {/* Обернуть эти элементы в компонент формы */}
-          <form action="#">
+          <form onSubmit={onSubmitHandler} action="#" method="#">
             <SearchInput onChange={updateFilter} value={search} />
             <Button
-              onSubmit={onSubmitHandler}
               className={'button-big'}
             >
               Искать
@@ -51,7 +50,11 @@ export default function MainPage() {
         </div>
       </div>
       <div className='films-wrapper'>
-        <FilmsList films={[]} />
+        {films.length > 0 && !loading ? (
+          <FilmsList films={films} />
+        ) : (
+          <NotFound />
+        )}
       </div>
     </section>
   )

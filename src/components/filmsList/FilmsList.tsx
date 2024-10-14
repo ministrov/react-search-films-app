@@ -25,11 +25,7 @@ export default function FilmsList({ films }: FilmsListProps) {
 
     return (
         <BasicList className={styles['films-list']}>
-            {films.length > 0 ? (
-                listItem
-            ) : (
-                <NotFound />
-            )}
+            {listItem}
         </BasicList>
     )
 }

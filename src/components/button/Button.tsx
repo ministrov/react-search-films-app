@@ -5,14 +5,13 @@ import styles from './Button.module.css';
 type ButtonProps = {
   children: ReactNode
   className: string | null
-  onSubmit: (e: SubmitEvent) => void
 }
 
-export default function Button({ children, className, onSubmit, ...props }: ButtonProps) {
+export default function Button({ children, className, ...props }: ButtonProps) {
   return (
     <button className={cn(styles['button'], {
       [styles['button-big']]: className
-    })} type='submit' {...props}>
+    })} {...props}>
       {children}
     </button>
   )
