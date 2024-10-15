@@ -1,4 +1,4 @@
-import { ChangeEvent, FormEvent, useEffect, useState } from "react";
+import { ChangeEvent, FormEvent, useState } from "react";
 import Button from "../../components/button/Button";
 import Heading from "../../components/heading/Heading";
 import Paragraph from "../../components/paragraph/Paragraph";
@@ -6,20 +6,27 @@ import SearchInput from "../../components/searchInput/SearchInput";
 import FilmsList from "../../components/filmsList/FilmsList";
 import { useHttpRequest } from "../../hooks/http.request.hook";
 import NotFound from "../../components/notFound/NotFound";
+import Spinner from "../../components/spinner/Spinner";
+import { FilmsDescription } from "../../interfaces/films-description.interface";
 
 const PREFIX = 'https://search.imdbot.workers.dev/';
 
 export default function MainPage() {
+  const [films, setFilms] = useState<FilmsDescription[]>([]);
   const [search, setSearch] = useState<string>('');
-  const { loading, request, films } = useHttpRequest();
+  const { request, loading } = useHttpRequest();
 
-  console.log(loading);
+  // console.log(loading);
 
-  useEffect(() => {
-    request(`${PREFIX}?q=${search}`);
+  // useEffect(() => {
+  //   request(`${PREFIX}?q=${search}`)
+  //     .then((data) => {
+  //       setFilms(data?.description as any);
+  //       console.log(data?.description);
+  //     })
 
-    console.log(films);
-  }, []);
+  //   console.log(films);
+  // }, []);
 
   const updateFilter = (event: ChangeEvent<HTMLInputElement>) => {
     setSearch(event.target.value);
@@ -28,7 +35,11 @@ export default function MainPage() {
   const onSubmitHandler = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
-    request(`${PREFIX}?q=${search}`);
+    request(`${PREFIX}?q=${search}`)
+      .then((data) => {
+        setFilms(data?.description as any);
+        console.log(data?.description);
+      })
   };
 
   return (
@@ -54,7 +65,7 @@ export default function MainPage() {
       <div className='films-wrapper'>
         {!loading && films.length > 0 && <FilmsList films={films} />}
         {!loading && films.length === 0 && <NotFound />}
-        {/* {loading && <>Loading....</>} */}
+        {loading && <Spinner />}
       </div>
     </section>
   )

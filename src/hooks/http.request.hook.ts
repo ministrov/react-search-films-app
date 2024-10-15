@@ -3,9 +3,9 @@ import { FilmsDescription, RootData } from "../interfaces/films-description.inte
 
 export const useHttpRequest = () => {
     const [loading, setLoading] = useState<boolean>(false);
-    const [films, setFilms] = useState<FilmsDescription[]>([]);
 
     const request = async (url: string) => {
+
         setLoading(true);
 
         try {
@@ -15,11 +15,10 @@ export const useHttpRequest = () => {
             }
             const data = await response.json() as RootData;
 
-            setFilms(data.description);
-
+            // setFilms(data.description);
             setLoading(false);
 
-            return films;
+            return data;
 
         } catch (e) {
             console.error(e);
@@ -28,8 +27,7 @@ export const useHttpRequest = () => {
     }
 
     return {
-        loading,
         request,
-        films
+        loading
     }
 };
