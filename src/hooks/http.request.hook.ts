@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { FilmsDescription, RootData } from "../interfaces/films-description.interface";
+import { RootData } from "../interfaces/films-description.interface";
 
 export const useHttpRequest = () => {
     const [loading, setLoading] = useState<boolean>(false);
@@ -15,7 +15,6 @@ export const useHttpRequest = () => {
             }
             const data = await response.json() as RootData;
 
-            // setFilms(data.description);
             setLoading(false);
 
             return data;
