@@ -4,21 +4,32 @@ import BasicList from '../basicList/BasicList';
 import NotFound from '../notFound/NotFound';
 import { FilmsDescription } from '../../interfaces/films-description.interface';
 import styles from './FilmsList.module.css';
+import SkeletonImage from '../skeletonImage/SkeletonImage';
 
 type FilmsListProps = {
     films: FilmsDescription[];
 }
 
 export default function FilmsList({ films }: FilmsListProps) {
-    const listItem = films.map((film: FilmsDescription, index: number) => (
-        <li className={styles['films-list-item']} key={index + 1}>
+    const listItem = films.map((film: FilmsDescription) => (
+        <li className={styles['films-list-item']} key={film["#IMDB_ID"]}>
             <div className={styles['films-rating-box']}>
-                <Rating count={film.rating} />
+                <Rating count={film["#RANK"]} />
             </div>
-            <img src={film.poster} alt={`Poster name ${film.title}`} />
+            {/* Если картинки нет , показать заглушку */}
+            {film["#IMG_POSTER"] ? (
+                <img className={styles["film-item-img"]}
+                    src={film["#IMG_POSTER"]}
+                    width={film["photo_width"] || 266}
+                    height={film["photo_height"] || 400}
+                    alt={`Poster name ${film["#TITLE"]}`}
+                />
+            ) : (
+                <SkeletonImage />
+            )}
             <div className={styles['films-bottom']}>
-                <h3>{film.title}</h3>
-                <FavoritesButton isFavorite={film.isFavorite} />
+                <h3>{film["#TITLE"]}</h3>
+                <FavoritesButton isFavorite={false} />
             </div>
         </li>
     ));

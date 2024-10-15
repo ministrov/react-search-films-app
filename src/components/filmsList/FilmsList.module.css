@@ -10,12 +10,22 @@
 
 .films-list-item {
   position: relative;
+  max-width: 282px;
   padding: 8px 8px 24px 8px;
   background-color: #20283E;
   border-radius: 12px;
 }
 
+.film-item-img {
+  display: block;
+  min-width: 266px;
+  max-width: 266px;
+  max-height: 400px;
+  border-radius: 8px;
+}
+
 .films-list-item h3 {
+  max-width: 239px;
   margin: 0;
   font-size: 16px;
   font-weight: 600;
