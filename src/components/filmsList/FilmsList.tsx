@@ -10,8 +10,8 @@ type FilmsListProps = {
 }
 
 export default function FilmsList({ films }: FilmsListProps) {
-    const listItem = films.map((film: FilmsDescription) => (
-        <li className={styles['films-list-item']} key={film.id}>
+    const listItem = films.map((film: FilmsDescription, index: number) => (
+        <li className={styles['films-list-item']} key={index + 1}>
             <div className={styles['films-rating-box']}>
                 <Rating count={film.rating} />
             </div>

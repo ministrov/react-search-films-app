@@ -13,6 +13,8 @@ export default function MainPage() {
   const [search, setSearch] = useState<string>('');
   const { loading, request, films } = useHttpRequest();
 
+  console.log(loading);
+
   useEffect(() => {
     request(`${PREFIX}?q=${search}`);
 
@@ -50,11 +52,9 @@ export default function MainPage() {
         </div>
       </div>
       <div className='films-wrapper'>
-        {films.length > 0 && !loading ? (
-          <FilmsList films={films} />
-        ) : (
-          <NotFound />
-        )}
+        {!loading && films.length > 0 && <FilmsList films={films} />}
+        {!loading && films.length === 0 && <NotFound />}
+        {/* {loading && <>Loading....</>} */}
       </div>
     </section>
   )

@@ -15,9 +15,9 @@ export const useHttpRequest = () => {
             }
             const data = await response.json() as RootData;
 
-            setLoading(false);
+            setFilms(data.description);
 
-            setFilms(data.description)
+            setLoading(false);
 
             return films;
 
