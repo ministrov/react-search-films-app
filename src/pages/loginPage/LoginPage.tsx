@@ -30,7 +30,7 @@ export default function LoginPage() {
   return (
     <section>
       <h2 className="visually-hidden">Страница входа пользователя</h2>
-      <EnterFrom onSubmit={onSubmitHandler} onChange={getInputValue} />
+      <EnterFrom onChange={getInputValue} />
       {/* <InfoPanel title="This is an extendebale panel">
         Lorem ipsum dolor sit amet.
       </InfoPanel> */}
