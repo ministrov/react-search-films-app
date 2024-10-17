@@ -17,6 +17,11 @@
   border-radius: 12px;
 }
 
+.films-list-link {
+  display: block;
+  text-decoration: none;
+}
+
 .film-item-img {
   display: block;
   min-width: 266px;

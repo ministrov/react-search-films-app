@@ -16,18 +16,6 @@ export default function MainPage() {
   const [search, setSearch] = useState<string>('');
   const { request, loading } = useHttpRequest();
 
-  // console.log(loading);
-
-  // useEffect(() => {
-  //   request(`${PREFIX}?q=${search}`)
-  //     .then((data) => {
-  //       setFilms(data?.description as any);
-  //       console.log(data?.description);
-  //     })
-
-  //   console.log(films);
-  // }, []);
-
   const updateFilter = (event: ChangeEvent<HTMLInputElement>) => {
     setSearch(event.target.value);
   };
@@ -37,7 +25,7 @@ export default function MainPage() {
 
     request(`${PREFIX}?q=${search}`)
       .then((data) => {
-        setFilms(data?.description as any);
+        setFilms(data?.description as FilmsDescription[]);
         console.log(data?.description);
       })
   };

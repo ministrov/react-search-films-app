@@ -3,6 +3,8 @@ import styles from './MoviePage.module.css';
 
 export default function MoviePage() {
     // const data = useLoaderData() as any;
+
+    // console.log(data);
     return (
 
         <section>

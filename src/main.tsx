@@ -35,7 +35,7 @@ const router = createBrowserRouter([
         path: '/movie/:id',
         element: <MoviePage />,
         // loader: async ({ params }) => {
-        //   const { data }: any = await fetch(`${PREFIX}movie/${params.id}`);
+        //   const { data }: any = await fetch(`${PREFIX}${params.id}`);
         //   return data;
         // }
       }
