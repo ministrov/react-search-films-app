@@ -1,6 +1,8 @@
 .skeleton {
     min-height: 400px;
-    background-color: purple;
+    min-width: 266px;
+    background-color: lemonchiffon;
+    border-radius: 8px;
 }
 
 .skeleton-header {

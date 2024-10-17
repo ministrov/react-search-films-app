@@ -10,6 +10,7 @@
 
 .films-list-item {
   position: relative;
+  min-width: 262px;
   max-width: 282px;
   padding: 8px 8px 24px 8px;
   background-color: #20283E;
