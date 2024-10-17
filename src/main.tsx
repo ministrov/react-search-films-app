@@ -10,8 +10,6 @@ import NotFound from './components/notFound/NotFound';
 import MoviePage from './pages/moviePage/MoviePage';
 import './index.css';
 
-const PREFIX = 'https://search.imdbot.workers.dev/';
-
 // const { request } = useHttpRequest();
 
 const router = createBrowserRouter([
