@@ -7,9 +7,7 @@ import LoginPage from "./pages/loginPage/LoginPage";
 import FavoritesPage from "./pages/favoritesPage/FavoritesPage";
 import NotFound from './components/notFound/NotFound';
 import MoviePage from './pages/moviePage/MoviePage';
-// import { IMovie } from './interfaces/movie.interface';
 import './index.css';
-// import { IMovie } from './interfaces/movie.interface';
 
 const PREFIX = 'https://search.imdbot.workers.dev/';
 
@@ -28,7 +26,7 @@ const router = createBrowserRouter([
         errorElement: <>Something went wrong, sorry.....</>,
         loader: async ({ params }) => {
           console.log(typeof params.id);
-          const { data } = await fetch(`${PREFIX}movie/?tt=${params.id}`) as any;
+          const { data } = await fetch(`${PREFIX}?tt=${params.id}`) as any;
           console.log(data);
           return data;
         }
