@@ -1,28 +1,32 @@
-// import { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
 // import { useHttpRequest } from '../../hooks/http.request.hook';
 // import { useParams } from 'react-router-dom';
 // import { IMovie } from '../../interfaces/movie.interface';
+import { IMovie } from '../../interfaces/movie.interface';
 import styles from './MoviePage.module.css';
 
 // const PREFIX = 'https://search.imdbot.workers.dev/';
 
 export default function MoviePage() {
-    const data = useLoaderData();
-
-    console.log(data);
     // const [film, setFilm] = useState<IMovie | {}>({});
+    const data = useLoaderData() as IMovie;
+
+    // console.log(data.short);
     // const { id } = useParams();
     // const { request } = useHttpRequest();
 
     // useEffect(() => {
-    //     request(`${PREFIX}movie/?tt=${id}`)
-    //         .then((data) => {
-    //             setFilm({ ...data } as IMovie);
-    //         })
+    //     if (data) {
+    //         setFilm(data);
+    //     }
+    // }, [data]);
 
-    //     console.log(film);
-    // }, []);
+    // console.log(film);
+
+    useEffect(() => {
+        console.log(data.short);
+    }, []);
 
     return (
 
@@ -31,7 +35,7 @@ export default function MoviePage() {
             <div className={styles["movie-page-container"]}>
                 <header className={styles["movie-page-header"]}>
                     <Link className={styles["movie-page-link"]} to={'/'}>Поиск фильмов</Link>
-                    <p>{'dfdfdfdf'}</p>
+                    <p>{data?.short.name}</p>
                 </header>
 
                 <div className={styles["movie-page-wrapper"]}>
