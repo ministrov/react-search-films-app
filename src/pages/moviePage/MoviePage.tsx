@@ -1,35 +1,37 @@
-// import { useLoaderData } from 'react-router-dom';
-import { useState, useEffect } from 'react';
+// import { useState, useEffect } from 'react';
+import { Link, useLoaderData } from 'react-router-dom';
+// import { useHttpRequest } from '../../hooks/http.request.hook';
+// import { useParams } from 'react-router-dom';
+// import { IMovie } from '../../interfaces/movie.interface';
 import styles from './MoviePage.module.css';
-import { useHttpRequest } from '../../hooks/http.request.hook';
-import { useParams } from 'react-router-dom';
 
-const PREFIX = 'https://search.imdbot.workers.dev/';
+// const PREFIX = 'https://search.imdbot.workers.dev/';
 
 export default function MoviePage() {
-    const [film, setFilm] = useState([]);
-    const { id } = useParams();
-    const { request } = useHttpRequest();
-    // const data = useLoaderData() as any;
+    const data = useLoaderData();
 
-    useEffect(() => {
-        request(`${PREFIX}movie/?tt=${id}`)
-            .then((data) => {
-                setFilm(data as any);
-            })
+    console.log(data);
+    // const [film, setFilm] = useState<IMovie | {}>({});
+    // const { id } = useParams();
+    // const { request } = useHttpRequest();
 
-        console.log(film);
-    }, []);
+    // useEffect(() => {
+    //     request(`${PREFIX}movie/?tt=${id}`)
+    //         .then((data) => {
+    //             setFilm({ ...data } as IMovie);
+    //         })
 
-    // console.log(data);
+    //     console.log(film);
+    // }, []);
+
     return (
 
         <section>
             <h2 className="visually-hidden">Страница фильма</h2>
             <div className={styles["movie-page-container"]}>
                 <header className={styles["movie-page-header"]}>
-                    <h3>Поиск фильмов</h3>
-                    <p>{'dfdkfdf'}</p>
+                    <Link className={styles["movie-page-link"]} to={'/'}>Поиск фильмов</Link>
+                    <p>{'dfdfdfdf'}</p>
                 </header>
 
                 <div className={styles["movie-page-wrapper"]}>
