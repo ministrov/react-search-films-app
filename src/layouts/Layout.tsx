@@ -8,8 +8,6 @@ export default function Layout() {
   const [isLogged, setIsLogged] = useState(true);
   const profiles = useContext<any>(UserProfileContext);
   const profile = profiles[0];
-  console.log(profiles);
-  console.log(profile);
 
   const onClickHandler = () => {
     setIsLogged(false);
