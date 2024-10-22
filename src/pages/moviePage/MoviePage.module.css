@@ -3,10 +3,25 @@
     margin: 0 auto;
 }
 
+.movie-page-wrapper {
+    display: flex;
+    gap: 80px;
+}
+
 .movie-page-header {
+    margin-bottom: 80px;
     padding: 40px;
     background-color: #20283E;
     border-radius: 24px;
+}
+
+.movie-page-image-box {
+    width: 50%;
+    background-color: tomato;
+}
+
+.movie-page-text-box {
+    width: 50%;
 }
 
 .movie-page-link {
