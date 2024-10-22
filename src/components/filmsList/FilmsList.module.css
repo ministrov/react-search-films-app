@@ -31,8 +31,10 @@
 }
 
 .films-list-item h3 {
+  min-height: 40px;
   max-width: 239px;
   margin: 0;
+  margin-bottom: 16px;
   font-size: 16px;
   font-weight: 600;
   line-height: 1.2;

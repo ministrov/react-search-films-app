@@ -21,7 +21,17 @@
 }
 
 .movie-page-text-box {
+    max-width: 480px;
+}
+
+.movie-page-text-box {
     width: 50%;
+}
+
+.movie-page-rating-block {
+    display: flex;
+    align-items: center;
+    gap: 15px;
 }
 
 .movie-page-link {

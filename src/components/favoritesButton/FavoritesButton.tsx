@@ -13,7 +13,6 @@ export default function FavoritesButton({ isFavorite }: FavoritesButtonProps) {
       {isFavorite ? (
         <>
           <FavoriteIconActive />
-          {/* <p className={`${isFavorite ? styles['active'] : ''}`}>В избраном</p> */}
           <p className={cn({
             [styles['active']]: isFavorite
           })}>В избраном</p>
