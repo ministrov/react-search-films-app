@@ -1,8 +1,10 @@
-import { StrictMode } from 'react';
+import { StrictMode, Suspense } from 'react';
 import { createRoot } from 'react-dom/client';
 import { createBrowserRouter, defer, RouterProvider } from "react-router-dom";
+import { IMovie } from './interfaces/movie.interface';
 import Layout from './layouts/Layout';
 import Message from './components/Message/Message';
+import Spinner from './components/spinner/Spinner';
 import MainPage from "./pages/mainPage/MainPage";
 import LoginPage from "./pages/loginPage/LoginPage";
 import FavoritesPage from "./pages/favoritesPage/FavoritesPage";
@@ -26,7 +28,7 @@ const router = createBrowserRouter([
         errorElement: <Message type='error' />,
         loader: async ({ params }) => {
           return defer({
-            data: await fetch(`${PREFIX}?tt=${params.id}`).then(data => data) as any
+            data: await fetch(`${PREFIX}?tt=${params.id}`).then(data => data.json()) as IMovie
           });
           // // console.log(typeof params.id);
           // const { data } = await fetch(`${PREFIX}?tt=${params.id}`) as any;
