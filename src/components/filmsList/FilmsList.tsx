@@ -1,7 +1,7 @@
 import Rating from '../rating/Rating';
 import FavoritesButton from '../favoritesButton/FavoritesButton';
 import BasicList from '../basicList/BasicList';
-import NotFound from '../notFound/NotFound';
+import NotFound from '../Message/Message';
 import { FilmsDescription } from '../../interfaces/films-description.interface';
 import styles from './FilmsList.module.css';
 import SkeletonImage from '../skeletonImage/SkeletonImage';

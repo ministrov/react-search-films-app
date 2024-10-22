@@ -12,7 +12,7 @@ export default function MoviePage() {
     // const [film, setFilm] = useState<IMovie | {}>({});
     const data = useLoaderData() as IMovie;
 
-    // console.log(data.short);
+    console.log(data);
     // const { id } = useParams();
     // const { request } = useHttpRequest();
 

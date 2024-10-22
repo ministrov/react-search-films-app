@@ -5,9 +5,10 @@ import Paragraph from "../../components/paragraph/Paragraph";
 import SearchInput from "../../components/searchInput/SearchInput";
 import FilmsList from "../../components/filmsList/FilmsList";
 import { useHttpRequest } from "../../hooks/http.request.hook";
-import NotFound from "../../components/notFound/NotFound";
+import NotFound from "../../components/Message/Message";
 import Spinner from "../../components/spinner/Spinner";
 import { FilmsDescription } from "../../interfaces/films-description.interface";
+import Message from "../../components/Message/Message";
 
 const PREFIX = 'https://search.imdbot.workers.dev/';
 
@@ -52,7 +53,7 @@ export default function MainPage() {
       </div>
       <div className='films-wrapper'>
         {!loading && films.length > 0 && <FilmsList films={films} />}
-        {!loading && films.length === 0 && <NotFound />}
+        {!loading && films.length === 0 && <Message type='search' />}
         {loading && <Spinner />}
       </div>
     </section>
