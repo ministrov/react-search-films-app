@@ -3,9 +3,9 @@ import { Await, Link, useLoaderData } from 'react-router-dom';
 import SkeletonImage from '../../components/skeletonImage/SkeletonImage';
 import Spinner from '../../components/spinner/Spinner';
 import { IMovie } from '../../interfaces/movie.interface';
-import styles from './MoviePage.module.css';
 import Rating from '../../components/rating/Rating';
 import FavoritesButton from '../../components/favoritesButton/FavoritesButton';
+import styles from './MoviePage.module.css';
 
 export default function MoviePage() {
     const data = useLoaderData() as { data: IMovie };
@@ -17,11 +17,12 @@ export default function MoviePage() {
             <Await resolve={data.data}>
                 {({ data }: { data: IMovie }) => (
                     <section>
+                        {data.top.titleText.text}
                         <h2 className="visually-hidden">Страница фильма</h2>
                         <div className={styles["movie-page-container"]}>
                             <header className={styles["movie-page-header"]}>
                                 <Link className={styles["movie-page-link"]} to={'/'}>Поиск фильмов</Link>
-                                <p>{data?.short?.alternateName || 'Default title name'}</p>
+                                <p>{data?.top.titleText.text || 'Default title name'}</p>
                             </header>
 
                             <div className={styles["movie-page-wrapper"]}>
