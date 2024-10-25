@@ -1,10 +1,6 @@
-import Logo from '../logo/Logo.js'
-import NavMenu from '../navMenu/NavMenu.js'
+import Logo from '../logo/Logo.js';
 import NavMenuItem from "../navMenuItem/NavMenuItem.js";
-import BasicList from '../basicList/BasicList.js';
 import { MenuItem } from '../../interfaces/links.interface.js';
-import icon from '/enter.svg';
-import user from '/user.svg';
 import styles from './Header.module.css';
 
 type HeaderProps = {
@@ -14,36 +10,41 @@ type HeaderProps = {
 }
 
 export default function Header({ isLogged, links, onClick }: HeaderProps) {
-  // console.log(profile);
   return (
     <header className={styles['header']}>
       <Logo />
-      <NavMenu>
-        <BasicList>
-          {links.map((link: any) => (
-            <NavMenuItem
-              key={link.id}
-              label={link.label}
-              count={link.count}
-              hasCount={link.hasCount}
-              hasIcon={link.hasIcon}
-              href={link.href}
-            />
-          ))}
-        </BasicList>
+      <div className={styles['header__nav-wrapper']}>
+        <nav className={styles['header__nav']}>
+          <ul className={styles['header__list']}>
+            {links.map((link: any) => (
+              <NavMenuItem
+                key={link.id}
+                label={link.label}
+                count={link.count}
+                hasCount={link.hasCount}
+                hasIcon={link.hasIcon}
+                href={link.href}
+              />
+            ))}
+          </ul>
 
-        <BasicList>
-          {isLogged
-            ? (
-              <>
-                <NavMenuItem label={'Вася'} hasIcon={true} href='#' />
-                <NavMenuItem label={'Выйти'} href='#' onClick={onClick} />
-              </>
-            )
-            : <NavMenuItem label={'Войти'} href='/login' hasIcon={true} />
-          }
-        </BasicList>
-      </NavMenu>
+          <ul className={styles['header__list']}>
+            {isLogged
+              ? (
+                <ul className={styles['header__list']}>
+                  <NavMenuItem label={'Вася'} hasIcon={true} href='#' />
+                  <NavMenuItem label={'Выйти'} href='#' onClick={onClick} />
+                </ul>
+              )
+              : (
+                <ul className={styles['header__list']}>
+                  <NavMenuItem label={'Войти'} href='/login' typeIcon='enter' />
+                </ul>
+              )
+            }
+          </ul>
+        </nav>
+      </div>
     </header>
   )
 }

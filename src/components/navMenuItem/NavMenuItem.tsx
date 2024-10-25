@@ -1,8 +1,9 @@
 import { NavLink } from 'react-router-dom';
 import FavoriteCount from '../favoriteCount/favoriteCount';
-import HeaderIcon from '../headerIcon/HeaderIcon';
+import UserIcon from '../userIcon/UserIcon';
 import cn from 'classnames';
 import styles from './NavMenuItem.module.css';
+import EnterIcon from '../enterIcon/EnterIcon';
 
 type NavMenuItemProps = {
   count?: number;
@@ -10,10 +11,11 @@ type NavMenuItemProps = {
   hasIcon?: boolean;
   hasCount?: boolean;
   href?: string;
+  typeIcon?: string;
   onClick?: () => void;
 }
 
-export default function NavMenuItem({ count, label, hasIcon, hasCount, href, onClick }: NavMenuItemProps) {
+export default function NavMenuItem({ count, label, hasIcon, hasCount, href, onClick, typeIcon }: NavMenuItemProps) {
   return (
     <li onClick={onClick} className={styles['nav-menu-item']}>
       <NavLink className={({ isActive }) => cn(styles['nav-menu-link'], {
@@ -21,7 +23,8 @@ export default function NavMenuItem({ count, label, hasIcon, hasCount, href, onC
       })} to={`${href}`}>
         {label}
         {hasCount && <FavoriteCount count={count} />}
-        {hasIcon && <HeaderIcon />}
+        {hasIcon && <UserIcon />}
+        {typeIcon && <EnterIcon />}
       </NavLink>
     </li>
   )
