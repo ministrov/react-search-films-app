@@ -4,11 +4,10 @@ import Heading from "../../components/heading/Heading";
 import Paragraph from "../../components/paragraph/Paragraph";
 import SearchInput from "../../components/searchInput/SearchInput";
 import FilmsList from "../../components/filmsList/FilmsList";
-import { useHttpRequest } from "../../hooks/http.request.hook";
-import NotFound from "../../components/Message/Message";
 import Spinner from "../../components/spinner/Spinner";
-import { FilmsDescription } from "../../interfaces/films-description.interface";
 import Message from "../../components/Message/Message";
+import { useHttpRequest } from "../../hooks/http.request.hook";
+import { FilmsDescription } from "../../interfaces/films-description.interface";
 
 const PREFIX = 'https://search.imdbot.workers.dev/';
 

@@ -1,7 +1,5 @@
-// import { Suspense } from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
 import SkeletonImage from '../../components/skeletonImage/SkeletonImage';
-// import Spinner from '../../components/spinner/Spinner';
 import { IMovie } from '../../interfaces/movie.interface';
 import Rating from '../../components/rating/Rating';
 import FavoritesButton from '../../components/favoritesButton/FavoritesButton';
@@ -14,7 +12,6 @@ function MoviePage() {
 
     return (
         <section>
-            {/* {data.data?.top.titleText.text} */}
             <h2 className="visually-hidden">Страница фильма</h2>
             <div className={styles["movie-page-container"]}>
                 <header className={styles["movie-page-header"]}>

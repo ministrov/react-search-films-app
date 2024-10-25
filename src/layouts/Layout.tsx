@@ -2,12 +2,12 @@ import { useContext, useState } from "react";
 import { Outlet } from "react-router-dom";
 import Header from "../components/header/Header";
 import { links } from "../const/const";
-import { UserProfileContext, UserProfileContextProvider } from "../context/user-profile.context";
+// import { UserProfileContext, UserProfileContextProvider } from "../context/user-profile.context";
 
 export default function Layout() {
   const [isLogged, setIsLogged] = useState(true);
-  const profiles = useContext<any>(UserProfileContext);
-  const profile = profiles[0];
+  // const profiles = useContext<any>(UserProfileContext);
+  // const profile = profiles[0];
 
   const onClickHandler = () => {
     setIsLogged(false);
@@ -15,14 +15,12 @@ export default function Layout() {
   return (
     <>
       <div className='top container'>
-        <UserProfileContextProvider>
-          <Header
-            links={links}
-            profile={profile}
-            onClick={onClickHandler}
-            isLogged={isLogged}
-          />
-        </UserProfileContextProvider>
+        <Header
+          links={links}
+          // profile={profile}
+          onClick={onClickHandler}
+          isLogged={isLogged}
+        />
       </div>
       <main>
         <div className='container'>

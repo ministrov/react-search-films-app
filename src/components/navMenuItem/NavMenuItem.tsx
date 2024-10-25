@@ -5,7 +5,6 @@ import cn from 'classnames';
 import styles from './NavMenuItem.module.css';
 
 type NavMenuItemProps = {
-  icon?: SVGAElement;
   count?: number;
   label: string;
   hasIcon?: boolean;
@@ -14,7 +13,7 @@ type NavMenuItemProps = {
   onClick?: () => void;
 }
 
-export default function NavMenuItem({ icon, count, label, hasIcon, hasCount, href, onClick }: NavMenuItemProps) {
+export default function NavMenuItem({ count, label, hasIcon, hasCount, href, onClick }: NavMenuItemProps) {
   return (
     <li onClick={onClick} className={styles['nav-menu-item']}>
       <NavLink className={({ isActive }) => cn(styles['nav-menu-link'], {
@@ -22,7 +21,7 @@ export default function NavMenuItem({ icon, count, label, hasIcon, hasCount, hre
       })} to={`${href}`}>
         {label}
         {hasCount && <FavoriteCount count={count} />}
-        {hasIcon && <HeaderIcon icon={icon} width={24} height={24} alt={label} />}
+        {hasIcon && <HeaderIcon />}
       </NavLink>
     </li>
   )

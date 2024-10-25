@@ -2,11 +2,19 @@ import Logo from '../logo/Logo.js'
 import NavMenu from '../navMenu/NavMenu.js'
 import NavMenuItem from "../navMenuItem/NavMenuItem.js";
 import BasicList from '../basicList/BasicList.js';
+import { MenuItem } from '../../interfaces/links.interface.js';
 import icon from '/enter.svg';
 import user from '/user.svg';
 import styles from './Header.module.css';
 
-export default function Header({ isLogged, links, profile, onClick }: any) {
+type HeaderProps = {
+  isLogged: boolean;
+  links: MenuItem[];
+  onClick: () => void;
+}
+
+export default function Header({ isLogged, links, onClick }: HeaderProps) {
+  // console.log(profile);
   return (
     <header className={styles['header']}>
       <Logo />
@@ -16,7 +24,6 @@ export default function Header({ isLogged, links, profile, onClick }: any) {
             <NavMenuItem
               key={link.id}
               label={link.label}
-              icon={icon}
               count={link.count}
               hasCount={link.hasCount}
               hasIcon={link.hasIcon}
@@ -29,11 +36,11 @@ export default function Header({ isLogged, links, profile, onClick }: any) {
           {isLogged
             ? (
               <>
-                <NavMenuItem label={profile?.name || 'Вася'} hasIcon={true} href='#' icon={user} />
+                <NavMenuItem label={'Вася'} hasIcon={true} href='#' />
                 <NavMenuItem label={'Выйти'} href='#' onClick={onClick} />
               </>
             )
-            : <NavMenuItem label={'Войти'} href='/login' hasIcon={true} icon={icon} />
+            : <NavMenuItem label={'Войти'} href='/login' hasIcon={true} />
           }
         </BasicList>
       </NavMenu>

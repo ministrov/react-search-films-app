@@ -1,7 +1,7 @@
-import React from 'react';
-
-export default function HeaderIcon({ icon, width, height, alt }) {
+export default function HeaderIcon() {
   return (
-    <img src={icon} width={width} height={height} alt={alt} />
+    <>
+      IconUser
+    </>
   )
 }
