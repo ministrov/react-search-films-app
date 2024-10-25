@@ -1,15 +1,18 @@
-import { StrictMode, Suspense } from 'react';
+import { StrictMode, Suspense, lazy } from 'react';
 import { createRoot } from 'react-dom/client';
 import { createBrowserRouter, defer, RouterProvider } from "react-router-dom";
 import { IMovie } from './interfaces/movie.interface';
 import Layout from './layouts/Layout';
 import Message from './components/Message/Message';
 import Spinner from './components/spinner/Spinner';
+import LoginPage from './pages/loginPage/LoginPage';
+import FavoritesPage from './pages/favoritesPage/FavoritesPage';
 import MainPage from "./pages/mainPage/MainPage";
-import LoginPage from "./pages/loginPage/LoginPage";
-import FavoritesPage from "./pages/favoritesPage/FavoritesPage";
-import MoviePage from './pages/moviePage/MoviePage';
 import './index.css';
+
+const MoviePage = lazy(() => import('./pages/moviePage/MoviePage'));
+// const LoginPage = lazy(() => import('./pages/loginPage/LoginPage'));
+// const FavoritesPage = lazy(() => import('./pages/favoritesPage/FavoritesPage'));
 
 const PREFIX = 'https://search.imdbot.workers.dev/';
 
@@ -24,7 +27,7 @@ const router = createBrowserRouter([
       },
       {
         path: '/movie/:id',
-        element: <MoviePage />,
+        element: <Suspense fallback={<Spinner />}><MoviePage /></Suspense>,
         errorElement: <Message type='error' />,
         loader: async ({ params }) => {
           return defer({
