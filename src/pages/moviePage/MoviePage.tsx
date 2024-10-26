@@ -24,12 +24,12 @@ function MoviePage() {
                         {!data.data?.short?.image ? (
                             <SkeletonImage />
                         ) : (
-                            <img src={data.data?.short?.image || 'dfldgfjldgjds'} width={300} height={450} alt="Some alt" />
+                            <img src={data.data?.short?.image} width={300} height={450} alt="Some alt" />
                         )}
                     </div>
                     <div className={styles["movie-page-text-box"]}>
-                        <p>
-                            {data.data?.short?.descrtiption || 'llsfjslfjsdfjsdkf'}
+                        <p className={styles['movie-page-text']}>
+                            {data.data?.short?.description || 'Default text'}
                         </p>
                         <div className={styles["movie-page-rating-block"]}>
                             <Rating count={0} />

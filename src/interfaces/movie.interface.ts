@@ -8,7 +8,7 @@ export interface IMovie {
     short: {
         alternateName: string;
         name: string;
-        descrtiption: string;
+        description: string;
         genre: string[];
         image: string;
     }

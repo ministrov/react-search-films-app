@@ -37,6 +37,14 @@
     width: 50%;
 }
 
+
+.movie-page-text {
+    font-family: 'Poppins', sans-serif;
+    font-size: 20px;
+    line-height: 26px;
+    color: #8E95A9;
+}
+
 .movie-page-rating-block {
     display: flex;
     align-items: center;
