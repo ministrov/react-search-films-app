@@ -27,9 +27,6 @@ export default function LoginPage() {
     <section>
       <h2 className="visually-hidden">Страница входа пользователя</h2>
       <EnterFrom onChange={getInputValue} />
-      {/* <InfoPanel title="This is an extendebale panel">
-        Lorem ipsum dolor sit amet.
-      </InfoPanel> */}
     </section>
   )
 }

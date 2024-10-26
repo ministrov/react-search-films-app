@@ -17,3 +17,43 @@
   padding: 0;
   list-style: none;
 }
+
+.user-login__list {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* .user-login__user {} */
+
+.user-login__user {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.2;
+  text-decoration: none;
+  color: #A8AEBF;
+}
+
+.user-login__user:hover {
+  color: #ffffff;
+  transition: color 0.5s;
+}
+
+.user-login__logout {
+  padding: 12px 32px;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.2;
+  text-decoration: none;
+  color: #A8AEBF;
+  background-color: transparent;
+  color: #A8AEBF;
+  border: none;
+  cursor: pointer;
+}
