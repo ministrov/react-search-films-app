@@ -9,6 +9,7 @@ import LoginPage from './pages/loginPage/LoginPage';
 import FavoritesPage from './pages/favoritesPage/FavoritesPage';
 import MainPage from "./pages/mainPage/MainPage";
 import './index.css';
+import { UserProfileContextProvider } from './context/user-profile.context';
 
 const MoviePage = lazy(() => import('./pages/moviePage/MoviePage'));
 // const LoginPage = lazy(() => import('./pages/loginPage/LoginPage'));
@@ -57,6 +58,8 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <RouterProvider router={router} />
+    <UserProfileContextProvider>
+      <RouterProvider router={router} />
+    </UserProfileContextProvider>
   </StrictMode>,
 )

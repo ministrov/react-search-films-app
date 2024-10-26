@@ -1,9 +1,9 @@
 import { RootData } from "../interfaces/films-description.interface";
 
-export const INITIAL_STATE = [{
-  name: '',
-  isLogged: true
-}];
+// export const INITIAL_STATE = [{
+//   name: '',
+//   isLogged: true
+// }];
 
 export const links = [
   {

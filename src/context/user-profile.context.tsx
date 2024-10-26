@@ -1,15 +1,34 @@
 import { createContext, ReactNode, useState } from "react";
-import { INITIAL_STATE } from "../const/const";
 
-type UserProfileContextProviderProps = {
+export type UserProfileContextProviderProps = {
   children: ReactNode;
 }
 
-export const UserProfileContext = createContext(INITIAL_STATE);
+export type UserProfile = {
+  name: string;
+  isLogged: boolean;
+}
+
+export type MyContexType = {
+  users: UserProfile[];
+  addUser: (item: UserProfile) => void;
+  changeUsers: (item: UserProfile[]) => void;
+}
+
+export const UserProfileContext = createContext<MyContexType | undefined>(undefined);
 
 export const UserProfileContextProvider = ({ children }: UserProfileContextProviderProps) => {
+  const [users, setUsers] = useState<UserProfile[]>([]);
+
+  function addUser(item: UserProfile) {
+    setUsers((prevState) => [...prevState, item]);
+  };
+
+  function changeUsers(item: UserProfile[]) {
+    setUsers(item);
+  };
   return (
-    <UserProfileContext.Provider value={INITIAL_STATE}>
+    <UserProfileContext.Provider value={{ users, addUser, changeUsers }}>
       {children}
     </UserProfileContext.Provider>
   );

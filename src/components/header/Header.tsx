@@ -1,6 +1,8 @@
+import { useContext } from 'react';
 import Logo from '../logo/Logo.js';
 import NavMenuItem from "../navMenuItem/NavMenuItem.js";
 import { MenuItem } from '../../interfaces/links.interface.js';
+import { UserProfileContext } from '../../context/user-profile.context.js';
 import styles from './Header.module.css';
 
 type HeaderProps = {
@@ -10,6 +12,8 @@ type HeaderProps = {
 }
 
 export default function Header({ isLogged, links, onClick }: HeaderProps) {
+  const context = useContext(UserProfileContext);
+  console.log(context);
   return (
     <header className={styles['header']}>
       <Logo />
