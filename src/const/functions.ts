@@ -14,8 +14,7 @@
 
 // const value = returnValue(12);
 export function deleteMnemonic(string: string) {
-    let example = '&apos;';
-    let newString = string.split(' ').filter((c) => c.includes(example)).join('');
+    const words = string.split(' ');
 
-    return newString;
+    return words.join(' ').replace(/&apos;/g, '');
 }

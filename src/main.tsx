@@ -9,14 +9,11 @@ import LoginPage from './pages/loginPage/LoginPage';
 import FavoritesPage from './pages/favoritesPage/FavoritesPage';
 import MainPage from "./pages/mainPage/MainPage";
 import { UserProfileContextProvider } from './context/user-profile.context';
-import { deleteMnemonic } from './const/functions';
 import './index.css';
 
 const MoviePage = lazy(() => import('./pages/moviePage/MoviePage'));
 
 const PREFIX = 'https://search.imdbot.workers.dev/';
-
-console.log(deleteMnemonic('A bride&apos;s wedding night takes a sinister turn when her eccentric new in-laws force her to take part in a terrifying game.'))
 
 const router = createBrowserRouter([
   {
