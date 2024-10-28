@@ -26,7 +26,7 @@ export default function LoginPage() {
   return (
     <section>
       <h2 className="visually-hidden">Страница входа пользователя</h2>
-      <EnterFrom onChange={getInputValue} />
+      <EnterFrom onChange={getInputValue} onSubmit={() => console.log('dfsdfsdfsd')} />
     </section>
   )
 }

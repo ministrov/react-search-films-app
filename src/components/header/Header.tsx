@@ -60,9 +60,3 @@ export default function Header({ isLogged, links, logout }: HeaderProps) {
     </header>
   )
 }
-
-{/* <div className={styles['login-user']}>
-  {
-    usersState[0]?.isLogined ? <div className={styles['login-user__login']}><p className={styles['login-user__user']}>{user[0]?.name} <img src="/user-icon.svg" /></p>  <button className={styles['login-user__logout']} onClick={Logout}> Выход </button></div> : <NavLink>Войти</NavLink>
-  }
-</div> */}
