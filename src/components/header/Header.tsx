@@ -43,7 +43,7 @@ export default function Header({ isLogged, links, logout }: HeaderProps) {
                 <ul className={styles['user-login__list']}>
                   <li className={styles['user-login__list-item']}>
                     <p className={styles['user-login__user']}>
-                      {'Default name'}
+                      {!first.name ? 'Default name' : first.name}
                       <UserIcon />
                     </p>
                   </li>
