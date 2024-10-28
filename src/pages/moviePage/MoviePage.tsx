@@ -3,12 +3,13 @@ import SkeletonImage from '../../components/skeletonImage/SkeletonImage';
 import { IMovie } from '../../interfaces/movie.interface';
 import Rating from '../../components/rating/Rating';
 import FavoritesButton from '../../components/favoritesButton/FavoritesButton';
+import { removeMnemonic } from '../../const/functions';
 import styles from './MoviePage.module.css';
 
 function MoviePage() {
     const data = useLoaderData() as { data: IMovie };
 
-    console.log(data.data);
+    // console.log(data.data);
 
     return (
         <section>
@@ -29,7 +30,7 @@ function MoviePage() {
                     </div>
                     <div className={styles["movie-page-text-box"]}>
                         <p className={styles['movie-page-text']}>
-                            {data.data?.short?.description || 'Default text'}
+                            {removeMnemonic(data.data?.short?.description) || 'Default text'}
                         </p>
                         <div className={styles["movie-page-rating-block"]}>
                             <Rating count={0} />

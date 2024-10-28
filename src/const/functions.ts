@@ -13,8 +13,6 @@
 // }
 
 // const value = returnValue(12);
-export function deleteMnemonic(string: string) {
-    const words = string.split(' ');
-
-    return words.join(' ').replace(/&apos;/g, '');
+export function removeMnemonic(string: string) {
+    return string.split(' ').join(' ').replace(/&apos;/g, '').replace(/&quot;/g, '');
 }
