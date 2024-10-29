@@ -10,7 +10,7 @@ export default function EnterFrom() {
   const [userProfiles, setUserProfiles] = useLocaleStorage('user-profile');
   const { users, addUser } = useContext<MyContexType | any>(UserProfileContext);
   const [inputValue, setInputValue] = useState('');
-  const inputRef = useRef(null);
+  // const inputRef = useRef(null);
 
   function addUserHandler(event: FormEvent) {
     event.preventDefault();
@@ -24,6 +24,7 @@ export default function EnterFrom() {
   }
 
   const getInputValue = (string: string) => {
+    console.log(string);
     setInputValue(string);
   };
 
@@ -31,7 +32,7 @@ export default function EnterFrom() {
     <div className={styles['enter-form-wrapper']}>
       <Heading text={'Вход'} />
       <form className={styles['enter-form']} action="#" method='#' onSubmit={addUserHandler}>
-        <EnterInput ref={inputRef.current} onChange={getInputValue} />
+        <EnterInput onChange={getInputValue} />
         <Button className={'button-big'}>
           Войти в профиль
         </Button>
