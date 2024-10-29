@@ -1,5 +1,3 @@
-import { Key } from "react"
-
 export interface RootData {
     ok: boolean
     description: FilmsDescription[]

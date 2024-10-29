@@ -18,6 +18,7 @@ export default function EnterFrom() {
     setUserProfiles([...users]);
 
     console.log(userProfiles);
+    console.log(inputValue);
 
     console.log('form is submitted!!!');
   }

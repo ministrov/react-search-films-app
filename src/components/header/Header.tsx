@@ -2,7 +2,7 @@ import { useContext } from 'react';
 import Logo from '../logo/Logo.js';
 import NavMenuItem from "../navMenuItem/NavMenuItem.js";
 import { MenuItem } from '../../interfaces/links.interface.js';
-import { UserProfileContext, MyContexType } from '../../context/user-profile.context.js';
+import { UserProfileContext, MyContexType, UserProfile } from '../../context/user-profile.context.js';
 import useLocaleStorage from '../../hooks/use-local-storage.hook.js';
 import UserIcon from '../userIcon/UserIcon.js';
 import styles from './Header.module.css';
@@ -14,13 +14,11 @@ type HeaderProps = {
 }
 
 export default function Header({ isLogged, links, logout }: HeaderProps) {
-  // const { users } = useContext<MyContexType | any>(UserProfileContext);
-  const [data] = useLocaleStorage('user-profile') as any;
-  // const [first, ...other] = users;
+  const { users } = useContext<MyContexType | any>(UserProfileContext);
+  const [data] = useLocaleStorage('user-profile');
 
-  // console.log(data);
-
-  // console.log(first, ...other);
+  console.log(data);
+  console.log(users);
   return (
     <header className={styles['header']}>
       <Logo />

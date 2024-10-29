@@ -21,11 +21,15 @@ export const UserProfileContextProvider = ({ children }: UserProfileContextProvi
   const [users, setUsers] = useState<UserProfile[]>([]);
 
   function addUser(item: UserProfile) {
-    setUsers((prevState) => [...prevState, item]);
+    if (item.name) {
+      setUsers((prevState) => [...prevState, item]);
+    }
   };
 
   function changeUsers(item: UserProfile[]) {
-    setUsers(item);
+    if (item.length !== 0) {
+      setUsers(item);
+    }
   };
   return (
     <UserProfileContext.Provider value={{ users, addUser, changeUsers }}>
