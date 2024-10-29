@@ -15,9 +15,9 @@ type HeaderProps = {
 
 export default function Header({ isLogged, links, logout }: HeaderProps) {
   const { users } = useContext<MyContexType | any>(UserProfileContext);
-  const [data] = useLocaleStorage('user-profile');
+  const [userProfiles] = useLocaleStorage('user-profile');
 
-  console.log(data);
+  console.log(userProfiles);
   console.log(users);
   return (
     <header className={styles['header']}>

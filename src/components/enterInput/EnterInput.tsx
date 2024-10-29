@@ -10,16 +10,15 @@ function EnterInput({ onChange }: EnterInputProps) {
 
   const getInputValue = (event: ChangeEvent<HTMLInputElement>) => {
     setText(event.target.value);
-    // console.log(text);
     onChange(text);
   }
 
   return (
     <div className={styles['enter-input']}>
-      <label htmlFor="name"></label>
+      <label htmlFor="login"></label>
       <input
         type="text"
-        name='name'
+        name="login"
         placeholder='Ваше имя'
         onChange={getInputValue}
         value={text}

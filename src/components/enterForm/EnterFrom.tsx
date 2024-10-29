@@ -10,21 +10,21 @@ export default function EnterFrom() {
   const [userProfiles, setUserProfiles] = useLocaleStorage('user-profile');
   const { users, addUser } = useContext<MyContexType | any>(UserProfileContext);
   const [inputValue, setInputValue] = useState('');
-  // const inputRef = useRef(null);
 
   function addUserHandler(event: FormEvent) {
     event.preventDefault();
-    addUser({ name: inputValue.trim(), isLogged: true });
-    setUserProfiles([...users]);
+    addUser({ name: inputValue, isLogged: true });
+    setUserProfiles(users);
 
     console.log(userProfiles);
-    console.log(inputValue);
+    // console.log(inputValue);
+    // console.log(typeof inputValue);
 
-    console.log('form is submitted!!!');
+    // console.log('form is submitted!!!');
   }
 
   const getInputValue = (string: string) => {
-    console.log(string);
+    // console.log(string);
     setInputValue(string);
   };
 
