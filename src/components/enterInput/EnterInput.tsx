@@ -1,4 +1,4 @@
-import { ChangeEvent, forwardRef, useState } from 'react';
+import { ChangeEvent, useState } from 'react';
 import styles from './EnterInput.module.css';
 
 type EnterInputProps = {
@@ -13,6 +13,8 @@ function EnterInput({ onChange }: EnterInputProps) {
     onChange(text);
   }
 
+  console.log(text);
+
   return (
     <div className={styles['enter-input']}>
       <label htmlFor="login"></label>
@@ -23,6 +25,8 @@ function EnterInput({ onChange }: EnterInputProps) {
         onChange={getInputValue}
         value={text}
         autoComplete='off'
+        id="login"
+        required
       />
     </div>
   )

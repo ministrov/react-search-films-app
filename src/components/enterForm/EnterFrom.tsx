@@ -9,23 +9,20 @@ import styles from './EnterForm.module.css';
 export default function EnterFrom() {
   const [userProfiles, setUserProfiles] = useLocaleStorage('user-profile');
   const { users, addUser } = useContext<MyContexType | any>(UserProfileContext);
-  const [inputValue, setInputValue] = useState('');
+  // const [inputValue, setInputValue] = useState('');
 
   function addUserHandler(event: FormEvent) {
     event.preventDefault();
-    addUser({ name: inputValue, isLogged: true });
-    setUserProfiles(users);
+    // addUser({ name: '', isLogged: true });
+    // setUserProfiles(users);
+    setUserProfiles([...users, { name: getInputValue, isLogged: true }]);
 
     console.log(userProfiles);
-    // console.log(inputValue);
-    // console.log(typeof inputValue);
-
-    // console.log('form is submitted!!!');
   }
 
   const getInputValue = (string: string) => {
-    // console.log(string);
-    setInputValue(string);
+    console.log(string);
+    // setInputValue(string);
   };
 
   return (
