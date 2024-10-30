@@ -2,7 +2,7 @@ import { ChangeEvent, FormEvent, useState } from "react";
 import Button from "../../components/button/Button";
 import Heading from "../../components/heading/Heading";
 import Paragraph from "../../components/paragraph/Paragraph";
-import SearchInput from "../../components/searchInput/SearchInput";
+import Input from "../../components/Input/Input";
 import FilmsList from "../../components/filmsList/FilmsList";
 import Spinner from "../../components/spinner/Spinner";
 import Message from "../../components/Message/Message";
@@ -41,7 +41,7 @@ export default function MainPage() {
         <div className='left-box-bottom'>
           {/* Обернуть эти элементы в компонент формы */}
           <form onSubmit={onSubmitHandler} action="#" method="#">
-            <SearchInput onChange={updateFilter} value={search} isValid={true} />
+            <Input icon={true} onChange={updateFilter} value={search} isValid={!search} type={"text"} placeholder={'Введите название'} />
             <Button
               className={'button-big'}
             >
