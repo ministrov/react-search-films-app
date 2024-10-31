@@ -16,11 +16,11 @@ export default function MainPage() {
   const [search, setSearch] = useState<string>('');
   const { request, loading } = useHttpRequest();
 
-  const updateFilter = (event: ChangeEvent<HTMLInputElement>) => {
+  function updateFilter(event: ChangeEvent<HTMLInputElement>) {
     setSearch(event.target.value);
   };
 
-  const onSubmitHandler = (event: FormEvent<HTMLFormElement>) => {
+  function onSubmitHandler(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
 
     request(`${PREFIX}?q=${search}`)
