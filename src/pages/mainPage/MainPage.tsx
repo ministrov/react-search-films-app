@@ -41,7 +41,7 @@ export default function MainPage() {
         <div className='left-box-bottom'>
           {/* Обернуть эти элементы в компонент формы */}
           <form onSubmit={onSubmitHandler} action="#" method="#">
-            <Input icon={true} onChange={updateFilter} value={search} isValid={!search} type={"text"} placeholder={'Введите название'} />
+            <Input icon={true} onChange={updateFilter} value={search} isValid={search !== ''} type={"text"} placeholder={'Введите название'} />
             <Button
               className={'button-big'}
             >
