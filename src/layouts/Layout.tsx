@@ -1,22 +1,32 @@
-import { useContext, useState } from "react";
+import { useEffect, useState } from "react";
 import { Outlet } from "react-router-dom";
 import Header from "../components/header/Header";
-import { UserProfileContext, MyContexType } from "../context/user-profile.context";
 import { links } from "../const/const";
+import useLocaleStorage from "../hooks/use-local-storage.hook";
+import { UserProfile } from "../context/user-profile.context";
 
 export default function Layout() {
-  const { users, addUser, changeUsers } = useContext<MyContexType | any>(UserProfileContext);
+  const [, , getUserProfiles] = useLocaleStorage<UserProfile[] | any>('user-profile');
   const [isLogged, setIsLogged] = useState<boolean>(true);
 
+  const [userProfile, setUserProfile] = useState<UserProfile | null>(null);
+  const profiles = getUserProfiles();
+  const profile = profiles?.map((item: UserProfile) => item);
+
+  useEffect(() => {
+    setUserProfile(profile);
+  }, []);
 
   const onLogoutHandler = () => {
-    console.log('click');
     setIsLogged(false);
   };
+
+  // console.log(userProfiles);
 
   return (
     <div className="container">
       <Header
+        user={userProfile}
         links={links}
         logout={onLogoutHandler}
         isLogged={isLogged}

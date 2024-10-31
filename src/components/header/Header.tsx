@@ -1,9 +1,7 @@
-import { useContext } from 'react';
 import Logo from '../logo/Logo.js';
 import NavMenuItem from "../navMenuItem/NavMenuItem.js";
 import { MenuItem } from '../../interfaces/links.interface.js';
-import { UserProfileContext, MyContexType, UserProfile } from '../../context/user-profile.context.js';
-import useLocaleStorage from '../../hooks/use-local-storage.hook.js';
+import { UserProfile } from '../../context/user-profile.context.js';
 import UserIcon from '../userIcon/UserIcon.js';
 import styles from './Header.module.css';
 
@@ -11,14 +9,10 @@ type HeaderProps = {
   isLogged: boolean | undefined;
   links: MenuItem[];
   logout: () => void;
+  user: UserProfile | null;
 }
 
-export default function Header({ isLogged, links, logout }: HeaderProps) {
-  const { users } = useContext<MyContexType | any>(UserProfileContext);
-  const [userProfiles] = useLocaleStorage('user-profile');
-
-  console.log(userProfiles);
-  console.log(users);
+export default function Header({ isLogged, links, logout, user }: HeaderProps) {
   return (
     <header className={styles['header']}>
       <Logo />
@@ -43,7 +37,7 @@ export default function Header({ isLogged, links, logout }: HeaderProps) {
                 <ul className={styles['user-login__list']}>
                   <li className={styles['user-login__list-item']}>
                     <p className={styles['user-login__user']}>
-                      {'Default name'}
+                      {user?.name || 'Default name'}
                       <UserIcon />
                     </p>
                   </li>

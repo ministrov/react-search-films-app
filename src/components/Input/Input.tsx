@@ -13,7 +13,7 @@ type InputProps = {
 }
 
 export default function Input({ type = 'text', isValid, placeholder, onChange, icon, ...props }: InputProps) {
-  console.log(props);
+  // console.log(props);
   return (
     <div className={cn(styles['input'], {
       [styles['input__invalid']]: !isValid
