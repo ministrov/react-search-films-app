@@ -1,6 +1,6 @@
-import { ChangeEvent, FormEvent, useContext, useRef, useState } from 'react';
+import { ChangeEvent, FormEvent, useContext, useState } from 'react';
 import useLocaleStorage from "../../hooks/use-local-storage.hook";
-import { UserProfile } from '../../context/user-profile.context';
+import { MyContexType, UserProfile, UserProfileContext } from '../../context/user-profile.context';
 import Heading from '../heading/Heading';
 import Input from '../Input/Input';
 import Button from '../button/Button';
@@ -8,6 +8,7 @@ import styles from './EnterForm.module.css';
 
 export default function EnterFrom() {
   const [userProfiles, setUserProfiles] = useLocaleStorage<UserProfile[]>('user-profile');
+  const { users, addUser } = useContext<MyContexType | any>(UserProfileContext);
   const [login, setLogin] = useState<string>('');
 
   // const isLoginEmpty = login === '' ? true : false;
@@ -18,7 +19,8 @@ export default function EnterFrom() {
 
   function addUserHandler(event: FormEvent) {
     event.preventDefault();
-    setUserProfiles([{ name: login, isLogged: true }]);
+    addUser({ name: login, isLogged: true })
+    setUserProfiles(users);
     setLogin('');
   }
 
