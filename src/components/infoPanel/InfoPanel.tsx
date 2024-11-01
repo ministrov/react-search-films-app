@@ -6,7 +6,7 @@ type InfoPanelProps = {
   children: ReactNode;
 }
 
-export default function InfoPanel({ title, children }: InfoPanelProps) {
+function InfoPanel({ title, children }: InfoPanelProps) {
   const [open, setOpen] = useState<boolean>(false);
 
   return (
@@ -23,3 +23,5 @@ export default function InfoPanel({ title, children }: InfoPanelProps) {
     </section>
   )
 }
+
+export default InfoPanel;

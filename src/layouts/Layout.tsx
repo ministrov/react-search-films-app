@@ -4,9 +4,6 @@ import Header from "../components/header/Header";
 import { links } from "../const/const";
 
 export default function Layout() {
-  // const { users } = useContext<MyContexType | any>(UserProfileContext);
-  // const isLoggedIn = Boolean(users?.map((item: UserProfile) => item.isLogged.valueOf));
-  // const isLoggedOut = Boolean(users?.map((item: UserProfile) => item.isLogged.valueOf));
   const [isLogged, setIsLogged] = useState<boolean>(true);
 
   const onLogoutHandler = () => {

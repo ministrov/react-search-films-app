@@ -7,11 +7,9 @@ import Button from '../button/Button';
 import styles from './EnterForm.module.css';
 
 export default function EnterFrom() {
-  const [userProfiles, setUserProfiles] = useLocaleStorage<UserProfile[]>('user-profile');
+  const [, setUserProfiles] = useLocaleStorage<UserProfile[]>('user-profile');
   const { users, addUser } = useContext<MyContexType | any>(UserProfileContext);
   const [login, setLogin] = useState<string>('');
-
-  // const isLoginEmpty = login === '' ? true : false;
 
   function updateLogin(event: ChangeEvent<HTMLInputElement>) {
     setLogin(event.target.value);
@@ -24,7 +22,6 @@ export default function EnterFrom() {
     setLogin('');
   }
 
-  console.log(userProfiles);
   return (
     <div className={styles['enter-form-wrapper']}>
       <Heading text={'Вход'} />

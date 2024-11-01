@@ -9,8 +9,6 @@ import styles from './MoviePage.module.css';
 function MoviePage() {
     const data = useLoaderData() as { data: IMovie };
 
-    // console.log(data.data);
-
     return (
         <section>
             <h2 className="visually-hidden">Страница фильма</h2>
