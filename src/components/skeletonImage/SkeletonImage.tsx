@@ -1,7 +1,7 @@
 import cn from 'classnames';
 import styles from './SkeletonImage.module.css';
 
-export default function SkeletonImage() {
+function SkeletonImage() {
     return (
         <div className={styles["skeleton"]}>
             <div className={cn("pulse", styles["skeleton-header"])}>
@@ -14,3 +14,5 @@ export default function SkeletonImage() {
         </div>
     )
 }
+
+export default SkeletonImage;

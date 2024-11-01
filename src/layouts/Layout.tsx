@@ -3,7 +3,7 @@ import { Outlet } from "react-router-dom";
 import Header from "../components/header/Header";
 import { links } from "../const/const";
 
-export default function Layout() {
+function Layout() {
   const [isLogged, setIsLogged] = useState<boolean>(true);
 
   const onLogoutHandler = () => {
@@ -24,3 +24,5 @@ export default function Layout() {
     </div>
   )
 }
+
+export default Layout;

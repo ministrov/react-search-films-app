@@ -7,7 +7,7 @@ type ButtonProps = {
   className: string | null
 }
 
-export default function Button({ children, className, ...props }: ButtonProps) {
+function Button({ children, className, ...props }: ButtonProps) {
   return (
     <button className={cn(styles['button'], {
       [styles['button-big']]: className
@@ -16,3 +16,5 @@ export default function Button({ children, className, ...props }: ButtonProps) {
     </button>
   )
 }
+
+export default Button;

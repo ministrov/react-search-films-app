@@ -4,8 +4,10 @@ type HeadingProps = {
   text: string;
 }
 
-export default function Heading({ text }: HeadingProps) {
+function Heading({ text }: HeadingProps) {
   return (
     <h1 className={styles['heading']}>{text}</h1>
   )
 }
+
+export default Heading;

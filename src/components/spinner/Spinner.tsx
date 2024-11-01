@@ -1,6 +1,6 @@
 import styles from './Spinner.module.css';
 
-export default function Spinner() {
+function Spinner() {
     return (
         <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -198,4 +198,6 @@ export default function Spinner() {
         </svg>
     )
 }
+
+export default Spinner;
 

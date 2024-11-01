@@ -12,7 +12,7 @@ type HeaderProps = {
   logout: () => void;
 }
 
-export default function Header({ isLogged, links, logout }: HeaderProps) {
+function Header({ isLogged, links, logout }: HeaderProps) {
   const { users } = useContext<MyContexType | any>(UserProfileContext);
 
   return (
@@ -60,3 +60,5 @@ export default function Header({ isLogged, links, logout }: HeaderProps) {
     </header>
   )
 }
+
+export default Header;

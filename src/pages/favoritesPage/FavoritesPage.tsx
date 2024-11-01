@@ -1,10 +1,12 @@
 import Heading from "../../components/heading/Heading"
 
-export default function FavoritesPage() {
+function FavoritesPage() {
   return (
     <div>
-      <Heading text={'Избранное'}/>
+      <Heading text={'Избранное'} />
       FavoritesPage
     </div>
   )
 }
+
+export default FavoritesPage;

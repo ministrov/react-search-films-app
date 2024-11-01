@@ -11,7 +11,7 @@ import { FilmsDescription } from "../../interfaces/films-description.interface";
 
 const PREFIX = 'https://search.imdbot.workers.dev/';
 
-export default function MainPage() {
+function MainPage() {
   const [films, setFilms] = useState<FilmsDescription[]>([]);
   const [search, setSearch] = useState<string>('');
   const { request, loading } = useHttpRequest();
@@ -58,3 +58,5 @@ export default function MainPage() {
     </section>
   )
 }
+
+export default MainPage;

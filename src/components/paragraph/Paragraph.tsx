@@ -7,7 +7,7 @@ type ParagraphProps = {
   size?: string
 }
 
-export default function Paragraph({ children, size }: ParagraphProps) {
+function Paragraph({ children, size }: ParagraphProps) {
   return (
     <p className={cn(styles['paragraph'], {
       [styles['scaled']]: size
@@ -16,3 +16,5 @@ export default function Paragraph({ children, size }: ParagraphProps) {
     </p>
   )
 }
+
+export default Paragraph;

@@ -15,7 +15,7 @@ type NavMenuItemProps = {
   onClick?: () => void;
 }
 
-export default function NavMenuItem({ count, label, hasIcon, hasCount, href, onClick, typeIcon }: NavMenuItemProps) {
+function NavMenuItem({ count, label, hasIcon, hasCount, href, onClick, typeIcon }: NavMenuItemProps) {
   return (
     <li onClick={onClick} className={styles['nav-menu-item']}>
       <NavLink className={({ isActive }) => cn(styles['nav-menu-link'], {
@@ -29,3 +29,5 @@ export default function NavMenuItem({ count, label, hasIcon, hasCount, href, onC
     </li>
   )
 }
+
+export default NavMenuItem;

@@ -4,7 +4,7 @@ type MessageProps = {
   type: 'search' | 'error';
 };
 
-export default function Message({ type }: MessageProps) {
+function Message({ type }: MessageProps) {
   return (
     type === 'error' ? (
       <div className={styles['message']}>
@@ -19,3 +19,5 @@ export default function Message({ type }: MessageProps) {
     )
   )
 }
+
+export default Message;

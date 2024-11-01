@@ -32,10 +32,6 @@ const router = createBrowserRouter([
           return defer({
             data: await fetch(`${PREFIX}?tt=${params.id}`).then(data => data.json()) as IMovie
           });
-          // // console.log(typeof params.id);
-          // const { data } = await fetch(`${PREFIX}?tt=${params.id}`) as any;
-          // console.log(data);
-          // return data;
         }
       },
       {

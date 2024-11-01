@@ -6,7 +6,7 @@ import Input from '../Input/Input';
 import Button from '../button/Button';
 import styles from './EnterForm.module.css';
 
-export default function EnterFrom() {
+function EnterFrom() {
   const [, setUserProfiles] = useLocaleStorage<UserProfile[]>('user-profile');
   const { users, addUser } = useContext<MyContexType | any>(UserProfileContext);
   const [login, setLogin] = useState<string>('');
@@ -34,3 +34,5 @@ export default function EnterFrom() {
     </div>
   )
 }
+
+export default EnterFrom;
