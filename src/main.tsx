@@ -9,6 +9,7 @@ import LoginPage from './pages/loginPage/LoginPage';
 import FavoritesPage from './pages/favoritesPage/FavoritesPage';
 import MainPage from "./pages/mainPage/MainPage";
 import { UserProfileContextProvider } from './context/user-profile.context';
+import RequireAuth from './helpers/RequireAuth';
 import './index.css';
 
 const MoviePage = lazy(() => import('./pages/moviePage/MoviePage'));
@@ -22,7 +23,7 @@ const router = createBrowserRouter([
     children: [
       {
         path: '/',
-        element: <MainPage />
+        element: <RequireAuth><MainPage /></RequireAuth>
       },
       {
         path: '/movie/:id',
@@ -35,13 +36,13 @@ const router = createBrowserRouter([
         }
       },
       {
-        path: '/login',
+        path: 'login',
         element: <LoginPage />
       },
       {
-        path: '/favorites',
-        element: <FavoritesPage />
-      }
+        path: 'favorites',
+        element: <RequireAuth><FavoritesPage /></RequireAuth>
+      },
     ]
   },
   {
