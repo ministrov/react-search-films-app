@@ -1,7 +1,4 @@
-export const INITIAL_STATE = [{
-  name: '',
-  isLogged: true
-}];
+import { RootData } from "../interfaces/films-description.interface";
 
 export const links = [
   {
@@ -83,16 +80,47 @@ export const films = [
   }
 ];
 
-// let a = 1 + 2;
-// let b = a + 3;
-// let c = {
-//   apple: a,
-//   banana: b
+// let myName = 'Anton';
+
+// getName(myName);
+
+// const number = 10;
+
+// function getNumber(number: number): void {
+//   console.log(number);
 // };
 
-// let d = c.apple + 4;
+// getNumber(number)
 
-// let j = d.toPrecision();
+export function getFilmsArrayFromJSON(character: RootData) {
+  return character?.description;
+};
 
-// console.log(d);
-// console.log(j);
+// const promise = new Promise((res, rej) => {
+//   setTimeout(() => res(1), 4000);
+// });
+
+// promise
+//   .then(data => {
+//     console.log(data)
+//     return 2
+//   })
+//   .then(data => {
+//     console.log(data)
+//     return 'c'
+//   })
+//   .then(data => {
+//     console.log(data)
+//     return 3
+//   })
+//   .catch(err => {
+//     console.log(err)
+//     return 77
+//   })
+//   .then(data => {
+//     console.log(data);
+//   })
+//   .finally(data => {
+//     console.log(data)
+//   })
+

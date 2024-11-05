@@ -4,8 +4,10 @@ type FavoriteCountProps = {
   count: number | undefined;
 }
 
-export default function FavoriteCount({ count }: FavoriteCountProps) {
+function FavoriteCount({ count }: FavoriteCountProps) {
   return (
     <span className={styles['count']}>{count}</span>
   )
 }
+
+export default FavoriteCount;

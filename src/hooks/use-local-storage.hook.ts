@@ -1,20 +1,28 @@
 import { useEffect, useState } from 'react';
 
-export default function useLocaleStorage<T>(key: string) {
+function useLocaleStorage<T>(key: string) {
   const [data, setData] = useState<T>();
 
   useEffect(() => {
     const res = JSON.parse(localStorage.getItem(key) as string);
 
-    if (res) {
+    if (!res) {
       setData(res);
     }
   }, [key]);
 
-  const saveData = (newData: T) => {
-    localStorage.setItem(key, JSON.stringify(newData));
-    setData(newData);
+  function saveData(newData: T) {
+    if (Array.isArray(newData) && newData.length > 0) {
+      localStorage.setItem(key, JSON.stringify(newData));
+      setData(newData);
+    }
   };
 
-  return [data, saveData] as const;
+  function getData() {
+    return JSON.parse(localStorage.getItem('user-profile') as string);
+  }
+
+  return [data, saveData, getData] as const;
 }
+
+export default useLocaleStorage;

@@ -1,42 +1,64 @@
-import Logo from '../logo/Logo.js'
-import NavMenu from '../navMenu/NavMenu.js'
+import { useContext } from 'react';
+import Logo from '../logo/Logo.js';
 import NavMenuItem from "../navMenuItem/NavMenuItem.js";
-import BasicList from '../basicList/BasicList.js';
-import icon from '/enter.svg';
-import user from '/user.svg';
+import UserIcon from '../userIcon/UserIcon.js';
+import { MenuItem } from '../../interfaces/links.interface.js';
+import { MyContexType, UserProfile, UserProfileContext } from '../../context/user-profile.context.js';
 import styles from './Header.module.css';
 
-export default function Header({ isLogged, links, profile, onClick }: any) {
+type HeaderProps = {
+  isLogged: boolean | undefined;
+  links: MenuItem[];
+  logout: () => void;
+}
+
+function Header({ isLogged, links, logout }: HeaderProps) {
+  const { users } = useContext<MyContexType | any>(UserProfileContext);
+
   return (
     <header className={styles['header']}>
       <Logo />
-      <NavMenu>
-        <BasicList>
-          {links.map((link: any) => (
-            <NavMenuItem
-              key={link.id}
-              label={link.label}
-              icon={icon}
-              count={link.count}
-              hasCount={link.hasCount}
-              hasIcon={link.hasIcon}
-              href={link.href}
-            />
-          ))}
-        </BasicList>
+      <div className={styles['header__nav-wrapper']}>
+        <nav className={styles['header__nav']}>
+          <ul className={styles['header__list']}>
+            {links.map((link: any) => (
+              <NavMenuItem
+                key={link.id}
+                label={link.label}
+                count={link.count}
+                hasCount={link.hasCount}
+                hasIcon={link.hasIcon}
+                href={link.href}
+              />
+            ))}
+          </ul>
 
-        <BasicList>
-          {isLogged
-            ? (
-              <>
-                <NavMenuItem label={profile?.name || 'Вася'} hasIcon={true} href='#' icon={user} />
-                <NavMenuItem label={'Выйти'} href='#' onClick={onClick} />
-              </>
-            )
-            : <NavMenuItem label={'Войти'} href='/login' hasIcon={true} icon={icon} />
-          }
-        </BasicList>
-      </NavMenu>
+          <ul className={styles['header__user-login user-login']}>
+            {isLogged
+              ? (
+                <ul className={styles['user-login__list']}>
+                  <li className={styles['user-login__list-item']}>
+                    <p className={styles['user-login__user']}>
+                      {users?.map((item: UserProfile) => item.name).join('') || 'Default'}
+                      <UserIcon />
+                    </p>
+                  </li>
+                  <li className={styles['user-login__list-item']}>
+                    <button className={styles['user-login__logout']} onClick={logout}>Выход</button>
+                  </li>
+                </ul>
+              )
+              : (
+                <ul className={styles['user-login__list']}>
+                  <NavMenuItem label={'Войти'} href='/login' typeIcon='enter' />
+                </ul>
+              )
+            }
+          </ul>
+        </nav>
+      </div>
     </header>
   )
 }
+
+export default Header;

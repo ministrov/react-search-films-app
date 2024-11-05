@@ -1,20 +1,33 @@
-import { useState } from "react";
+import { ChangeEvent, FormEvent, useState } from "react";
 import Button from "../../components/button/Button";
 import Heading from "../../components/heading/Heading";
 import Paragraph from "../../components/paragraph/Paragraph";
-import SearchInput from "../../components/searchInput/SearchInput";
+import Input from "../../components/Input/Input";
 import FilmsList from "../../components/filmsList/FilmsList";
-import { IFilms } from "../../types";
+import Spinner from "../../components/spinner/Spinner";
+import Message from "../../components/Message/Message";
+import { useHttpRequest } from "../../hooks/http.request.hook";
+import { FilmsDescription } from "../../interfaces/films-description.interface";
 
-type MainPageProps = {
-  films: IFilms[]
-}
+const PREFIX = 'https://search.imdbot.workers.dev/';
 
-export default function MainPage({ films }: MainPageProps) {
-  const [isLogged, setIsLogged] = useState(true);
+function MainPage() {
+  const [films, setFilms] = useState<FilmsDescription[]>([]);
+  const [search, setSearch] = useState<string>('');
+  const { request, loading } = useHttpRequest();
 
-  const onClickHandler = () => {
-    setIsLogged(false);
+  function updateFilter(event: ChangeEvent<HTMLInputElement>) {
+    setSearch(event.target.value);
+  };
+
+  function onSubmitHandler(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+
+    request(`${PREFIX}?q=${search}`)
+      .then((data) => {
+        setFilms(data?.description as FilmsDescription[]);
+        console.log(data?.description);
+      })
   };
 
   return (
@@ -26,16 +39,24 @@ export default function MainPage({ films }: MainPageProps) {
           Введите название фильма, сериала или мультфильма для поиска и добавления в избранное.
         </Paragraph>
         <div className='left-box-bottom'>
-          <SearchInput />
-          <Button
-            content={'Искать'}
-            onClick={onClickHandler}
-            className={null} />
+          {/* Обернуть эти элементы в компонент формы */}
+          <form onSubmit={onSubmitHandler} action="#" method="#">
+            <Input icon={true} onChange={updateFilter} value={search} isValid={true} type={"text"} placeholder={'Введите название'} />
+            <Button
+              className={'button-big'}
+            >
+              Искать
+            </Button>
+          </form>
         </div>
       </div>
       <div className='films-wrapper'>
-        <FilmsList films={films} />
+        {!loading && films.length > 0 && <FilmsList films={films} />}
+        {!loading && films.length === 0 && <Message type='search' />}
+        {loading && <Spinner />}
       </div>
     </section>
   )
 }
+
+export default MainPage;

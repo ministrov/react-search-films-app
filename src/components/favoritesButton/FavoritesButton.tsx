@@ -7,13 +7,12 @@ type FavoritesButtonProps = {
   isFavorite: boolean
 }
 
-export default function FavoritesButton({ isFavorite }: FavoritesButtonProps) {
+function FavoritesButton({ isFavorite }: FavoritesButtonProps) {
   return (
     <button className={styles['favorites-button']}>
       {isFavorite ? (
         <>
           <FavoriteIconActive />
-          {/* <p className={`${isFavorite ? styles['active'] : ''}`}>В избраном</p> */}
           <p className={cn({
             [styles['active']]: isFavorite
           })}>В избраном</p>
@@ -27,3 +26,5 @@ export default function FavoritesButton({ isFavorite }: FavoritesButtonProps) {
     </button>
   )
 }
+
+export default FavoritesButton;

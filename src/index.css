@@ -7,6 +7,11 @@ body {
   font-weight: 400;
   line-height: 1.2;
   background-color: #121829;
+
+  background-image: url("./background.svg");
+  background-size: 100%;
+  background-position: center 91px;
+  background-repeat: no-repeat;
 }
 
 .visually-hidden {
@@ -27,9 +32,9 @@ body {
   margin: 0 auto;
 }
 
-.top {
+/* .top {
   margin-bottom: 80px;
-}
+} */
 
 .left-box {
   display: flex;
@@ -45,3 +50,26 @@ body {
   gap: 1rem;
 }
 
+.left-box-bottom form {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.pulse {
+  animation: pulse 2.5s ease-in-out 0.5s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.4;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}

@@ -1,36 +1,28 @@
-import { useContext, useState } from "react";
+import { useState } from "react";
 import { Outlet } from "react-router-dom";
 import Header from "../components/header/Header";
 import { links } from "../const/const";
-import { UserProfileContext, UserProfileContextProvider } from "../context/user-profile.context";
 
-export default function Layout() {
-  const [isLogged, setIsLogged] = useState(true);
-  const profiles = useContext<any>(UserProfileContext);
-  const profile = profiles[0];
-  console.log(profiles);
-  console.log(profile);
+function Layout() {
+  const [isLogged, setIsLogged] = useState<boolean>(true);
 
-  const onClickHandler = () => {
+  const onLogoutHandler = () => {
     setIsLogged(false);
   };
+
   return (
-    <>
-      <div className='top container'>
-        <UserProfileContextProvider>
-          <Header
-            links={links}
-            profile={profile}
-            onClick={onClickHandler}
-            isLogged={isLogged}
-          />
-        </UserProfileContextProvider>
-      </div>
+    <div className="container">
+      <Header
+        links={links}
+        logout={onLogoutHandler}
+        isLogged={isLogged}
+      />
+
       <main>
-        <div className='container'>
-          <Outlet />
-        </div>
+        <Outlet />
       </main>
-    </>
+    </div>
   )
 }
+
+export default Layout;

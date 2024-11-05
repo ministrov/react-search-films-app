@@ -1,35 +1,44 @@
 import Rating from '../rating/Rating';
+import { Link } from 'react-router-dom';
 import FavoritesButton from '../favoritesButton/FavoritesButton';
-import BasicList from '../basicList/BasicList';
-import NotFound from '../notFound/NotFound';
-import { IFilms } from '../../types';
+import { FilmsDescription } from '../../interfaces/films-description.interface';
+import SkeletonImage from '../skeletonImage/SkeletonImage';
 import styles from './FilmsList.module.css';
 
 type FilmsListProps = {
-  films: IFilms[];
+    films: FilmsDescription[];
 }
 
-export default function FilmsList({ films }: FilmsListProps) {
-  const listItem = films.map((film) => (
-    <li className={styles['films-list-item']} key={film.id}>
-      <div className={styles['films-rating-box']}>
-        <Rating count={film.rating} />
-      </div>
-      <img src={film.poster} alt={`Poster name ${film.title}`} />
-      <div className={styles['films-bottom']}>
-        <h3>{film.title}</h3>
-        <FavoritesButton isFavorite={film.isFavorite} />
-      </div>
-    </li>
-  ));
+function FilmsList({ films }: FilmsListProps) {
+    const listItem = films.map((film: FilmsDescription) => (
+        <li className={styles['films-list-item']} key={film["#IMDB_ID"]}>
+            <Link className={styles['films-list-link']} to={`/movie/${film["#IMDB_ID"]}`}>
+                <div className={styles['films-rating-box']}>
+                    <Rating count={film["#RANK"]} />
+                </div>
+                {film["#IMG_POSTER"] ? (
+                    <img className={styles["film-item-img"]}
+                        src={film["#IMG_POSTER"]}
+                        width={film["photo_width"] || 266}
+                        height={film["photo_height"] || 400}
+                        alt={`Poster name ${film["#TITLE"]}`}
+                    />
+                ) : (
+                    <SkeletonImage />
+                )}
+                <div className={styles['films-bottom']}>
+                    <h3>{film["#TITLE"]}</h3>
+                    <FavoritesButton isFavorite={false} />
+                </div>
+            </Link>
+        </li>
+    ));
 
-  return (
-    <BasicList className={styles['films-list']}>
-      {films.length > 0 ? (
-        listItem
-      ): (
-        <NotFound/>
-      )}
-    </BasicList>
-  )
+    return (
+        <ul className={styles['films-list']}>
+            {listItem}
+        </ul>
+    )
 }
+
+export default FilmsList;
