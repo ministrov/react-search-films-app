@@ -51,21 +51,6 @@ const router = createBrowserRouter([
   }
 ]);
 
-// function findMissingEl(arr1: number[], arr2: number[]) {
-//   let index;
-//   for (let i = 0; i < arr1.length; i++) {
-//     index = arr2.indexOf(arr1[i]);
-
-//     if (index > -1) {
-//       arr2.splice(index, 1);
-//     } else {
-//       return arr1[i];
-//     }
-//   }
-// }
-
-// console.log(findMissingEl([2, 3, 4, 5], [2, 3, 5])); //?
-
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <UserProfileContextProvider>

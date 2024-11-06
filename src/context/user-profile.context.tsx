@@ -1,5 +1,4 @@
 import { createContext, ReactNode, useState } from "react";
-import { loadData } from "../helpers/functions";
 
 export type UserProfileContextProviderProps = {
   children: ReactNode;
@@ -11,26 +10,25 @@ export type UserProfile = {
 }
 
 export type MyContexType = {
-  users: UserProfile[] | ((key: string) => void);
+  users: UserProfile[];
   addUser: (item: UserProfile) => void;
-  changeUsers: (item: UserProfile[]) => void;
+  // changeUsers: (item: UserProfile[]) => void;
 }
 
 export const UserProfileContext = createContext<MyContexType | undefined>(undefined);
 
 export const UserProfileContextProvider = ({ children }: UserProfileContextProviderProps) => {
-  const initialState = loadData<UserProfile[]>('user-profile');
-  const [users, setUsers] = useState<UserProfile[]>(initialState as UserProfile[]);
+  const [users, setUsers] = useState<UserProfile[]>([{ name: "", isLogged: true }]);
 
   function addUser(item: UserProfile) {
-    setUsers((prevState) => [...prevState, item]);
+    setUsers((prevState) => [...prevState, { name: item.name, isLogged: item.isLogged }]);
   };
 
-  function changeUsers(item: UserProfile[]) {
-    setUsers(item);
-  };
+  // function changeUsers(item: UserProfile[]) {
+  //   setUsers(item);
+  // };
   return (
-    <UserProfileContext.Provider value={{ users, addUser, changeUsers }}>
+    <UserProfileContext.Provider value={{ users, addUser }}>
       {children}
     </UserProfileContext.Provider>
   );

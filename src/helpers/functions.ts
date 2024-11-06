@@ -13,25 +13,6 @@
 // }
 
 // const value = returnValue(12);
-export function loadData<T>(key: string): T | undefined {
-    try {
-        const jsonState = localStorage.getItem(key);
-
-        if (!jsonState) {
-            return undefined;
-        }
-
-        return JSON.parse(jsonState);
-    } catch (e) {
-        console.error(e);
-        return undefined;
-    }
-}
-
-export function saveData<T>(state: T, key: string) {
-    const stringState = JSON.stringify(state);
-    localStorage.setItem(key, stringState);
-}
 
 export function removeMnemonic(string: string) {
     return string.split(' ').join(' ').replace(/&apos;/g, '').replace(/&quot;/g, '');
