@@ -1,4 +1,5 @@
 import { createContext, ReactNode, useState } from "react";
+import { loadData } from "../helpers/functions";
 
 export type UserProfileContextProviderProps = {
   children: ReactNode;
@@ -10,7 +11,7 @@ export type UserProfile = {
 }
 
 export type MyContexType = {
-  users: UserProfile[];
+  users: UserProfile[] | ((key: string) => void);
   addUser: (item: UserProfile) => void;
   changeUsers: (item: UserProfile[]) => void;
 }
@@ -18,7 +19,8 @@ export type MyContexType = {
 export const UserProfileContext = createContext<MyContexType | undefined>(undefined);
 
 export const UserProfileContextProvider = ({ children }: UserProfileContextProviderProps) => {
-  const [users, setUsers] = useState<UserProfile[]>([]);
+  const initialState = loadData<UserProfile[]>('user-profile');
+  const [users, setUsers] = useState<UserProfile[]>(initialState as UserProfile[]);
 
   function addUser(item: UserProfile) {
     setUsers((prevState) => [...prevState, item]);
