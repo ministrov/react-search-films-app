@@ -15,6 +15,8 @@ function EnterFrom() {
     setLogin(event.target.value);
   }
 
+  console.log(users);
+
   function addUserHandler(event: FormEvent) {
     event.preventDefault();
     addUser({ name: login, isLogged: true })

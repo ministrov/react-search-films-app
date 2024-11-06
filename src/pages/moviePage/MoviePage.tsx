@@ -3,7 +3,7 @@ import SkeletonImage from '../../components/skeletonImage/SkeletonImage';
 import { IMovie } from '../../interfaces/movie.interface';
 import Rating from '../../components/rating/Rating';
 import FavoritesButton from '../../components/favoritesButton/FavoritesButton';
-import { removeMnemonic } from '../../const/functions';
+import { removeMnemonic } from '../../helpers/functions';
 import styles from './MoviePage.module.css';
 
 function MoviePage() {
