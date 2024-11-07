@@ -1,16 +1,16 @@
-import { useState } from "react";
 import { Outlet } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import Header from "../components/header/Header";
 import { links } from "../const/const";
-import { RootState } from "../store/store";
+import { AppDispatch, RootState } from "../store/store";
+import { logout } from "../store/user.slice";
 
 function Layout() {
-  const profile = useSelector((state: RootState) => state.profile.isLogged);
-  // const [isLogged, setIsLogged] = useState<boolean>(true);
+  const isLogged = useSelector((state: RootState) => state.profile.isLogged);
+  const dispatch = useDispatch<AppDispatch>();
 
   const onLogoutHandler = () => {
-    // setIsLogged(false);
+    dispatch(logout());
   };
 
   return (
@@ -18,7 +18,7 @@ function Layout() {
       <Header
         links={links}
         logout={onLogoutHandler}
-        isLogged={profile}
+        isLogged={isLogged}
       />
 
       <main>

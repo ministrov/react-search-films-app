@@ -1,7 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
-// import { UserProfile } from "../context/user-profile.context";
 
-const initialState: { name: string, isLogged: false } = {
+const initialState: { name: string, isLogged: boolean } = {
     name: '',
     isLogged: false
 };
@@ -9,8 +8,17 @@ const initialState: { name: string, isLogged: false } = {
 export const userSlice = createSlice({
     name: 'user',
     initialState,
-    reducers: {}
+    reducers: {
+        login: (state, action) => {
+            state.name += action.payload;
+            state.isLogged = true;
+        },
+
+        logout: (state) => {
+            state.isLogged = false
+        }
+    }
 });
 
 export default userSlice.reducer;
-export const userActions = userSlice.actions;
+export const { login, logout } = userSlice.actions;
