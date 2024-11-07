@@ -1,13 +1,16 @@
 import { useState } from "react";
 import { Outlet } from "react-router-dom";
+import { useSelector } from "react-redux";
 import Header from "../components/header/Header";
 import { links } from "../const/const";
+import { RootState } from "../store/store";
 
 function Layout() {
-  const [isLogged, setIsLogged] = useState<boolean>(true);
+  const profile = useSelector((state: RootState) => state.profile.isLogged);
+  // const [isLogged, setIsLogged] = useState<boolean>(true);
 
   const onLogoutHandler = () => {
-    setIsLogged(false);
+    // setIsLogged(false);
   };
 
   return (
@@ -15,7 +18,7 @@ function Layout() {
       <Header
         links={links}
         logout={onLogoutHandler}
-        isLogged={isLogged}
+        isLogged={profile}
       />
 
       <main>

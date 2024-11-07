@@ -1,13 +1,11 @@
-import { ChangeEvent, FormEvent, useContext, useState } from 'react';
+import { ChangeEvent, FormEvent, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { MyContexType, UserProfileContext } from '../../context/user-profile.context';
 import Heading from '../heading/Heading';
 import Input from '../Input/Input';
 import Button from '../button/Button';
 import styles from './EnterForm.module.css';
 
 function EnterFrom() {
-  const { users, addUser } = useContext<MyContexType | any>(UserProfileContext);
   const [login, setLogin] = useState<string>('');
   const navigate = useNavigate();
 
@@ -15,12 +13,11 @@ function EnterFrom() {
     setLogin(event.target.value);
   }
 
-  console.log(users);
+  // console.log(users);
 
   function addUserHandler(event: FormEvent) {
     event.preventDefault();
-    addUser({ name: login, isLogged: true });
-    localStorage.setItem('user-profile', JSON.stringify(users));
+    // localStorage.setItem('user-profile', JSON.stringify(users));
     setLogin('');
     navigate('/');
   }

@@ -1,9 +1,10 @@
 import { useContext } from 'react';
+import { useSelector } from 'react-redux';
 import Logo from '../logo/Logo.js';
 import NavMenuItem from "../navMenuItem/NavMenuItem.js";
 import UserIcon from '../userIcon/UserIcon.js';
 import { MenuItem } from '../../interfaces/links.interface.js';
-import { MyContexType, UserProfile, UserProfileContext } from '../../context/user-profile.context.js';
+import { RootState } from '../../store/store.js';
 import styles from './Header.module.css';
 
 type HeaderProps = {
@@ -13,7 +14,8 @@ type HeaderProps = {
 }
 
 function Header({ isLogged, links, logout }: HeaderProps) {
-  const { users } = useContext<MyContexType | any>(UserProfileContext);
+  // const { users } = useContext<MyContexType | any>(UserProfileContext);
+  const profile = useSelector((state: RootState) => state.profile);
 
   return (
     <header className={styles['header']}>
@@ -39,7 +41,7 @@ function Header({ isLogged, links, logout }: HeaderProps) {
                 <ul className={styles['user-login__list']}>
                   <li className={styles['user-login__list-item']}>
                     <p className={styles['user-login__user']}>
-                      {users?.map((item: UserProfile) => item.name).join('') || 'Default'}
+                      {profile.name || 'Default'}
                       <UserIcon />
                     </p>
                   </li>

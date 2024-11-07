@@ -9,7 +9,7 @@ import Spinner from './components/spinner/Spinner';
 import LoginPage from './pages/loginPage/LoginPage';
 import FavoritesPage from './pages/favoritesPage/FavoritesPage';
 import MainPage from "./pages/mainPage/MainPage";
-import { UserProfileContextProvider } from './context/user-profile.context';
+// import { UserProfileContextProvider } from './context/user-profile.context';
 import RequireAuth from './helpers/RequireAuth';
 import { store } from './store/store';
 import './index.css';
@@ -56,9 +56,7 @@ const router = createBrowserRouter([
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <Provider store={store}>
-      <UserProfileContextProvider>
-        <RouterProvider router={router} />
-      </UserProfileContextProvider>
+      <RouterProvider router={router} />
     </Provider>
   </StrictMode>,
 )
