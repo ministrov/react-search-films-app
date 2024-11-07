@@ -6,8 +6,11 @@ type RequireAuthProps = {
 }
 
 function RequireAuth({ children }: RequireAuthProps) {
-    const user = localStorage.getItem('user-profile');
-    if (!user) {
+    // const user = JSON.parse(localStorage.getItem('user-profile') as never);
+    // console.log(user);
+    // console.log(typeof user);
+    // console.log(!user[0].name);
+    if (!true) {
         return <Navigate to={'/login'} replace />
     }
     return children;

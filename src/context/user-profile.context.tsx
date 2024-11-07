@@ -18,7 +18,7 @@ export type MyContexType = {
 export const UserProfileContext = createContext<MyContexType | undefined>(undefined);
 
 export const UserProfileContextProvider = ({ children }: UserProfileContextProviderProps) => {
-  const [users, setUsers] = useState<UserProfile[]>([{ name: "", isLogged: true }]);
+  const [users, setUsers] = useState<UserProfile[]>([{ name: "test", isLogged: true }]);
 
   function addUser(item: UserProfile) {
     setUsers((prevState) => [...prevState, { name: item.name, isLogged: item.isLogged }]);
