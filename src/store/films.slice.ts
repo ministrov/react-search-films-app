@@ -1,10 +1,4 @@
 import { createSlice } from "@reduxjs/toolkit";
-// import { FilmsDescription } from "../interfaces/films-description.interface";
-
-// // export interface FilmsState {
-// //     length: number;
-// //     films: FilmsDescription[]
-// // }
 
 export const initialState: any = {
     films: []
@@ -15,10 +9,10 @@ export const filmsSlice = createSlice({
     initialState,
     reducers: {
         addFilms: (state, action) => {
-            state.films.push(...action.payload);
+            state.films.push(action.payload);
         }
     }
 });
 
-export const { addFilms } = filmsSlice.actions;
 export default filmsSlice.reducer;
+export const { addFilms } = filmsSlice.actions;

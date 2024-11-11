@@ -17,10 +17,8 @@ const PREFIX = 'https://search.imdbot.workers.dev/';
 function MainPage() {
   const [search, setSearch] = useState<string>('');
   const { request, loading } = useHttpRequest();
-  const films = useSelector((state: RootState) => state.films.films) as unknown as FilmsDescription[];
+  const films = useSelector((state: RootState) => state.films.films[0]) as unknown as FilmsDescription[];
   const dispatch = useDispatch<AppDispatch>();
-
-  console.log(films);
 
   function updateFilter(event: ChangeEvent<HTMLInputElement>) {
     setSearch(event.target.value);
@@ -31,6 +29,7 @@ function MainPage() {
 
     request(`${PREFIX}?q=${search}`)
       .then((data) => {
+        // setFilms(data?.description);
         dispatch(addFilms(data?.description));
         console.log(data?.description);
       })
@@ -57,8 +56,8 @@ function MainPage() {
         </div>
       </div>
       <div className='films-wrapper'>
-        {!loading && films.length > 0 && <FilmsList films={films} />}
-        {!loading && films.length === 0 && <Message type='search' />}
+        {!loading && films && <FilmsList films={films} />}
+        {!loading && films?.length === 0 && <Message type='search' />}
         {loading && <Spinner />}
       </div>
     </section>

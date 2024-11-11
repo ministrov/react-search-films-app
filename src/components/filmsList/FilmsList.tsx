@@ -5,11 +5,11 @@ import { FilmsDescription } from '../../interfaces/films-description.interface';
 import SkeletonImage from '../skeletonImage/SkeletonImage';
 import styles from './FilmsList.module.css';
 
-// type FilmsListProps = {
-//     films: FilmsDescription[];
-// }
+type FilmsListProps = {
+    films: FilmsDescription[];
+}
 
-function FilmsList({ films }: any) {
+function FilmsList({ films }: FilmsListProps) {
     const listItem = films.map((film: FilmsDescription) => (
         <li className={styles['films-list-item']} key={film["#IMDB_ID"]}>
             <Link className={styles['films-list-link']} to={`/movie/${film["#IMDB_ID"]}`}>
