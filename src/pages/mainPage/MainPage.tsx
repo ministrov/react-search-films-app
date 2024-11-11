@@ -7,14 +7,20 @@ import FilmsList from "../../components/filmsList/FilmsList";
 import Spinner from "../../components/spinner/Spinner";
 import Message from "../../components/Message/Message";
 import { useHttpRequest } from "../../hooks/http.request.hook";
+import { useDispatch, useSelector } from "react-redux";
+import { AppDispatch, RootState } from "../../store/store";
+import { addFilms } from "../../store/films.slice";
 import { FilmsDescription } from "../../interfaces/films-description.interface";
 
 const PREFIX = 'https://search.imdbot.workers.dev/';
 
 function MainPage() {
-  const [films, setFilms] = useState<FilmsDescription[]>([]);
   const [search, setSearch] = useState<string>('');
   const { request, loading } = useHttpRequest();
+  const films = useSelector((state: RootState) => state.films.films) as unknown as FilmsDescription[];
+  const dispatch = useDispatch<AppDispatch>();
+
+  console.log(films);
 
   function updateFilter(event: ChangeEvent<HTMLInputElement>) {
     setSearch(event.target.value);
@@ -25,7 +31,7 @@ function MainPage() {
 
     request(`${PREFIX}?q=${search}`)
       .then((data) => {
-        setFilms(data?.description as FilmsDescription[]);
+        dispatch(addFilms(data?.description));
         console.log(data?.description);
       })
   };

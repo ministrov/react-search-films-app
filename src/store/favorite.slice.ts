@@ -1,14 +1,21 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { IFilms } from "../interfaces/films.interface";
 
-const initialState = {
-    films: []
+export interface FavoriteItems {
+    favoriteFilms: IFilms[]
+}
+
+const initialState: FavoriteItems = {
+    favoriteFilms: []
 };
 
 export const favoriteSlice = createSlice({
     name: 'favorite',
     initialState,
     reducers: {
-        addToFavorites: (_state, _action) => { },
+        addToFavorites: (_state, _action) => {
+
+        },
         removeFromFavorites: (_state, _action) => { }
     }
 });

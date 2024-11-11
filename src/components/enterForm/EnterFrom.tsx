@@ -9,7 +9,7 @@ import { login } from '../../store/user.slice';
 import styles from './EnterForm.module.css';
 
 function EnterFrom() {
-  const [isLoginValid, setIsLoginValid] = useState<boolean>(true);
+  // const [isLoginValid, setIsLoginValid] = useState<boolean>(true);
   const [userName, setUserName] = useState<string>('');
   const dispatch = useDispatch<AppDispatch>();
   const navigate = useNavigate();
@@ -29,7 +29,6 @@ function EnterFrom() {
     event.preventDefault();
 
     dispatch(login(userName));
-    // dispatch(toggleIsLogged());
 
     setUserName('');
   }
@@ -42,7 +41,7 @@ function EnterFrom() {
     <div className={styles['enter-form-wrapper']}>
       <Heading text={'Вход'} />
       <form className={styles['enter-form']} action="#" method='#' onSubmit={addUserHandler}>
-        <Input onChange={updateLogin} value={userName} isValid={isLoginValid} icon={false} type={'text'} placeholder={'Ваше имя'} />
+        <Input onChange={updateLogin} value={userName} isValid={true} icon={false} type={'text'} placeholder={'Ваше имя'} />
         <Button className={'button-big'}>
           Войти в профиль
         </Button>
