@@ -7,19 +7,20 @@ import FilmsList from "../../components/filmsList/FilmsList";
 import Spinner from "../../components/spinner/Spinner";
 import Message from "../../components/Message/Message";
 import { useHttpRequest } from "../../hooks/http.request.hook";
-// import { useDispatch, useSelector } from "react-redux";
-// import { AppDispatch, RootState } from "../../store/store";
+import { useDispatch, useSelector } from "react-redux";
+import { AppDispatch, RootState } from "../../store/store";
+import { searchFilm } from "../../store/films.slice";
 // import { addFilms } from "../../store/films.slice";
 // import { FilmsDescription } from "../../interfaces/films-description.interface";
 
 const PREFIX = 'https://search.imdbot.workers.dev/';
 
 function MainPage() {
-  const [films, setFilms] = useState([]) as any;
+  // const [films, setFilms] = useState([]) as any;
   const [search, setSearch] = useState<string>('');
   const { request, loading } = useHttpRequest();
-  // const films = useSelector((state: RootState) => state.films.films[0]) as unknown as FilmsDescription[];
-  // const dispatch = useDispatch<AppDispatch>();
+  const movies = useSelector((state: RootState) => state.movies);
+  const dispatch = useDispatch<AppDispatch>();
 
   // useEffect(() => {
   //   function getAllFilms() {
@@ -43,6 +44,7 @@ function MainPage() {
     //     // dispatch(addFilms(data?.description));
     //     console.log(data?.description);
     //   })
+    dispatch(searchFilm(search));
     console.log(search);
   };
 
@@ -67,8 +69,8 @@ function MainPage() {
         </div>
       </div>
       <div className='films-wrapper'>
-        {!loading && films.length > 0 && <FilmsList films={films} />}
-        {!loading && films.length === 0 && <Message type='search' />}
+        {!loading && movies.length > 0 && <FilmsList />}
+        {!loading && movies.length === 0 && <Message type='search' />}
         {loading && <Spinner />}
       </div>
     </section>
