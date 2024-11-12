@@ -4,12 +4,13 @@ import cn from 'classnames';
 import styles from './FavoritesButton.module.css';
 
 type FavoritesButtonProps = {
-  isFavorite: boolean
+  isFavorite: boolean;
+  onClick: () => void;
 }
 
-function FavoritesButton({ isFavorite }: FavoritesButtonProps) {
+function FavoritesButton({ onClick, isFavorite }: FavoritesButtonProps) {
   return (
-    <button className={styles['favorites-button']}>
+    <button onClick={onClick} className={styles['favorites-button']}>
       {isFavorite ? (
         <>
           <FavoriteIconActive />

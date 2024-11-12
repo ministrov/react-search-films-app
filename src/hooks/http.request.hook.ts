@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { RootData } from "../interfaces/films-description.interface";
+import axios from "axios";
+// import { RootData } from "../interfaces/films-description.interface";
 
 export const useHttpRequest = () => {
     const [loading, setLoading] = useState<boolean>(false);
@@ -9,13 +10,10 @@ export const useHttpRequest = () => {
         setLoading(true);
 
         try {
-            const response = await fetch(url);
-            if (!response.ok) {
-                throw new Error(`Could not fetch ${url}, status: ${response.status}`);
+            const { data } = await axios.get(url);
+            if (axios.isAxiosError(Error)) {
+                throw new Error(`Could not fetch ${url}, status: ${Error}`);
             }
-            const data = await response.json() as RootData;
-
-            setLoading(false);
 
             return data;
 

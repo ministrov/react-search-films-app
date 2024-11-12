@@ -1,4 +1,4 @@
-import { ChangeEvent, FormEvent, useState } from "react";
+import { ChangeEvent, FormEvent, useEffect, useState } from "react";
 import Button from "../../components/button/Button";
 import Heading from "../../components/heading/Heading";
 import Paragraph from "../../components/paragraph/Paragraph";
@@ -21,6 +21,15 @@ function MainPage() {
   // const films = useSelector((state: RootState) => state.films.films[0]) as unknown as FilmsDescription[];
   // const dispatch = useDispatch<AppDispatch>();
 
+  // useEffect(() => {
+  //   function getAllFilms() {
+
+  //   }
+  //   getAllFilms();
+  // }, [search, onSubmitHandler]);
+
+
+
   function updateFilter(event: ChangeEvent<HTMLInputElement>) {
     setSearch(event.target.value);
   };
@@ -28,12 +37,13 @@ function MainPage() {
   function onSubmitHandler(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
 
-    request(`${PREFIX}?q=${search}`)
-      .then((data) => {
-        setFilms(data?.description);
-        // dispatch(addFilms(data?.description));
-        console.log(data?.description);
-      })
+    // request(`${PREFIX}?q=${search}`)
+    //   .then((data) => {
+    //     setFilms(data?.description);
+    //     // dispatch(addFilms(data?.description));
+    //     console.log(data?.description);
+    //   })
+    console.log(search);
   };
 
   return (
@@ -66,3 +76,7 @@ function MainPage() {
 }
 
 export default MainPage;
+function getAllFilms() {
+  throw new Error("Function not implemented.");
+}
+

@@ -2,7 +2,7 @@ import { StrictMode, Suspense, lazy } from 'react';
 import { createRoot } from 'react-dom/client';
 import { createBrowserRouter, defer, RouterProvider } from "react-router-dom";
 import { Provider } from 'react-redux';
-import { IMovie } from './interfaces/movie.interface';
+import axios from 'axios';
 import Layout from './layouts/Layout';
 import Message from './components/Message/Message';
 import Spinner from './components/spinner/Spinner';
@@ -31,9 +31,11 @@ const router = createBrowserRouter([
         element: <Suspense fallback={<Spinner />}><MoviePage /></Suspense>,
         errorElement: <Message type='error' />,
         loader: async ({ params }) => {
-          return defer({
-            data: await fetch(`${PREFIX}?tt=${params.id}`).then(data => data.json()) as IMovie
-          });
+          // return defer({
+          //   data: await axios.get(`${PREFIX}?tt=${params.id}`)
+          // });
+          const { data } = await axios.get(`${PREFIX}?tt=${params.id}`);
+          return data;
         }
       },
       {

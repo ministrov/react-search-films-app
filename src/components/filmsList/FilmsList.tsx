@@ -10,6 +10,9 @@ type FilmsListProps = {
 }
 
 function FilmsList({ films }: FilmsListProps) {
+    function onClickHandler() {
+        console.log('click');
+    }
     const listItem = films.map((film: FilmsDescription) => (
         <li className={styles['films-list-item']} key={film["#IMDB_ID"]}>
             <Link className={styles['films-list-link']} to={`/movie/${film["#IMDB_ID"]}`}>
@@ -28,7 +31,7 @@ function FilmsList({ films }: FilmsListProps) {
                 )}
                 <div className={styles['films-bottom']}>
                     <h3>{film["#TITLE"]}</h3>
-                    <FavoritesButton isFavorite={false} />
+                    <FavoritesButton onClick={onClickHandler} isFavorite={false} />
                 </div>
             </Link>
         </li>
