@@ -7,18 +7,19 @@ import FilmsList from "../../components/filmsList/FilmsList";
 import Spinner from "../../components/spinner/Spinner";
 import Message from "../../components/Message/Message";
 import { useHttpRequest } from "../../hooks/http.request.hook";
-import { useDispatch, useSelector } from "react-redux";
-import { AppDispatch, RootState } from "../../store/store";
-import { addFilms } from "../../store/films.slice";
-import { FilmsDescription } from "../../interfaces/films-description.interface";
+// import { useDispatch, useSelector } from "react-redux";
+// import { AppDispatch, RootState } from "../../store/store";
+// import { addFilms } from "../../store/films.slice";
+// import { FilmsDescription } from "../../interfaces/films-description.interface";
 
 const PREFIX = 'https://search.imdbot.workers.dev/';
 
 function MainPage() {
+  const [films, setFilms] = useState([]) as any;
   const [search, setSearch] = useState<string>('');
   const { request, loading } = useHttpRequest();
-  const films = useSelector((state: RootState) => state.films.films[0]) as unknown as FilmsDescription[];
-  const dispatch = useDispatch<AppDispatch>();
+  // const films = useSelector((state: RootState) => state.films.films[0]) as unknown as FilmsDescription[];
+  // const dispatch = useDispatch<AppDispatch>();
 
   function updateFilter(event: ChangeEvent<HTMLInputElement>) {
     setSearch(event.target.value);
@@ -29,8 +30,8 @@ function MainPage() {
 
     request(`${PREFIX}?q=${search}`)
       .then((data) => {
-        // setFilms(data?.description);
-        dispatch(addFilms(data?.description));
+        setFilms(data?.description);
+        // dispatch(addFilms(data?.description));
         console.log(data?.description);
       })
   };
@@ -56,8 +57,8 @@ function MainPage() {
         </div>
       </div>
       <div className='films-wrapper'>
-        {!loading && films && <FilmsList films={films} />}
-        {!loading && films?.length === 0 && <Message type='search' />}
+        {!loading && films.length > 0 && <FilmsList films={films} />}
+        {!loading && films.length === 0 && <Message type='search' />}
         {loading && <Spinner />}
       </div>
     </section>
