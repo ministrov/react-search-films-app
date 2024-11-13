@@ -78,7 +78,3 @@ function MainPage() {
 }
 
 export default MainPage;
-function getAllFilms() {
-  throw new Error("Function not implemented.");
-}
-

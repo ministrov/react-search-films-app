@@ -16,7 +16,7 @@ import './index.css';
 
 // const MoviePage = lazy(() => import('./pages/moviePage/MoviePage'));
 
-// const PREFIX = 'https://search.imdbot.workers.dev/';
+const PREFIX = 'https://search.imdbot.workers.dev/';
 
 const router = createBrowserRouter([
   {

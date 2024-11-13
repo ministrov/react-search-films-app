@@ -13,15 +13,14 @@ export const favoriteSlice = createSlice({
     name: 'favorite',
     initialState,
     reducers: {
-        addToFavorites: (_state, _action) => {
-
+        addToFavorites: (state, action) => {
+            state.favoriteFilms.push(action.payload);
         },
-        clearFavorites: (state) => {
-            state.favoriteFilms = [];
-        },
-        removeFromFavorites: (_state, _action) => { }
+        removeFromFavorites: (state, action) => {
+            state.favoriteFilms.filter((item) => item.id !== action.payload.id);
+        }
     }
 });
 
 export default favoriteSlice.reducer;
-export const { addToFavorites, clearFavorites, removeFromFavorites } = favoriteSlice.actions;
+export const { addToFavorites, removeFromFavorites } = favoriteSlice.actions;

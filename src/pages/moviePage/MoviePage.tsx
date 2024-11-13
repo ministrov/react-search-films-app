@@ -16,10 +16,6 @@ function MoviePage() {
     const dispatch = useDispatch<AppDispatch>();
     // const data = useLoaderData() as { data: IMovie };
 
-    // console.log(movies);
-    console.log(movie);
-    console.log(movieId);
-
     useEffect(() => {
         dispatch(getFilm(Number(movieId)));
     }, []);
