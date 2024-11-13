@@ -2,7 +2,7 @@ import { ChangeEvent, FormEvent, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import Heading from '../heading/Heading';
-import Input from '../Input/Input';
+import Input from '../input/Input';
 import Button from '../button/Button';
 import { AppDispatch, RootState } from '../../store/store';
 import { login } from '../../store/user.slice';

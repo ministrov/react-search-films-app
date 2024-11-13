@@ -5,7 +5,6 @@ export const links = [
     id: 1,
     label: 'Поиск фильмов',
     isActive: true,
-    count: null,
     hasCount: false,
     hasIcon: false,
     href: '/'

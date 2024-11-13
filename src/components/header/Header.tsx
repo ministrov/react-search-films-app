@@ -2,31 +2,41 @@ import { useSelector } from 'react-redux';
 import Logo from '../logo/Logo.js';
 import NavMenuItem from "../navMenuItem/NavMenuItem.js";
 import UserIcon from '../userIcon/UserIcon.js';
-import { MenuItem } from '../../interfaces/links.interface.js';
 import { RootState } from '../../store/store.js';
-import { logout } from '../../store/user.slice';
+import { links } from '../../const/const.js';
 import styles from './Header.module.css';
+
+type LinkItem = {
+  id: number;
+  label: string;
+  isActive: boolean;
+  count?: number | null;
+  hasCount: boolean;
+  hasIcon: boolean;
+  href: string;
+}
 
 type HeaderProps = {
   isLogged: boolean | undefined;
-  links: MenuItem[];
   logout: () => void;
 }
 
-function Header({ isLogged, links, logout }: HeaderProps) {
+function Header({ isLogged, logout }: HeaderProps) {
   const profile = useSelector((state: RootState) => state.profile);
 
   return (
     <header className={styles['header']}>
-      <Logo />
+      <div className={styles['header__logo']}>
+        <Logo />
+      </div>
       <div className={styles['header__nav-wrapper']}>
         <nav className={styles['header__nav']}>
           <ul className={styles['header__list']}>
-            {links.map((link: any) => (
+            {links.map((link: LinkItem) => (
               <NavMenuItem
                 key={link.id}
                 label={link.label}
-                count={link.count}
+                count={link.count || 0}
                 hasCount={link.hasCount}
                 hasIcon={link.hasIcon}
                 href={link.href}

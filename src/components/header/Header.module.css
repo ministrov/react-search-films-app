@@ -2,9 +2,8 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  max-height: 80px;
   margin-bottom: 80px;
-  padding-top: 20px;
-  padding-bottom: 20px;
 }
 
 .header__nav {

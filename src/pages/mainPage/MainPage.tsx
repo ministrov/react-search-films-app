@@ -2,11 +2,11 @@ import { ChangeEvent, FormEvent, useEffect, useState } from "react";
 import Button from "../../components/button/Button";
 import Heading from "../../components/heading/Heading";
 import Paragraph from "../../components/paragraph/Paragraph";
-import Input from "../../components/Input/Input";
+import Input from "../../components/input/Input";
 import FilmsList from "../../components/filmsList/FilmsList";
 import Spinner from "../../components/spinner/Spinner";
 import { useUserContext } from "../../hooks/useUserContext";
-import Message from "../../components/Message/Message";
+import Message from "../../components/message/Message";
 
 const PREFIX = 'https://search.imdbot.workers.dev/';
 
