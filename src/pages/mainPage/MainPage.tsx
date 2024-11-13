@@ -5,46 +5,26 @@ import Paragraph from "../../components/paragraph/Paragraph";
 import Input from "../../components/Input/Input";
 import FilmsList from "../../components/filmsList/FilmsList";
 import Spinner from "../../components/spinner/Spinner";
+import { useUserContext } from "../../hooks/useUserContext";
 import Message from "../../components/Message/Message";
-import { useHttpRequest } from "../../hooks/http.request.hook";
-import { useDispatch, useSelector } from "react-redux";
-import { AppDispatch, RootState } from "../../store/store";
-import { searchFilm } from "../../store/films.slice";
-// import { addFilms } from "../../store/films.slice";
-// import { FilmsDescription } from "../../interfaces/films-description.interface";
 
 const PREFIX = 'https://search.imdbot.workers.dev/';
 
 function MainPage() {
-  // const [films, setFilms] = useState([]) as any;
+  const { filmsState } = useUserContext();
+  const [films, setFilms] = useState(filmsState);
   const [search, setSearch] = useState<string>('');
-  const { request, loading } = useHttpRequest();
-  const movies = useSelector((state: RootState) => state.movies);
-  const dispatch = useDispatch<AppDispatch>();
-
-  // useEffect(() => {
-  //   function getAllFilms() {
-
-  //   }
-  //   getAllFilms();
-  // }, [search, onSubmitHandler]);
-
-
+  const [loading, setLoading] = useState<boolean>(false);
 
   function updateFilter(event: ChangeEvent<HTMLInputElement>) {
     setSearch(event.target.value);
   };
 
+  console.log(films);
+
   function onSubmitHandler(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
 
-    // request(`${PREFIX}?q=${search}`)
-    //   .then((data) => {
-    //     setFilms(data?.description);
-    //     // dispatch(addFilms(data?.description));
-    //     console.log(data?.description);
-    //   })
-    dispatch(searchFilm(search));
     console.log(search);
   };
 
@@ -69,8 +49,10 @@ function MainPage() {
         </div>
       </div>
       <div className='films-wrapper'>
-        {!loading && movies.length > 0 && <FilmsList />}
-        {!loading && movies.length === 0 && <Message type='search' />}
+        {/* {!loading && movies.length > 0 && <FilmsList />}
+        {!loading && movies.length === 0 && <Message type='search' />} */}
+        {films.length > 0 && <FilmsList films={films} />}
+        {films.length === 0 && <Message type='search' />}
         {loading && <Spinner />}
       </div>
     </section>

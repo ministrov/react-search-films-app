@@ -2,6 +2,7 @@ import { StrictMode, Suspense, lazy } from 'react';
 import { createRoot } from 'react-dom/client';
 import { createBrowserRouter, defer, RouterProvider } from "react-router-dom";
 import { Provider } from 'react-redux';
+import { UserContextProvider } from './context/user-profile.context';
 // import axios from 'axios';
 import Layout from './layouts/Layout';
 import LoginPage from './pages/loginPage/LoginPage';
@@ -58,7 +59,9 @@ const router = createBrowserRouter([
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <Provider store={store}>
-      <RouterProvider router={router} />
+      <UserContextProvider>
+        <RouterProvider router={router} />
+      </UserContextProvider>
     </Provider>
   </StrictMode>,
 )
