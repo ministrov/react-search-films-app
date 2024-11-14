@@ -1,15 +1,15 @@
 import { useEffect, useState } from 'react';
 import FavoriteIconActive from '../favoriteIconActive/FavoriteIconActive';
 import FavoriteIcon from '../favoriteIcon/FavoriteIcon';
-import { FilmsDescription } from '../../interfaces/films-description.interface';
+import { FilmCardType, FilmsDescription } from '../../interfaces/films-description.interface';
 import cn from 'classnames';
 import { useDispatch, useSelector } from 'react-redux';
 import { AppDispatch, RootState } from '../../store/store';
-import styles from './FavoritesButton.module.css';
 import { addUserToFavorites, removeUserFavorites } from '../../store/user.slice';
+import styles from './FavoritesButton.module.css';
 
 type FavoritesButtonProps = {
-  film: FilmsDescription;
+  film: FilmCardType;
 }
 
 function FavoritesButton({ film }: FavoritesButtonProps) {
@@ -18,7 +18,7 @@ function FavoritesButton({ film }: FavoritesButtonProps) {
   const favoritesList = useSelector((state: RootState) => state.profile.favorites);
 
   useEffect(() => {
-    if (favoritesList.find(el => el.id === film["#IMDB_ID"])) {
+    if (favoritesList.find(el => el.id === film.id)) {
       setFavActive(true);
     }
 

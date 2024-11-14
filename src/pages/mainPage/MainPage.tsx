@@ -7,12 +7,14 @@ import FilmsList from "../../components/filmsList/FilmsList";
 import Spinner from "../../components/spinner/Spinner";
 import { useUserContext } from "../../hooks/useUserContext";
 import Message from "../../components/message/Message";
+import { ListItem } from "../../context/user-profile.context";
+// import { FilmCardType } from "../../interfaces/films-description.interface";
 
 const PREFIX = 'https://search.imdbot.workers.dev/';
 
 function MainPage() {
   const { filmsState } = useUserContext();
-  const [films, setFilms] = useState(filmsState);
+  const [films, setFilms] = useState<ListItem[]>(filmsState);
   const [search, setSearch] = useState<string>('');
   const [loading, setLoading] = useState<boolean>(false);
 
@@ -49,8 +51,6 @@ function MainPage() {
         </div>
       </div>
       <div className='films-wrapper'>
-        {/* {!loading && movies.length > 0 && <FilmsList />}
-        {!loading && movies.length === 0 && <Message type='search' />} */}
         {films.length > 0 && <FilmsList films={films} />}
         {films.length === 0 && <Message type='search' />}
         {loading && <Spinner />}
