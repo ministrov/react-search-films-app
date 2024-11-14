@@ -30,16 +30,20 @@ function Header({ logout }: HeaderProps) {
         </div>
         <nav className={styles['header__nav']}>
           <ul className={styles['header__list']}>
-            {links.map((link: LinkItem) => (
-              <NavMenuItem
-                key={link.id}
-                label={link.label}
-                count={link.count || 0}
-                hasCount={link.hasCount}
-                hasIcon={link.hasIcon}
-                href={link.href}
-              />
-            ))}
+            <NavMenuItem
+              label={'Поиск фильмов'}
+              hasCount={false}
+              hasIcon={false}
+              href={'/'}
+            />
+
+            <NavMenuItem
+              label={'Мои фильмы'}
+              count={0}
+              hasCount={true}
+              hasIcon={false}
+              href={'/favorites'}
+            />
           </ul>
 
           <UserLogin logout={logout} />
