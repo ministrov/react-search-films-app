@@ -1,6 +1,6 @@
 import { configureStore } from "@reduxjs/toolkit";
 import userSlice from "./user.slice";
-import favoriteSlice from "./favorite.slice";
+import { saveState } from "./storage";
 
 export const store = configureStore({
     reducer: {
@@ -10,11 +10,10 @@ export const store = configureStore({
 
 store.subscribe(() => {
     const state = store.getState().profile;
-    localStorage.setItem('user-profile', JSON.stringify(state));
+    saveState('user-profile', JSON.stringify(state));
 });
 
-// console.log(store.getState().favorite);
-// console.log(store.getState().movies);
+console.log(store.getState().profile.favorites);
 
 export type RootState = ReturnType<typeof store.getState>;
 export type AppDispatch = typeof store.dispatch;

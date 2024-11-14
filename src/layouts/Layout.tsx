@@ -9,6 +9,7 @@ function Layout() {
 
   const onLogoutHandler = () => {
     dispatch(logout());
+    // localStorage.removeItem('user-profile');
   };
 
   return (

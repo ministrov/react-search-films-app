@@ -1,21 +1,7 @@
-import { useSelector } from 'react-redux';
 import Logo from '../logo/Logo.js';
 import NavMenuItem from "../navMenuItem/NavMenuItem.js";
 import UserLogin from '../userLogin/UserLogin.js';
-import UserIcon from '../userIcon/UserIcon.js';
-import { RootState } from '../../store/store.js';
-import { links } from '../../const/const.js';
 import styles from './Header.module.css';
-
-type LinkItem = {
-  id: number;
-  label: string;
-  isActive: boolean;
-  count?: number | null;
-  hasCount: boolean;
-  hasIcon: boolean;
-  href: string;
-}
 
 type HeaderProps = {
   logout: () => void;

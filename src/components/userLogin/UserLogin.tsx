@@ -6,6 +6,7 @@ import styles from './UserLogin.module.css';
 
 function UserLogin({ logout }: any) {
     const profile = useSelector((state: RootState) => state.profile);
+
     return (
         <div className={styles['user-login']}>
             {
@@ -19,7 +20,7 @@ function UserLogin({ logout }: any) {
                                 </p>
                             </li>
                             <li className={styles['user-login__list-item']}>
-                                <button className={styles['user-login__logout']} onClick={logout}>Выход</button>
+                                <button className={styles['user-login__logout']} onClick={logout}>Выйти</button>
                             </li>
                         </ul>
                     )
