@@ -29,7 +29,7 @@ function MainPage() {
   };
 
   return (
-    <section>
+    <section style={{ paddingBottom: '60px' }}>
       <h2 className="visually-hidden">Главная страница поиска фильмов</h2>
       <div className='left-box'>
         <Heading text={'Поиск'} />
