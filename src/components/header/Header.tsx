@@ -14,8 +14,6 @@ function Header() {
     setCounter(favorites.length);
   }, [counter, favorites]);
 
-  // console.log(counter, favorites);
-
   return (
     <header className={styles['header']}>
       <div className={styles['header__wrapper']}>

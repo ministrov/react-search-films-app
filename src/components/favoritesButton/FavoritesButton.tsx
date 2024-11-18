@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import FavoriteIconActive from '../favoriteIconActive/FavoriteIconActive';
 import FavoriteIcon from '../favoriteIcon/FavoriteIcon';
-import { FilmCardType, FilmsDescription } from '../../interfaces/films-description.interface';
+import { FilmCardType } from '../../interfaces/films-description.interface';
 import cn from 'classnames';
 import { useDispatch, useSelector } from 'react-redux';
 import { AppDispatch, RootState } from '../../store/store';

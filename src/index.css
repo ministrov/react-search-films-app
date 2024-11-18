@@ -32,11 +32,7 @@ body {
   margin: 0 auto;
 }
 
-/* .top {
-  margin-bottom: 80px;
-} */
-
-.left-box {
+/* .left-box {
   display: flex;
   flex-direction: column;
   gap: 24px;
@@ -48,7 +44,7 @@ body {
   display: flex;
   align-items: center;
   gap: 1rem;
-}
+} */
 
 .left-box-bottom form {
   display: flex;
