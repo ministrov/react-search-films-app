@@ -1,13 +1,21 @@
+import { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
+import { RootState } from '../../store/store.js';
 import Logo from '../logo/Logo.js';
 import NavMenuItem from "../navMenuItem/NavMenuItem.js";
 import UserLogin from '../userLogin/UserLogin.js';
 import styles from './Header.module.css';
 
-type HeaderProps = {
-  logout: () => void;
-}
+function Header() {
+  const [counter, setCounter] = useState<number>(0);
+  const favorites = useSelector((state: RootState) => state.profile.favorites);
 
-function Header({ logout }: HeaderProps) {
+  useEffect(() => {
+    setCounter(favorites.length);
+  }, [counter, favorites]);
+
+  // console.log(counter, favorites);
+
   return (
     <header className={styles['header']}>
       <div className={styles['header__wrapper']}>
@@ -25,14 +33,14 @@ function Header({ logout }: HeaderProps) {
 
             <NavMenuItem
               label={'Мои фильмы'}
-              count={0}
+              count={counter}
               hasCount={true}
               hasIcon={false}
               href={'/favorites'}
             />
           </ul>
 
-          <UserLogin logout={logout} />
+          <UserLogin />
         </nav>
       </div>
     </header>

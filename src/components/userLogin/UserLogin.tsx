@@ -1,11 +1,19 @@
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import NavMenuItem from '../navMenuItem/NavMenuItem';
 import UserIcon from '../userIcon/UserIcon';
-import { RootState } from '../../store/store';
+import { AppDispatch, RootState } from '../../store/store';
+import { logout, resetUserFavorites } from '../../store/user.slice';
 import styles from './UserLogin.module.css';
 
-function UserLogin({ logout }: any) {
+function UserLogin() {
     const profile = useSelector((state: RootState) => state.profile);
+    const dispatch = useDispatch<AppDispatch>();
+
+    const onLogoutHandler = () => {
+        dispatch(logout());
+        dispatch(resetUserFavorites());
+        localStorage.removeItem('user-profile');
+    };
 
     return (
         <div className={styles['user-login']}>
@@ -20,7 +28,7 @@ function UserLogin({ logout }: any) {
                                 </p>
                             </li>
                             <li className={styles['user-login__list-item']}>
-                                <button className={styles['user-login__logout']} onClick={logout}>Выйти</button>
+                                <button className={styles['user-login__logout']} onClick={onLogoutHandler}>Выйти</button>
                             </li>
                         </ul>
                     )

@@ -25,7 +25,7 @@ export const userSlice = createSlice({
             console.log(action);
         },
         removeUserFavorites: (state, action) => {
-            state.favorites = state.favorites.filter((item: { id: any; }) => item.id !== action.payload.id);
+            state.favorites = state.favorites.filter((item: { id: number }) => item.id !== action.payload.id);
         },
         resetUserFavorites: (state) => {
             state.favorites = []

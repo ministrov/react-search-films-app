@@ -22,12 +22,10 @@ function MainPage() {
     setSearch(event.target.value);
   };
 
-  console.log(films);
-
   function onSubmitHandler(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
 
-    console.log(search);
+    // console.log(search);
   };
 
   return (

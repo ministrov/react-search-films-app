@@ -5,18 +5,9 @@ import { AppDispatch } from "../store/store";
 import { logout } from "../store/user.slice";
 
 function Layout() {
-  const dispatch = useDispatch<AppDispatch>();
-
-  const onLogoutHandler = () => {
-    dispatch(logout());
-    // localStorage.removeItem('user-profile');
-  };
-
   return (
     <div className="container">
-      <Header
-        logout={onLogoutHandler}
-      />
+      <Header />
 
       <main>
         <Outlet />

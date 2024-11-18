@@ -2,16 +2,12 @@ import { Link, useLoaderData } from 'react-router-dom';
 import SkeletonImage from '../../components/skeletonImage/SkeletonImage';
 import { IMovie } from '../../interfaces/movie.interface';
 import Rating from '../../components/rating/Rating';
-import FavoritesButton from '../../components/favoritesButton/FavoritesButton';
+// import FavoritesButton from '../../components/favoritesButton/FavoritesButton';
 import { removeMnemonic } from '../../helpers/functions';
 import styles from './MoviePage.module.css';
 
 function MoviePage() {
     const data = useLoaderData() as { data: IMovie };
-
-    function onClickHandler() {
-        console.log('clicked');
-    }
 
     return (
         <section>
@@ -36,7 +32,7 @@ function MoviePage() {
                         </p>
                         <div className={styles["movie-page-rating-block"]}>
                             <Rating count={0} />
-                            <FavoritesButton onClick={onClickHandler} isFavorite={false} />
+                            {/* <FavoritesButton film={data.data.short}  /> */}
                         </div>
                     </div>
                 </div>
