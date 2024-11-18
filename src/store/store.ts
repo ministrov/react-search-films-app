@@ -9,9 +9,13 @@ export const store = configureStore({
 });
 
 store.subscribe(() => {
-    const state = store.getState().profile;
-    saveState('user-profile', JSON.stringify(state));
+    saveState({ name: store.getState().profile.name, favorites: store.getState().profile.favorites }, 'user-profile');
 });
+
+// store.subscribe(() => {
+//     const state = store.getState().profile;
+//     saveState('user-profile', JSON.stringify(state));
+// });
 
 console.log(store.getState().profile.favorites);
 

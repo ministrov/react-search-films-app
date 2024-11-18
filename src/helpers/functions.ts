@@ -18,6 +18,19 @@ export function removeMnemonic(string: string) {
     return string.split(' ').join(' ').replace(/&apos;/g, '').replace(/&quot;/g, '');
 }
 
+export function parseDuration(duration: string): number {
+    const regex = /^PT(?:(\d+)H)?(?:(\d+)M)?$/;
+    const matches = duration.match(regex);
+    console.log(matches);
+    if (!matches) {
+        throw new Error('Invalid duration format');
+    }
+    const hours = matches[1] ? parseInt(matches[1], 10) : 0;
+    const minutes = matches[2] ? parseInt(matches[2], 10) : 0;
+
+    return hours * 60 + minutes;
+}
+
 // function findMissingEl(arr1: number[], arr2: number[]) {
 //     let index;
 //     for (let i = 0; i < arr1.length; i++) {

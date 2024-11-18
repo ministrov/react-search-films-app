@@ -1,18 +1,15 @@
 import { Link, useLoaderData } from 'react-router-dom';
 import SkeletonImage from '../../components/skeletonImage/SkeletonImage';
-// import { IMovie } from '../../interfaces/movie.interface';
 import Rating from '../../components/rating/Rating';
 import FavoritesButton from '../../components/favoritesButton/FavoritesButton';
-import { removeMnemonic } from '../../helpers/functions';
-import styles from './MoviePage.module.css';
+import { removeMnemonic, parseDuration } from '../../helpers/functions';
 import Message from '../../components/message/Message';
+import styles from './MoviePage.module.css';
 
 function MoviePage() {
     const data = useLoaderData() as any;
 
-    function parseDuration(duration: any) {
-        throw new Error('Function not implemented.');
-    }
+    console.log(data);
 
     return (
         <>
@@ -31,7 +28,7 @@ function MoviePage() {
                                 {!data?.short?.image ? (
                                     <SkeletonImage />
                                 ) : (
-                                    <img src={data?.short?.image} width={300} height={450} alt="Some alt" />
+                                    <img src={data?.short?.image} width={480} height={720} alt="Some alt" />
                                 )}
                             </div>
                             <div className={styles["movie-page-text-box"]}>
@@ -64,6 +61,25 @@ function MoviePage() {
                                     </tbody>
                                 </table>
                             </div>
+                        </div>
+
+                        <div className={styles['movie-page__reviews reviews']}>
+                            <h2 className={styles['reviews__title']}>Отзывы</h2>
+                            <ul className={styles['reviews__list']}>
+                                <li className={styles['reviews__item']}>
+                                    <div className={styles['review']}>
+                                        <div className={styles['review__header']}>
+                                            <h3 className={styles['review__title']}>
+                                                {removeMnemonic(data.short.review.name) || 'Default text'}
+                                            </h3>
+                                            <p className={styles['review__date']}>{data.short.review.dateCreated}</p>
+                                        </div>
+                                        <p className={styles['review__text']}>
+                                            {removeMnemonic(data.short.review.reviewBody) || 'Default text description for that film'}
+                                        </p>
+                                    </div>
+                                </li>
+                            </ul>
                         </div>
                     </div>
                 </section>

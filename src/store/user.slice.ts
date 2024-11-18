@@ -1,10 +1,16 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { Profile } from "../interfaces/user.interface";
+import { loadState } from "./storage";
 
+// const initialState: Profile = {
+//     name: '',
+//     isLogged: false,
+//     favorites: []
+// };
 const initialState: Profile = {
-    name: '',
-    isLogged: false,
-    favorites: []
+    name: loadState('user-profile')?.name || '',
+    isLogged: loadState('user-profile')?.isLogged || false,
+    favorites: loadState('user-profile')?.favorites || []
 };
 
 export const userSlice = createSlice({

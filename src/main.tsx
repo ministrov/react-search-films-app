@@ -8,7 +8,6 @@ import Layout from './layouts/Layout';
 import LoginPage from './pages/loginPage/LoginPage';
 import MainPage from "./pages/mainPage/MainPage";
 import FavoritesPage from './pages/favoritesPage/FavoritesPage';
-// import MoviePage from './pages/moviePage/MoviePage';
 import Message from './components/message/Message';
 import Spinner from './components/spinner/Spinner';
 import RequireAuth from './helpers/RequireAuth';
@@ -33,9 +32,6 @@ const router = createBrowserRouter([
         element: <Suspense fallback={<Spinner />}><MoviePage /></Suspense>,
         errorElement: <Message type='error' />,
         loader: async ({ params }) => {
-          // return defer({
-          //   data: await axios.get(`${PREFIX}?tt=${params.id}`)
-          // });
           const { data } = await axios.get(`${PREFIX}?tt=${params.id}`);
           return data;
         }

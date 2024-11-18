@@ -10,6 +10,7 @@ import axios, { AxiosError } from "axios";
 // import { FilmCardType } from "../../interfaces/films-description.interface";
 
 // const PREFIX = 'https://search.imdbot.workers.dev/';
+const PREFIX = 'https://api.kinopoisk.dev/v1.4/movie/search?page=1&limit=10&query=Monica/';
 
 function MainPage() {
   const { filmsState } = useUserContext();
