@@ -17,8 +17,6 @@ function SearchRow({ findFilms }: SearchRowProps) {
 
     function onSubmitHandler(event: FormEvent<HTMLFormElement>) {
         event.preventDefault();
-
-        // console.log(search);
         findFilms(search);
         setSearch('');
     };

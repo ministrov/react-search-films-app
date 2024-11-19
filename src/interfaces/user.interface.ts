@@ -1,7 +1,6 @@
-import { IFilms } from "./films.interface";
+import { FilmsDescription } from "./films-description.interface";
 
 export interface Profile {
     name: string;
-    isLogged: boolean;
-    favorites: IFilms[]
+    favorites: FilmsDescription[];
 }

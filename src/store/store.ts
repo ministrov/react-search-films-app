@@ -12,12 +12,5 @@ store.subscribe(() => {
     saveState({ name: store.getState().profile.name, favorites: store.getState().profile.favorites }, 'user-profile');
 });
 
-// store.subscribe(() => {
-//     const state = store.getState().profile;
-//     saveState('user-profile', JSON.stringify(state));
-// });
-
-console.log(store.getState().profile.favorites);
-
 export type RootState = ReturnType<typeof store.getState>;
 export type AppDispatch = typeof store.dispatch;

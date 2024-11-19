@@ -1,7 +1,4 @@
 import { createContext, ReactNode, useState } from "react";
-// import { FilmsDescription } from "../interfaces/films-description.interface";
-import { FilmCardType } from "../interfaces/films-description.interface";
-import { Profile } from "../interfaces/user.interface";
 
 export interface UserProviderContextProps {
     children: ReactNode;
@@ -49,14 +46,7 @@ export interface MyContextType {
 export const UserContext = createContext<MyContextType | undefined>(undefined);
 
 export const UserContextProvider = ({ children }: UserProviderContextProps) => {
-    // const [usersState, setUsersState] = useState<Profile[]>([]);
     const [filmsState, setFilmsState] = useState<ListItem[]>(INITIAL_LIST);
-    // const addItem = (item: Profile) => {
-    //     setUsersState((prevItems) => [...prevItems, item]);
-    // };
-    // const changeList = (item: Profile[]) => {
-    //     setUsersState(item);
-    // };
 
     const changeFilms = (item: ListItem | ListItem[]) => {
         if (Array.isArray(item)) {

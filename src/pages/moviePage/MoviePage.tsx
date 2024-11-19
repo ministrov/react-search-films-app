@@ -9,8 +9,8 @@ import styles from './MoviePage.module.css';
 function MoviePage() {
     const data = useLoaderData() as any;
 
-    console.log(data);
-
+    // console.log(data);
+    //    Change clasname movie-page to movie-page__container in BEM
     return (
         <>
             {data

@@ -32,20 +32,6 @@ body {
   margin: 0 auto;
 }
 
-/* .left-box {
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-  max-width: 588px;
-  margin-bottom: 80px;
-}
-
-.left-box-bottom {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-} */
-
 .left-box-bottom form {
   display: flex;
   align-items: center;

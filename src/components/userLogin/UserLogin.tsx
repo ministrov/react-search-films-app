@@ -6,7 +6,7 @@ import { logout, resetUserFavorites } from '../../store/user.slice';
 import styles from './UserLogin.module.css';
 
 function UserLogin() {
-    const profile = useSelector((state: RootState) => state.profile);
+    const { name } = useSelector((state: RootState) => state.profile);
     const dispatch = useDispatch<AppDispatch>();
 
     const onLogoutHandler = () => {
@@ -18,12 +18,12 @@ function UserLogin() {
     return (
         <div className={styles['user-login']}>
             {
-                profile.isLogged
+                name
                     ? (
                         <ul className={styles['user-login__list']}>
                             <li className={styles['user-login__list-item']}>
                                 <p className={styles['user-login__user']}>
-                                    {profile.name || 'Default'}
+                                    {name || 'Default'}
                                     <UserIcon />
                                 </p>
                             </li>

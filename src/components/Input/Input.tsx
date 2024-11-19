@@ -18,7 +18,7 @@ function Input({ type = 'text', isValid, placeholder, onChange, icon, ...props }
       [styles['input__invalid']]: !isValid
     })}>
       {icon ? <SearchIcon /> : ''}
-      <input {...props} type={type} onChange={onChange} placeholder={placeholder} required />
+      <input {...props} type={type} onChange={onChange} placeholder={placeholder} required={isValid} />
     </div>
   )
 }

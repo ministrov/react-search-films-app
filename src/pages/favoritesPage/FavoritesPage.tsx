@@ -3,17 +3,18 @@ import { useSelector } from "react-redux";
 import { RootState } from "../../store/store";
 import FilmCard from "../../components/filmCard/FilmCard";
 import styles from './Favorites.module.css';
+// import { FilmCardType } from "../../interfaces/films-description.interface";
 
 function FavoritesPage() {
   const favoritesFilms = useSelector((state: RootState) => state.profile.favorites);
 
   return (
-    <div>
+    <div className={styles['favorites']}>
       <Heading text={'Избранное'} />
 
       {favoritesFilms.length > 0 ? (
-        <ul className={styles['favorites-list']}>
-          {favoritesFilms.map((favorite) => (
+        <ul className={styles['favorites__list']}>
+          {favoritesFilms.map((favorite: any) => (
             <FilmCard
               key={favorite.id}
               id={favorite.id}
@@ -24,9 +25,9 @@ function FavoritesPage() {
           ))}
         </ul>
       ) : (
-        <div className={styles['favorites-message']}>
-          <h2 className={styles['favorites-message-title']}>Упс... В Избранном пусто</h2>
-          <p className={styles['favorites-message-text']}>Добавьте в избранное понравившийся фильм</p>
+        <div className={styles['favorites__message']}>
+          <h2 className={styles['favorites__message-title']}>Упс... В Избранном пусто</h2>
+          <p className={styles['favorites__message-text']}>Добавьте в избранное понравившийся фильм</p>
         </div>
       )}
     </div>
