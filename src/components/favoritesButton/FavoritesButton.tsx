@@ -18,7 +18,7 @@ function FavoritesButton({ film }: FavoritesButtonProps) {
   const favoritesList = useSelector((state: RootState) => state.profile.favorites);
 
   useEffect(() => {
-    if (favoritesList.find(el => el.id === film.id)) {
+    if (favoritesList.find((el: any) => el.id === film.id)) {
       setFavActive(true);
     }
 

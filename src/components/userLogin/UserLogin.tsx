@@ -1,6 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
 import NavMenuItem from '../navMenuItem/NavMenuItem';
 import UserIcon from '../userIcon/UserIcon';
+import { useNavigate } from 'react-router-dom';
 import { AppDispatch, RootState } from '../../store/store';
 import { logout, resetUserFavorites } from '../../store/user.slice';
 import styles from './UserLogin.module.css';
@@ -8,11 +9,13 @@ import styles from './UserLogin.module.css';
 function UserLogin() {
     const { name } = useSelector((state: RootState) => state.profile);
     const dispatch = useDispatch<AppDispatch>();
+    const navigate = useNavigate();
 
     const onLogoutHandler = () => {
         dispatch(logout());
         dispatch(resetUserFavorites());
         localStorage.removeItem('user-profile');
+        navigate('/login');
     };
 
     return (

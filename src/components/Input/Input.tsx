@@ -1,4 +1,4 @@
-import { ChangeEvent } from 'react';
+import { ChangeEvent, forwardRef } from 'react';
 import cn from 'classnames';
 import styles from './Input.module.css';
 import SearchIcon from '../searchIcon/SearchIcon';
@@ -12,15 +12,17 @@ type InputProps = {
   placeholder: string;
 }
 
-function Input({ type = 'text', isValid, placeholder, onChange, icon, ...props }: InputProps) {
+const Input = forwardRef<HTMLInputElement, InputProps>(({ type = 'text', isValid, placeholder, onChange, icon, ...props }, ref) => {
+  console.log(isValid);
   return (
     <div className={cn(styles['input'], {
       [styles['input__invalid']]: !isValid
     })}>
       {icon ? <SearchIcon /> : ''}
-      <input {...props} type={type} onChange={onChange} placeholder={placeholder} required={isValid} />
+      <input {...props} ref={ref} type={type} onChange={onChange} placeholder={placeholder} required={isValid} />
     </div>
-  )
+  );
 }
+);
 
 export default Input;

@@ -5,37 +5,36 @@ import FavoritesButton from '../../components/favoritesButton/FavoritesButton';
 import { removeMnemonic, parseDuration } from '../../helpers/functions';
 import Message from '../../components/message/Message';
 import styles from './MoviePage.module.css';
+import { IMovie } from '../../interfaces/movie.interface';
 
 function MoviePage() {
     const data = useLoaderData() as any;
 
-    // console.log(data);
-    //    Change clasname movie-page to movie-page__container in BEM
     return (
         <>
             {data
                 ?
                 <section className={styles['movie-page']}>
                     <h2 className="visually-hidden">Страница фильма</h2>
-                    <div className={styles["movie-page-container"]}>
-                        <header className={styles["movie-page-header"]}>
-                            <Link className={styles["movie-page-link"]} to={'/'}>Поиск фильмов</Link>
+                    <div className={styles["movie-page__container"]}>
+                        <header className={styles["movie-page__header"]}>
+                            <Link className={styles["movie-page__link"]} to={'/'}>Поиск фильмов</Link>
                             <p>{data?.top.titleText.text || 'Default title name'}</p>
                         </header>
 
-                        <div className={styles["movie-page-wrapper"]}>
-                            <div className={styles["movie-page-image-box"]}>
+                        <div className={styles["movie-page__wrapper"]}>
+                            <div className={styles["movie-page__image-box"]}>
                                 {!data?.short?.image ? (
                                     <SkeletonImage />
                                 ) : (
                                     <img src={data?.short?.image} width={480} height={720} alt="Some alt" />
                                 )}
                             </div>
-                            <div className={styles["movie-page-text-box"]}>
-                                <p className={styles['movie-page-text']}>
+                            <div className={styles["movie-page__text-box"]}>
+                                <p className={styles['movie-page__text']}>
                                     {removeMnemonic(data?.short?.description) || 'Default text'}
                                 </p>
-                                <div className={styles["movie-page-rating-block"]}>
+                                <div className={styles["movie-page__rating-block"]}>
                                     <Rating count={0} />
                                     <FavoritesButton film={data.short} />
                                 </div>
