@@ -1,15 +1,16 @@
-import { ReactNode, useContext } from 'react';
+import { ReactNode } from 'react';
+import { useSelector } from 'react-redux';
 import { Navigate } from 'react-router-dom';
-import { UserProfileContext } from '../context/user-profile.context';
+import { RootState } from '../store/store';
 
 type RequireAuthProps = {
     children: ReactNode;
 }
 
 function RequireAuth({ children }: RequireAuthProps) {
-    const { users } = useContext(UserProfileContext) as any;
-    const token = users;
-    if (!token[0]?.name) {
+    const userName = useSelector((state: RootState) => state.profile.name);
+
+    if (!userName) {
         return <Navigate to={'/login'} replace />
     }
     return children;

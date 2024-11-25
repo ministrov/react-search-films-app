@@ -1,9 +1,9 @@
 import { NavLink } from 'react-router-dom';
+import EnterIcon from '../enterIcon/EnterIcon';
 import FavoriteCount from '../favoriteCount/favoriteCount';
 import UserIcon from '../userIcon/UserIcon';
 import cn from 'classnames';
 import styles from './NavMenuItem.module.css';
-import EnterIcon from '../enterIcon/EnterIcon';
 
 type NavMenuItemProps = {
   count?: number;

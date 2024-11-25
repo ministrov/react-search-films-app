@@ -1,59 +1,41 @@
-import { ChangeEvent, FormEvent, useState } from "react";
-import Button from "../../components/button/Button";
-import Heading from "../../components/heading/Heading";
-import Paragraph from "../../components/paragraph/Paragraph";
-import Input from "../../components/Input/Input";
+import { useState } from "react";
+import axios, { AxiosError } from "axios";
 import FilmsList from "../../components/filmsList/FilmsList";
 import Spinner from "../../components/spinner/Spinner";
-import Message from "../../components/Message/Message";
-import { useHttpRequest } from "../../hooks/http.request.hook";
-import { FilmsDescription } from "../../interfaces/films-description.interface";
+import { useUserContext } from "../../hooks/use-user-context";
+import Message from "../../components/message/Message";
+import { ListItem } from "../../context/user-profile.context";
+import SearchRow from "../../components/searchRow/SearchRow";
+import styles from './MainPage.module.css';
 
 const PREFIX = 'https://search.imdbot.workers.dev/';
 
 function MainPage() {
-  const [films, setFilms] = useState<FilmsDescription[]>([]);
-  const [search, setSearch] = useState<string>('');
-  const { request, loading } = useHttpRequest();
+  const { filmsState } = useUserContext();
+  const [films, setFilms] = useState<ListItem[]>(filmsState);
+  const [loading, setLoading] = useState<boolean>(false);
 
-  function updateFilter(event: ChangeEvent<HTMLInputElement>) {
-    setSearch(event.target.value);
-  };
+  async function getFilms(search: string) {
+    setLoading(true);
+    try {
+      const { data } = await axios.get(`${PREFIX}?q=${search.toLowerCase()}`);
+      setFilms(data.description);
+      setLoading(false);
 
-  function onSubmitHandler(event: FormEvent<HTMLFormElement>) {
-    event.preventDefault();
-
-    request(`${PREFIX}?q=${search}`)
-      .then((data) => {
-        setFilms(data?.description as FilmsDescription[]);
-        console.log(data?.description);
-      })
-  };
+    } catch (e) {
+      if (e instanceof AxiosError) {
+        setLoading(false);
+      }
+    }
+  }
 
   return (
-    <section>
+    <section className={styles['main-page']}>
       <h2 className="visually-hidden">Главная страница поиска фильмов</h2>
-      <div className='left-box'>
-        <Heading text={'Поиск'} />
-        <Paragraph>
-          Введите название фильма, сериала или мультфильма для поиска и добавления в избранное.
-        </Paragraph>
-        <div className='left-box-bottom'>
-          {/* Обернуть эти элементы в компонент формы */}
-          <form onSubmit={onSubmitHandler} action="#" method="#">
-            <Input icon={true} onChange={updateFilter} value={search} isValid={true} type={"text"} placeholder={'Введите название'} />
-            <Button
-              className={'button-big'}
-            >
-              Искать
-            </Button>
-          </form>
-        </div>
-      </div>
+      <SearchRow findFilms={getFilms} />
       <div className='films-wrapper'>
-        {!loading && films.length > 0 && <FilmsList films={films} />}
-        {!loading && films.length === 0 && <Message type='search' />}
         {loading && <Spinner />}
+        {films.length > 0 ? <FilmsList films={films} /> : <Message type='search' />}
       </div>
     </section>
   )

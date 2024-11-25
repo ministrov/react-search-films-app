@@ -1,0 +1,43 @@
+.films-list-item {
+    position: relative;
+    min-width: 262px;
+    max-width: 282px;
+    padding: 8px 8px 24px 8px;
+    background-color: #20283E;
+    border-radius: 12px;
+}
+
+.films-list-link {
+    display: block;
+    text-decoration: none;
+}
+
+.film-item-img {
+    display: block;
+    min-width: 266px;
+    max-width: 266px;
+    max-height: 400px;
+    border-radius: 8px;
+}
+
+.films-list-item h3 {
+    min-height: 40px;
+    max-width: 239px;
+    margin: 0;
+    margin-bottom: 16px;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1.2;
+    color: #ffffff;
+}
+
+.films-rating-box {
+    position: absolute;
+    top: 14px;
+    left: 14px;
+}
+
+.films-bottom {
+    padding-top: 24px;
+    padding-left: 8px;
+}

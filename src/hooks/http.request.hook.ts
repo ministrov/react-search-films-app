@@ -1,32 +1,30 @@
-import { useState } from "react";
-import { RootData } from "../interfaces/films-description.interface";
+// import { useState } from "react";
+// import axios from "axios";
+// // import { RootData } from "../interfaces/films-description.interface";
 
-export const useHttpRequest = () => {
-    const [loading, setLoading] = useState<boolean>(false);
+// export const useHttpRequest = () => {
+//     const [loading, setLoading] = useState<boolean>(false);
 
-    const request = async (url: string) => {
+//     const request = async (url: string) => {
 
-        setLoading(true);
+//         setLoading(true);
 
-        try {
-            const response = await fetch(url);
-            if (!response.ok) {
-                throw new Error(`Could not fetch ${url}, status: ${response.status}`);
-            }
-            const data = await response.json() as RootData;
+//         try {
+//             const { data } = await axios.get(url);
+//             if (axios.isAxiosError(Error)) {
+//                 throw new Error(`Could not fetch ${url}, status: ${Error}`);
+//             }
 
-            setLoading(false);
+//             return data;
 
-            return data;
+//         } catch (e) {
+//             console.error(e);
+//             return;
+//         }
+//     }
 
-        } catch (e) {
-            console.error(e);
-            return;
-        }
-    }
-
-    return {
-        request,
-        loading
-    }
-};
+//     return {
+//         request,
+//         loading
+//     }
+// };

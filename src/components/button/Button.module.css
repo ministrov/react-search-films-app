@@ -14,6 +14,11 @@
   cursor: pointer;
 }
 
+.button.disabled {
+  background-color: #C4C4C4;
+  opacity: 0.5;
+}
+
 .button-big {
   max-width: 201px;
   min-height: 56px;

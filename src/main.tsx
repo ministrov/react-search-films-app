@@ -1,15 +1,17 @@
 import { StrictMode, Suspense, lazy } from 'react';
 import { createRoot } from 'react-dom/client';
 import { createBrowserRouter, defer, RouterProvider } from "react-router-dom";
-import { IMovie } from './interfaces/movie.interface';
+import { Provider } from 'react-redux';
+import { UserContextProvider } from './context/user-profile.context';
+import axios from 'axios';
 import Layout from './layouts/Layout';
-import Message from './components/Message/Message';
-import Spinner from './components/spinner/Spinner';
 import LoginPage from './pages/loginPage/LoginPage';
-import FavoritesPage from './pages/favoritesPage/FavoritesPage';
 import MainPage from "./pages/mainPage/MainPage";
-import { UserProfileContextProvider } from './context/user-profile.context';
+import FavoritesPage from './pages/favoritesPage/FavoritesPage';
+import Message from './components/message/Message';
+import Spinner from './components/spinner/Spinner';
 import RequireAuth from './helpers/RequireAuth';
+import { store } from './store/store';
 import './index.css';
 
 const MoviePage = lazy(() => import('./pages/moviePage/MoviePage'));
@@ -30,9 +32,8 @@ const router = createBrowserRouter([
         element: <Suspense fallback={<Spinner />}><MoviePage /></Suspense>,
         errorElement: <Message type='error' />,
         loader: async ({ params }) => {
-          return defer({
-            data: await fetch(`${PREFIX}?tt=${params.id}`).then(data => data.json()) as IMovie
-          });
+          const { data } = await axios.get(`${PREFIX}?tt=${params.id}`);
+          return data;
         }
       },
       {
@@ -53,8 +54,10 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <UserProfileContextProvider>
-      <RouterProvider router={router} />
-    </UserProfileContextProvider>
+    <Provider store={store}>
+      <UserContextProvider>
+        <RouterProvider router={router} />
+      </UserContextProvider>
+    </Provider>
   </StrictMode>,
 )

@@ -1,22 +1,13 @@
-import { useState } from "react";
 import { Outlet } from "react-router-dom";
+import { useDispatch } from "react-redux";
 import Header from "../components/header/Header";
-import { links } from "../const/const";
+import { AppDispatch } from "../store/store";
+import { logout } from "../store/user.slice";
 
 function Layout() {
-  const [isLogged, setIsLogged] = useState<boolean>(true);
-
-  const onLogoutHandler = () => {
-    setIsLogged(false);
-  };
-
   return (
     <div className="container">
-      <Header
-        links={links}
-        logout={onLogoutHandler}
-        isLogged={isLogged}
-      />
+      <Header />
 
       <main>
         <Outlet />

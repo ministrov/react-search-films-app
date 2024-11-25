@@ -7,7 +7,7 @@
   margin: 0 auto;
 }
 
-.message-title {
+.message__title {
   margin: 0;
   margin-bottom: 20px;
   font-size: 48px;
@@ -15,7 +15,7 @@
   color: #fff;
 }
 
-.message-text {
+.message__text {
   max-width: 540px;
   margin: 0;
   font-size: 20px;
