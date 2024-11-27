@@ -30,6 +30,7 @@ function SearchRow({ findFilms }: SearchRowProps) {
                 <Input icon={true} onChange={updateFilter} value={search} isValid={true} placeholder={'Введите название'} />
                 <Button
                     className={'button-big'}
+                    isDisabled={!search}
                 >
                     Искать
                 </Button>

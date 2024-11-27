@@ -11,7 +11,7 @@
   background-color: transparent;
 }
 
-.input input {
+.input__input {
   margin: 0;
   padding: 0;
   padding-top: 12px;
@@ -25,7 +25,13 @@
   background-color: transparent;
 }
 
-.input input::placeholder {
+
+.input__input:focus {
+  outline: none;
+  border-color: #C4C4C4;
+}
+
+.input__input::placeholder {
   font-family: "Poppins", sans-serif;
   font-size: 14px;
   line-height: 1.2;
@@ -36,7 +42,7 @@
   border: 2px solid red;
 }
 
-.input input.input__invalid {
+.input__input.input__invalid {
   color: red;
 }
 

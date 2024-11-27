@@ -5,13 +5,15 @@ import styles from './Button.module.css';
 type ButtonProps = {
   children: ReactNode
   className: string | null
+  isDisabled: boolean
 }
 
-function Button({ children, className, ...props }: ButtonProps) {
+function Button({ children, className, isDisabled }: ButtonProps) {
   return (
     <button className={cn(styles['button'], {
-      [styles['button-big']]: className
-    })} {...props}>
+      [styles['button-big']]: className,
+      [styles['button-disabled']]: !isDisabled
+    })} disabled={isDisabled}>
       {children}
     </button>
   )

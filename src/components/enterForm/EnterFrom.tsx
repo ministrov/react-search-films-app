@@ -16,6 +16,8 @@ function EnterFrom() {
   const { name } = useSelector((state: RootState) => state.profile);
   const inputRef = useRef<HTMLInputElement>(null);
 
+  console.log(inputRef);
+
   useEffect(() => {
     if (name) {
       navigate('/');
@@ -31,15 +33,15 @@ function EnterFrom() {
 
     const regex_only_text = /^[A-Za-z ]+$/;
 
-    if (userName === '' || typeof userName !== 'string') {
+    if (inputRef.current?.focus()) {
+      setIsLoginValid(true);
+    }
+
+    if (userName === '' || !regex_only_text.test(userName)) {
       setIsLoginValid(false);
     }
 
     if (userName.length < 3) {
-      setIsLoginValid(false);
-    }
-
-    if (!regex_only_text.test(userName)) {
       setIsLoginValid(false);
     }
 
@@ -53,7 +55,7 @@ function EnterFrom() {
       <Heading text={'Вход'} />
       <form className={styles['enter-form']} action="#" method='#' onSubmit={addUserHandler}>
         <Input onChange={updateLogin} ref={inputRef} value={userName} isValid={isLoginValid} icon={false} placeholder={'Ваше имя'} />
-        <Button className={'button-big'}>
+        <Button className={'button-big'} isDisabled={Boolean(userName)}>
           Войти в профиль
         </Button>
       </form>
