@@ -27,7 +27,7 @@ function SearchRow({ findFilms }: SearchRowProps) {
                 Введите название фильма, сериала или мультфильма для поиска и добавления в избранное.
             </Paragraph>
             <form className={styles['search__form']} onSubmit={onSubmitHandler} action="#" method="#">
-                <Input icon={true} onChange={updateFilter} value={search} isValid={true} type={"text"} placeholder={'Введите название'} />
+                <Input icon={true} onChange={updateFilter} value={search} isValid={true} placeholder={'Введите название'} />
                 <Button
                     className={'button-big'}
                 >

@@ -8,18 +8,18 @@ type InputProps = {
   value: string;
   isValid: boolean;
   icon: boolean;
-  type: string;
   placeholder: string;
 }
 
-const Input = forwardRef<HTMLInputElement, InputProps>(({ type = 'text', isValid, placeholder, onChange, icon, ...props }, ref) => {
+const Input = forwardRef<HTMLInputElement, InputProps>(({ isValid, placeholder, onChange, icon, ...props }, ref) => {
   console.log(isValid);
   return (
     <div className={cn(styles['input'], {
       [styles['input__invalid']]: !isValid
     })}>
+      <label htmlFor="user-name"></label>
       {icon ? <SearchIcon /> : ''}
-      <input {...props} ref={ref} type={type} onChange={onChange} placeholder={placeholder} required={isValid} />
+      <input id='user-name' {...props} ref={ref} type={'text'} onChange={onChange} placeholder={placeholder} required={isValid} />
     </div>
   );
 }

@@ -52,7 +52,7 @@ function EnterFrom() {
     <div className={styles['enter-form-wrapper']}>
       <Heading text={'Вход'} />
       <form className={styles['enter-form']} action="#" method='#' onSubmit={addUserHandler}>
-        <Input onChange={updateLogin} ref={inputRef} value={userName} isValid={isLoginValid} icon={false} type={'text'} placeholder={'Ваше имя'} />
+        <Input onChange={updateLogin} ref={inputRef} value={userName} isValid={isLoginValid} icon={false} placeholder={'Ваше имя'} />
         <Button className={'button-big'}>
           Войти в профиль
         </Button>
