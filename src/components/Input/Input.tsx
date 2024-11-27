@@ -11,17 +11,20 @@ type InputProps = {
   placeholder: string;
 }
 
-const Input = forwardRef<HTMLInputElement, InputProps>(({ isValid, placeholder, onChange, icon, ...props }, ref) => {
-  console.log(isValid);
+const Input = forwardRef<HTMLInputElement, InputProps>(function Input({ isValid, placeholder, onChange, icon, ...props }, ref) {
   return (
-    <label className={cn(styles['input'], styles['input__label'], {
+    // <label className={cn(styles['input'], styles['input__label'], {
+    //   [styles['input__invalid']]: !isValid
+    // })}>
+    //   {icon ? <SearchIcon /> : ''}
+    //   <input {...props} className={cn(styles['input'], styles['input__input'], {
+    //     [styles['input__invalid']]: !isValid
+    //   })} ref={ref} onChange={onChange} placeholder={placeholder} required={isValid} />
+    // </label>
+
+    <input {...props} className={cn(styles['input'], styles['input__input'], {
       [styles['input__invalid']]: !isValid
-    })}>
-      {icon ? <SearchIcon /> : ''}
-      <input className={cn(styles['input'], styles['input__input'], {
-        [styles['input__invalid']]: !isValid
-      })} {...props} ref={ref} type={'text'} onChange={onChange} placeholder={placeholder} required={isValid} />
-    </label>
+    })} ref={ref} onChange={onChange} required={isValid} />
   );
 }
 );

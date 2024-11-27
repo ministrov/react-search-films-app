@@ -5,45 +5,32 @@
   width: 384px;
   height: 64px;
   padding-left: 16px;
+  font-family: "Poppins", sans-serif;
+  font-size: 14px;
+  line-height: 1.2;
+  color: #ffffff;
   border: 2px solid #475069;
   border-radius: 12px;
   box-sizing: border-box;
   background-color: transparent;
 }
 
-.input__input {
-  margin: 0;
-  padding: 0;
-  padding-top: 12px;
-  padding-bottom: 12px;
-  font-family: "Poppins", sans-serif;
-  font-size: 14px;
-  line-height: 1.2;
-  border: none;
-  outline: none;
-  color: #ffffff;
-  background-color: transparent;
+.input.input__invalid {
+  color: red;
+  border: 2px solid red;
 }
 
 
-.input__input:focus {
+.input:focus {
   outline: none;
-  border-color: #C4C4C4;
+  border-color: #424b66;
 }
 
-.input__input::placeholder {
+.input::placeholder {
   font-family: "Poppins", sans-serif;
   font-size: 14px;
   line-height: 1.2;
   color: #475069;
-}
-
-.input.input__invalid {
-  border: 2px solid red;
-}
-
-.input__input.input__invalid {
-  color: red;
 }
 
 .input-login {
