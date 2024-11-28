@@ -29,31 +29,19 @@ function EnterFrom() {
   function addUserHandler(event: FormEvent) {
     event.preventDefault();
 
-    const regex_only_text = /^[A-Za-z ]+$/;
-
-    if (userName === '' || typeof userName !== 'string') {
-      setIsLoginValid(false);
-    }
-
-    if (userName.length < 3) {
-      setIsLoginValid(false);
-    }
-
-    if (!regex_only_text.test(userName)) {
-      setIsLoginValid(false);
-    }
-
     dispatch(login(userName));
 
     setUserName('');
+
+    // const regex_only_text = /^[A-Za-z ]+$/;
   }
 
   return (
     <div className={styles['enter-form-wrapper']}>
       <Heading text={'Вход'} />
       <form className={styles['enter-form']} action="#" method='#' onSubmit={addUserHandler}>
-        <Input onChange={updateLogin} ref={inputRef} value={userName} isValid={isLoginValid} icon={false} type={'text'} placeholder={'Ваше имя'} />
-        <Button className={'button-big'}>
+        <Input onChange={updateLogin} ref={inputRef} value={userName} isValid={isLoginValid} icon={false} placeholder={'Ваше имя'} />
+        <Button className={'button-big'} >
           Войти в профиль
         </Button>
       </form>

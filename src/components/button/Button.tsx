@@ -7,11 +7,11 @@ type ButtonProps = {
   className: string | null
 }
 
-function Button({ children, className, ...props }: ButtonProps) {
+function Button({ children, className }: ButtonProps) {
   return (
     <button className={cn(styles['button'], {
       [styles['button-big']]: className
-    })} {...props}>
+    })} type='submit'>
       {children}
     </button>
   )
