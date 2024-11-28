@@ -16,8 +16,6 @@ function EnterFrom() {
   const { name } = useSelector((state: RootState) => state.profile);
   const inputRef = useRef<HTMLInputElement>(null);
 
-  console.log(inputRef);
-
   useEffect(() => {
     if (name) {
       navigate('/');
