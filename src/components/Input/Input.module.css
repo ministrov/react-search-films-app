@@ -7,12 +7,40 @@
   padding-left: 16px;
   font-family: "Poppins", sans-serif;
   font-size: 14px;
-  line-height: 1.2;
+  line-height: 16px;
   color: #ffffff;
   border: 2px solid #475069;
   border-radius: 12px;
   box-sizing: border-box;
   background-color: transparent;
+}
+
+.input::-webkit-input-placeholder {
+  font-family: "Poppins", sans-serif;
+  font-size: 14px;
+  line-height: 16px;
+  color: #475069;
+}
+
+.input:-ms-input-placeholder {
+  font-family: "Poppins", sans-serif;
+  font-size: 14px;
+  line-height: 16px;
+  color: #475069;
+}
+
+.input:-moz-placeholder {
+  font-family: "Poppins", sans-serif;
+  font-size: 14px;
+  line-height: 16px;
+  color: #475069;
+}
+
+.input::-moz-placeholder {
+  font-family: "Poppins", sans-serif;
+  font-size: 14px;
+  line-height: 16px;
+  color: #475069;
 }
 
 .input.input__invalid {
@@ -24,13 +52,6 @@
 .input:focus {
   outline: none;
   border-color: #424b66;
-}
-
-.input::placeholder {
-  font-family: "Poppins", sans-serif;
-  font-size: 14px;
-  line-height: 1.2;
-  color: #475069;
 }
 
 .input-login {

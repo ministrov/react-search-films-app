@@ -22,9 +22,9 @@ const Input = forwardRef<HTMLInputElement, InputProps>(function Input({ isValid,
     //   })} ref={ref} onChange={onChange} placeholder={placeholder} required={isValid} />
     // </label>
 
-    <input {...props} className={cn(styles['input'], styles['input__input'], {
+    <input {...props} className={cn(styles['input'], {
       [styles['input__invalid']]: !isValid
-    })} ref={ref} onChange={onChange} required={isValid} />
+    })} ref={ref} onChange={onChange} required={isValid} placeholder={placeholder} />
   );
 }
 );
