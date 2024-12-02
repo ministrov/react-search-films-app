@@ -13,6 +13,7 @@ import Spinner from './components/spinner/Spinner';
 import RequireAuth from './helpers/RequireAuth';
 import { store } from './store/store';
 import './index.css';
+import AboutPage from './pages/aboutPage/AboutPage';
 
 const MoviePage = lazy(() => import('./pages/moviePage/MoviePage'));
 
@@ -35,6 +36,10 @@ const router = createBrowserRouter([
           const { data } = await axios.get(`${PREFIX}?tt=${params.id}`);
           return data;
         }
+      },
+      {
+        path: 'about',
+        element: <AboutPage />
       },
       {
         path: 'login',

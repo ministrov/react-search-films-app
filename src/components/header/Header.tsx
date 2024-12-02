@@ -36,6 +36,13 @@ function Header() {
               hasIcon={false}
               href={'/favorites'}
             />
+
+            <NavMenuItem
+              label={'О нас'}
+              hasCount={false}
+              hasIcon={false}
+              href={'/about'}
+            />
           </ul>
 
           <UserLogin />
