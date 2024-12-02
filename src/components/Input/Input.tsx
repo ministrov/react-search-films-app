@@ -13,15 +13,6 @@ type InputProps = {
 
 const Input = forwardRef<HTMLInputElement, InputProps>(function Input({ isValid, placeholder, onChange, icon, ...props }, ref) {
   return (
-    // <label className={cn(styles['input'], styles['input__label'], {
-    //   [styles['input__invalid']]: !isValid
-    // })}>
-    //   {icon ? <SearchIcon /> : ''}
-    //   <input {...props} className={cn(styles['input'], styles['input__input'], {
-    //     [styles['input__invalid']]: !isValid
-    //   })} ref={ref} onChange={onChange} placeholder={placeholder} required={isValid} />
-    // </label>
-
     <input {...props} className={cn(styles['input'], {
       [styles['input__invalid']]: !isValid
     })} ref={ref} onChange={onChange} required={isValid} placeholder={placeholder} />

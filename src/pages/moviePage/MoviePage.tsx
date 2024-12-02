@@ -5,7 +5,7 @@ import FavoritesButton from '../../components/favoritesButton/FavoritesButton';
 import { removeMnemonic, parseDuration } from '../../helpers/functions';
 import Message from '../../components/message/Message';
 import styles from './MoviePage.module.css';
-import { IMovie } from '../../interfaces/movie.interface';
+// import { IMovie } from '../../interfaces/movie.interface';
 
 function MoviePage() {
     const data = useLoaderData() as any;

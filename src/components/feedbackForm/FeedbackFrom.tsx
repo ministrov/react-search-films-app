@@ -1,7 +1,6 @@
 import { FormEvent, useState } from 'react';
 import Details from '../details/Details';
 import styles from './FeedbackFrom.module.css';
-import { current } from '@reduxjs/toolkit';
 
 function FeedbackFrom() {
     const [isHideDetails, setIsHideDetails] = useState<boolean>(true);
@@ -18,7 +17,6 @@ function FeedbackFrom() {
     }
 
     function showDetailsHandler() {
-        // event.preventDefault();
         setIsHideDetails((current) => !current);
     }
 
@@ -56,7 +54,10 @@ function FeedbackFrom() {
                 </div>
 
                 <div className={styles['feedback-form__controls']}>
-                    <button className={styles['feedback-form__btn']} type='submit'>Send</button>
+                    <button className={styles['feedback-form__btn']} type='submit' onClick={(e) => {
+                        e.preventDefault()
+                        console.log(e.target)
+                    }}>Send</button>
                     <button className={styles['feedback-form__btn']} type='button' onClick={onUpdateHandler}>Update</button>
                     <button className={styles['feedback-form__btn']} type='button' onClick={showDetailsHandler}>
                         {isHideDetails ? 'ShowDetails' : 'HideDetails'}

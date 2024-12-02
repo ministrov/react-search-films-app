@@ -19,8 +19,6 @@ export const userSlice = createSlice({
         },
         addUserToFavorites: (state, action) => {
             state.favorites.push(action.payload);
-            // console.log(state);
-            // console.log(action);
         },
         removeUserFavorites: (state, action) => {
             state.favorites = state.favorites.filter((item: any) => (item as { id: number }).id !== action.payload.id);

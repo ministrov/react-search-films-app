@@ -3,7 +3,6 @@ import { useSelector } from "react-redux";
 import { RootState } from "../../store/store";
 import FilmCard from "../../components/filmCard/FilmCard";
 import styles from './Favorites.module.css';
-// import { FilmCardType } from "../../interfaces/films-description.interface";
 
 function FavoritesPage() {
   const favoritesFilms = useSelector((state: RootState) => state.profile.favorites);
