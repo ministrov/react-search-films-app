@@ -131,12 +131,12 @@ const EmblaCarousel: React.FC<PropType> = (props) => {
     }, [hasMoreToLoad])
 
     return (
-        <div className="embla">
-            <div className="embla__viewport" ref={emblaRef}>
-                <div className="embla__container">
+        <div className='embla'>
+            <div className='embla__viewport' ref={emblaRef}>
+                <div className='embla__container'>
                     {slides.map((index) => (
-                        <div className="embla__slide" key={index}>
-                            <div className="embla__slide__number">
+                        <div className='embla__slide' key={index}>
+                            <div className='embla__slide__number'>
                                 <span>{index + 1}</span>
                             </div>
                         </div>
@@ -144,17 +144,17 @@ const EmblaCarousel: React.FC<PropType> = (props) => {
                     {hasMoreToLoad && (
                         <div
                             className={'embla-infinite-scroll'.concat(
-                                loadingMore ? ' embla-infinite-scroll--loading-more' : ''
+                                loadingMore ? 'embla-infinite-scroll--loading-more' : ''
                             )}
                         >
-                            <span className="embla-infinite-scroll__spinner" />
+                            <span className='embla-infinite-scroll__spinner' />
                         </div>
                     )}
                 </div>
             </div>
 
-            <div className="embla__controls">
-                <div className="embla__buttons">
+            <div className='embla__controls'>
+                <div className='embla__buttons'>
                     <PrevButton onClick={onPrevButtonClick} disabled={prevBtnDisabled} />
                     <NextButton onClick={onNextButtonClick} disabled={nextBtnDisabled} />
                 </div>
