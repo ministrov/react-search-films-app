@@ -9,7 +9,7 @@
         min-width: 40px;
         min-height: 40px;
         border-radius: 8px;
-        border: solid 1px purple;
+        border: solid 1px #7B6EF6;
         background: none;
         margin-right: 18px;
     }
@@ -18,7 +18,7 @@
         position: absolute;
         min-width: 20px;
         min-height: 2px;
-        background: tomato;
+        background: #7B6EF6;
         left: 10px;
         border-radius: 8px;
     }
@@ -45,7 +45,7 @@
         top: 18px;
         min-width: 21px;
         transform: rotate(45deg);
-        background: tomato;
+        background: #7B6EF6;
     }
 
     .open div:nth-child(2) {
@@ -57,10 +57,6 @@
         min-width: 21px;
         bottom: 18px;
         transform: rotate(-45deg);
-        background: tomato;
+        background: #7B6EF6;
     }
-
-    /* .header .burger {
-        display: none;
-    } */
 }
