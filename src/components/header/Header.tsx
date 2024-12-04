@@ -5,9 +5,11 @@ import Logo from '../logo/Logo.js';
 import NavMenuItem from "../navMenuItem/NavMenuItem.js";
 import UserLogin from '../userLogin/UserLogin.js';
 import styles from './Header.module.css';
+import BurgerButton from '../burgerButton/BurgerButton.js';
 
 function Header() {
   const [counter, setCounter] = useState<number>(0);
+  const [isMenuOpen, setMenuOpen] = useState<boolean>(false);
   const favorites = useSelector((state: RootState) => state.profile.favorites);
 
   useEffect(() => {
@@ -47,6 +49,11 @@ function Header() {
 
           <UserLogin />
         </nav>
+
+        <BurgerButton
+          isMenuOpen={isMenuOpen}
+          setMenuOpen={() => setMenuOpen(!isMenuOpen)}
+        />
       </div>
     </header>
   )

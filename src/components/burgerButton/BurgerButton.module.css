@@ -1,0 +1,66 @@
+.mobileBurger {
+    display: none;
+}
+
+@media screen and (max-width: 768px) {
+    .mobileBurger {
+        position: relative;
+        display: block;
+        min-width: 40px;
+        min-height: 40px;
+        border-radius: 8px;
+        border: solid 1px purple;
+        background: none;
+        margin-right: 18px;
+    }
+
+    .mobileBurger div {
+        position: absolute;
+        min-width: 20px;
+        min-height: 2px;
+        background: tomato;
+        left: 10px;
+        border-radius: 8px;
+    }
+
+    .mobileBurger div:first-child {
+        top: 13px;
+        transition: top 0.3s ease-in-out, transform 0.3s ease-in-out,
+            min-width 0.3s ease-in-out, left 0.3s ease-in-out;
+    }
+
+    .mobileBurger div:nth-child(2) {
+        top: 18px;
+        transition: opacity 0.3s ease-in;
+    }
+
+    .mobileBurger div:last-child {
+        bottom: 13px;
+        transition: bottom 0.3s ease-in-out, transform 0.3s ease-in-out,
+            min-width 0.3s ease-in-out, left 0.3s ease-in-out;
+    }
+
+    .open div:first-child {
+        left: 9px;
+        top: 18px;
+        min-width: 21px;
+        transform: rotate(45deg);
+        background: tomato;
+    }
+
+    .open div:nth-child(2) {
+        opacity: 0;
+    }
+
+    .open div:last-child {
+        left: 9px;
+        min-width: 21px;
+        bottom: 18px;
+        transform: rotate(-45deg);
+        background: tomato;
+    }
+
+    /* .header .burger {
+        display: none;
+    } */
+}
