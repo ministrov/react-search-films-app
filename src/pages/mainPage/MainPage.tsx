@@ -33,7 +33,7 @@ function MainPage() {
     <section className={styles['main-page']}>
       <h2 className="visually-hidden">Главная страница поиска фильмов</h2>
       <SearchRow findFilms={getFilms} />
-      <div className='films-wrapper'>
+      <div className={styles['films-wrapper']}>
         {loading && <Spinner />}
         {films.length > 0 ? <FilmsList films={films} /> : <Message type='search' />}
       </div>
