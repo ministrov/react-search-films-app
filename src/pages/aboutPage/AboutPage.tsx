@@ -7,12 +7,15 @@ import styles from './AboutPage.module.css';
 function AboutPage() {
     const { width } = useWindowSize();
 
+    // console.log(width);
     console.log(width);
     return (
         <section className={styles['about-page']}>
             <Heading text={'О нас'} />
 
             <FeedbackFrom />
+
+            {<div>{width}</div>}
 
             <Carousel />
         </section>
