@@ -1,0 +1,12 @@
+.header__nav {
+    display: flex;
+    gap: 1rem;
+}
+
+.header__list {
+    display: flex;
+    gap: 1rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
