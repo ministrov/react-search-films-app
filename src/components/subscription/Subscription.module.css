@@ -1,0 +1,19 @@
+.subscription {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 32px;
+    padding-bottom: 32px;
+    padding-left: 48px;
+    padding-right: 48px;
+    background-color: transparent;
+    border: 2px solid #7B6EF6;
+    border-radius: 8px;
+}
+
+.subscription p {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 500;
+    color: #ffffff;
+}
