@@ -12,10 +12,18 @@ function Details({ firstname, lastname, email, comment }: DetailsProps) {
         <div className={styles['details']}>
             <h2 className={styles['details__title']}>Проверка введенных данных</h2>
             <p className={styles['details__info']}>
-                <b>Name: </b> {firstname} <br />
-                <b>Lastname: </b> {lastname} <br />
-                <b>Email: </b> {email} <br />
-                <b>Comment: </b> {comment} <br />
+                <div className={styles['details__info-wrap']}>
+                    <b>Name: </b> {firstname} <br />
+                </div>
+                <div className={styles['details__info-wrap']}>
+                    <b>Lastname: </b> {lastname} <br />
+                </div>
+                <div className={styles['details__info-wrap']}>
+                    <b>Email: </b> {email} <br />
+                </div>
+                <div className={styles['details__info-wrap']}>
+                    <b>Comment: </b> {comment} <br />
+                </div>
             </p>
         </div>
     )

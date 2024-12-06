@@ -31,3 +31,8 @@
     line-height: 24px;
     color: #ffffff;
 }
+
+.details__info-wrap {
+    display: flex;
+    gap: 16px;
+}
