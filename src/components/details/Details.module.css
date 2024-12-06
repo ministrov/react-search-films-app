@@ -3,5 +3,31 @@
     flex-direction: column;
     max-width: 500px;
     margin: 0 auto;
-    background-color: #fff;
+    padding: 24px;
+
+    
+    background-color: transparent;
+    border: 2px solid #7B6EF6;
+    border-radius: 8px;
+}
+
+.details__title {
+    margin: 0;
+    margin-bottom: 48px;
+    font-size: 32px;
+    font-weight: 500;
+    line-height: 40px;
+    color: #ffffff;
+}
+
+.details__info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    margin: 0;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 24px;
+    color: #ffffff;
 }

@@ -10,8 +10,8 @@ type DetailsProps = {
 function Details({ firstname, lastname, email, comment }: DetailsProps) {
     return (
         <div className={styles['details']}>
-            <h2>Проверка введенных данных</h2>
-            <p>
+            <h2 className={styles['details__title']}>Проверка введенных данных</h2>
+            <p className={styles['details__info']}>
                 <b>Name: </b> {firstname} <br />
                 <b>Lastname: </b> {lastname} <br />
                 <b>Email: </b> {email} <br />

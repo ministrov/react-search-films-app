@@ -29,27 +29,27 @@ function FeedbackFrom() {
         });
     }
 
-    console.log(formData);
+    // console.log(formData);
     return (
         <div className={styles['feedback-form-wrapper']}>
             <form className={styles['feedback-form']}>
                 <div className={styles['feedback-form__row']}>
-                    <label className={styles['feedback-form__label']} htmlFor="firsname">Name:</label>
+                    <label className={styles['feedback-form__label']} htmlFor="firsname">Имя :</label>
                     <input className={styles['feedback-form__input']} onChange={onChangeHandler} name='firstname' value={formData.firstname} id='firstname' />
                 </div>
 
                 <div className={styles['feedback-form__row']}>
-                    <label className={styles['feedback-form__label']} htmlFor="lastname">Lastname:</label>
+                    <label className={styles['feedback-form__label']} htmlFor="lastname">Фамилия :</label>
                     <input className={styles['feedback-form__input']} onChange={onChangeHandler} name='lastname' value={formData.lastname} id='lastname' />
                 </div>
 
                 <div className={styles['feedback-form__row']}>
-                    <label className={styles['feedback-form__label']} htmlFor="email">Email:</label>
+                    <label className={styles['feedback-form__label']} htmlFor="email">Почта :</label>
                     <input className={styles['feedback-form__input']} onChange={onChangeHandler} name='email' value={formData.email} id='email' />
                 </div>
 
                 <div className={styles['feedback-form__row']}>
-                    <label className={styles['feedback-form__label']} htmlFor="comment">Comment:</label>
+                    <label className={styles['feedback-form__label']} htmlFor="comment">Коментарии :</label>
                     <textarea className={styles['feedback-form__textarea']} id="comment" onChange={onChangeHandler} name='comment' value={formData.comment} ></textarea>
                 </div>
 
