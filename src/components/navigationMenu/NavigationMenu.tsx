@@ -31,6 +31,13 @@ function NavigationMenu({ counter }: NavigationMenuProps) {
                     hasIcon={false}
                     href={'/favorites'}
                 />
+
+                <NavMenuItem
+                    label={'Контакты'}
+                    hasCount={false}
+                    hasIcon={false}
+                    href={'/contacts'}
+                />
             </ul>
 
             <UserLogin />

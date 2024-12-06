@@ -12,8 +12,9 @@ import Message from './components/message/Message';
 import Spinner from './components/spinner/Spinner';
 import RequireAuth from './helpers/RequireAuth';
 import { store } from './store/store';
-import './index.css';
 import AboutPage from './pages/aboutPage/AboutPage';
+import './index.css';
+import ContactsPage from './pages/contactsPage/contactsPage';
 
 const MoviePage = lazy(() => import('./pages/moviePage/MoviePage'));
 
@@ -48,6 +49,10 @@ const router = createBrowserRouter([
       {
         path: 'favorites',
         element: <RequireAuth><FavoritesPage /></RequireAuth>
+      },
+      {
+        path: 'contacts',
+        element: <ContactsPage />
       },
     ]
   },
