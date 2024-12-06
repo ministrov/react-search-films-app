@@ -6,15 +6,15 @@ import { UserContextProvider } from './context/user-profile.context';
 import axios from 'axios';
 import Layout from './layouts/Layout';
 import LoginPage from './pages/loginPage/LoginPage';
-import MainPage from "./pages/mainPage/MainPage";
+import MainPage from './pages/mainPage/MainPage';
+import AboutPage from './pages/aboutPage/AboutPage';
+import ContactsPage from './pages/contactsPage/ContactsPage';
 import FavoritesPage from './pages/favoritesPage/FavoritesPage';
 import Message from './components/message/Message';
 import Spinner from './components/spinner/Spinner';
 import RequireAuth from './helpers/RequireAuth';
 import { store } from './store/store';
-import AboutPage from './pages/aboutPage/AboutPage';
 import './index.css';
-import ContactsPage from './pages/contactsPage/contactsPage';
 
 const MoviePage = lazy(() => import('./pages/moviePage/MoviePage'));
 

@@ -3,6 +3,7 @@
     flex-direction: column;
     gap: 48px;
     margin-top: 80px;
+    margin-bottom: 80px;
 }
 
 .feedback-form {
