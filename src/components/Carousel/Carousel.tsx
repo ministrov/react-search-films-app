@@ -9,7 +9,7 @@ function Carousel() {
 
     useEffect(() => {
         if (emblaApi) {
-            console.log(emblaApi.slideNodes());
+            // console.log(emblaApi.slideNodes());
         }
     }, [emblaApi]);
 

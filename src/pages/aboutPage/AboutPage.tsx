@@ -37,6 +37,12 @@ function AboutPage() {
                 </div>
             </div>
 
+            <div className={styles['about-page__faq']}>
+                <Subheading content='Часто задаваемые вопросы' />
+
+                {'sdfsfsdfdsfsfsdfsdf'}
+            </div>
+
             {<div>{width}</div>}
         </section>
     )
