@@ -11,6 +11,12 @@
     border-radius: 8px;
 }
 
+.subscription__left {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
 .subscription p {
     margin: 0;
     font-size: 18px;

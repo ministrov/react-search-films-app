@@ -2,7 +2,11 @@ import { FilmsDescription } from '../../interfaces/films-description.interface';
 import FilmCard from '../filmCard/FilmCard';
 import styles from './FilmsList.module.css';
 
-function FilmsList({ films }: any) {
+type FilmsListProps = {
+    films: FilmsDescription[];
+}
+
+function FilmsList({ films }: FilmsListProps) {
     return (
         <ul className={styles['films-list']}>
             {films.map((film: FilmsDescription) => (
