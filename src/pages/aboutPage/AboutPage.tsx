@@ -29,6 +29,14 @@ function AboutPage() {
                 </div>
             </div>
 
+            <div className={styles['about-page__only']}>
+                <Subheading content='Только у нас' />
+
+                <div className={styles['about-page__carousel-trends']}>
+                    <CardsCarousel />
+                </div>
+            </div>
+
             {<div>{width}</div>}
         </section>
     )

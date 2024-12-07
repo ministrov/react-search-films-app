@@ -5,6 +5,11 @@
     padding: 8px 8px 24px 8px;
     background-color: #20283E;
     border-radius: 12px;
+    transition: scale 0.5s ease-in-out;
+}
+
+.films-list-item:hover {
+    transform: scale(1.03);
 }
 
 .films-list-link {

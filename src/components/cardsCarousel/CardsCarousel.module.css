@@ -2,12 +2,13 @@
     position: relative;
     overflow: hidden;
     margin-top: 80px;
+    padding: 12px;
 }
 
 .embla__container {
     display: flex;
     flex-wrap: nowrap;
-    gap: 20px;
+    gap: 24px
 }
 
 .embla__slide {
@@ -20,6 +21,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    min-width: 30px;
+    min-height: 85px;
     padding: 0;
     background-color: transparent;
     border: none;
@@ -27,6 +30,10 @@
     transform: translateY(-50%);
     background-color: #20283E;
     border-radius: 8px;
+}
+
+.embla__btn img {
+    color: #ffffff;
 }
 
 .embla__prev {

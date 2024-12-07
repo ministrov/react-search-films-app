@@ -90,10 +90,10 @@ function CardsCarousel() {
                 </div>
             </div>
             <button className={cn(styles['embla__btn'], styles['embla__prev'])} onClick={scrollPrev}>
-                <img src="/left-icon.svg" width={'35'} height={'35'} alt="" />
+                <img src="/left-icon.svg" width={'19'} height={'19'} alt="Left arrow" />
             </button>
             <button className={cn(styles['embla__btn'], styles['embla__next'])} onClick={scrollNext}>
-                <img src="/right-icon.svg" width={'35'} height={'35'} alt="" />
+                <img src="/right-icon.svg" width={'19'} height={'19'} alt="Right arrow" />
             </button>
         </div>
     )

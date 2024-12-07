@@ -1,11 +1,11 @@
-/* .about-page {
-    background-color: tomato;
-} */
-
 .about-page__promo {
     margin-bottom: 48px;
 }
 
 .about-page__subscription {
+    margin-bottom: 48px;
+}
+
+.about-page__trends {
     margin-bottom: 48px;
 }
