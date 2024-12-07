@@ -1,6 +1,7 @@
 import { useCallback } from 'react';
 import useEmblaCarousel from 'embla-carousel-react';
 import FilmCard from '../filmCard/FilmCard';
+import cn from 'classnames';
 import styles from './CardsCarousel.module.css';
 
 function CardsCarousel() {
@@ -88,11 +89,11 @@ function CardsCarousel() {
                     </div>
                 </div>
             </div>
-            <button className="embla__prev" onClick={scrollPrev}>
-                Prev
+            <button className={cn(styles['embla__btn'], styles['embla__prev'])} onClick={scrollPrev}>
+                <img src="/left-icon.svg" width={'35'} height={'35'} alt="" />
             </button>
-            <button className="embla__next" onClick={scrollNext}>
-                Next
+            <button className={cn(styles['embla__btn'], styles['embla__next'])} onClick={scrollNext}>
+                <img src="/right-icon.svg" width={'35'} height={'35'} alt="" />
             </button>
         </div>
     )
