@@ -1,4 +1,5 @@
 import { useCallback } from 'react';
+import { RiArrowRightWideFill, RiArrowLeftWideFill } from "react-icons/ri";
 import useEmblaCarousel from 'embla-carousel-react';
 import FilmCard from '../filmCard/FilmCard';
 import cn from 'classnames';
@@ -90,10 +91,10 @@ function CardsCarousel() {
                 </div>
             </div>
             <button className={cn(styles['embla__btn'], styles['embla__prev'])} onClick={scrollPrev}>
-                <img src="/left-icon.svg" width={'19'} height={'19'} alt="Left arrow" />
+                <RiArrowLeftWideFill color='white' width={''} />
             </button>
             <button className={cn(styles['embla__btn'], styles['embla__next'])} onClick={scrollNext}>
-                <img src="/right-icon.svg" width={'19'} height={'19'} alt="Right arrow" />
+                <RiArrowRightWideFill color='white' width={''} />
             </button>
         </div>
     )

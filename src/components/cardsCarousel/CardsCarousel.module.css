@@ -32,8 +32,13 @@
     border-radius: 8px;
 }
 
-.embla__btn img {
-    color: #ffffff;
+.embla__btn:hover {
+    background-color: #4a5779;
+}
+
+.embla__btn svg {
+    font-size: 32px;
+    line-height: 38px;
 }
 
 .embla__prev {
