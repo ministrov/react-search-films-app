@@ -1,0 +1,14 @@
+.embla {
+    overflow: hidden;
+    margin-top: 80px;
+}
+
+.embla__container {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 20px;
+}
+
+.embla__slide {
+    background-color: transparent;
+}

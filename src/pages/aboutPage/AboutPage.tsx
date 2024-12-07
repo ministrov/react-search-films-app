@@ -4,6 +4,7 @@ import useWindowSize from '../../hooks/use-window-size';
 import styles from './AboutPage.module.css';
 import Subscription from '../../components/subscription/Subscription';
 import Subheading from '../../components/subheading/Subheading';
+import CardsCarousel from '../../components/cardsCarousel/CardsCarousel';
 
 function AboutPage() {
     const { width } = useWindowSize();
@@ -24,7 +25,7 @@ function AboutPage() {
                 <Subheading content='Тренды' />
 
                 <div className={styles['about-page__carousel-trends']}>
-                    {/* Create a carousel-trends component like in Netflix.com */}
+                    <CardsCarousel />
                 </div>
             </div>
 
