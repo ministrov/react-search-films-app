@@ -1,6 +1,7 @@
 .embla {
     position: relative;
     overflow: hidden;
+    max-width: 1160px;
     margin-top: 80px;
     padding: 12px;
 }

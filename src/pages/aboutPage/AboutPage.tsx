@@ -40,7 +40,7 @@ function AboutPage() {
             </div>
 
             <div className={styles['about-page__faq']}>
-                <Subheading content='Часто задаваемые вопросы' />
+                <Subheading content='Частые вопросы' />
 
                 <FaqSection />
             </div>
